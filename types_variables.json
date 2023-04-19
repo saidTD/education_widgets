@@ -1,0 +1,15 @@
+{
+    "char" : { "value" : "char", "name" : "Chaine des caractéres" },
+    "text" : { "value" : "text", "name" : "Texte Long" },
+    "int" : { "value" : "int", "name" : "Chiffre entiére (Intéger)" },
+    "float" : { "value" : "float", "name" : "Chiffre flottant (Float)" },
+    "list" : { "value" : "list", "name" : "Liste des éléments" },
+    "query" : { "value" : "query", "name" : "Query Set / Data Source" },
+    "object" : { "value" : "object", "name" : "Object" },
+    "bool" : { "value" : "bool", "name" : "Boolean" },
+    "url" : { "value" : "url", "name" : "URL / Link" },
+    "image" : { "value" : "image", "name" : "Image" },
+    "video" : { "value" : "video", "name" : "Video" },
+    "audio" : { "value" : "audio", "name" : "Audio" }
+    
+}

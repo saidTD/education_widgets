@@ -1,0 +1,9 @@
+<option value="">Séléctionner le type du paramétre</option>
+<option value="char">Chaine des caractéres</option>
+<option value="text">Texte Long</option>
+<option value="number">Chiffre</option>
+<option value="listing">Liste des éléments</option>
+<option value="object">Object</option>
+<option value="image">Image</option>
+<option value="video">Video</option>
+<option value="audio">Audio</option>
