@@ -1,0 +1,27 @@
+{
+  "name": "education_widgets",
+  "version": "1.0.0",
+  "description": "This repository contains education widgets for building customizable themes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saidTD/education_widgets.git"
+  },
+  "keywords": [
+    "widget",
+    "themes"
+  ],
+  "author": "MohamedTd, IssameTd, SaidTd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saidTD/education_widgets/issues"
+  },
+  "homepage": "https://github.com/saidTD/education_widgets#readme",
+  "devDependencies": {
+    "commander": "^10.0.1",
+    "semver": "^7.5.0"
+  }
+}
