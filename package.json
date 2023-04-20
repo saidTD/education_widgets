@@ -14,6 +14,9 @@
     "widget",
     "themes"
   ],
+  "bin": {
+    "pushWidget": "./scripts/pushWidget.js"
+  },
   "author": "MohamedTd, IssameTd, SaidTd",
   "license": "ISC",
   "bugs": {
