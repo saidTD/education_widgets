@@ -19,7 +19,7 @@
 .x-word__block-text {
   position: absolute;
   max-width: 700px;
-  background-color: {{params.styles.bg_color}};
+  background-color: {{params.styles.bg_color|default:"var(--bs-white)"}};
   box-shadow: 18px 0px 40px 6px #e0e0e0;
   padding: 1.5rem;
   top: 15%;
