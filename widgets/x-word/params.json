@@ -16,10 +16,10 @@
     {"id":3,"name":"button","type":"object"},
     {"id":4,"name":"styles","type":"object"}],
     "default_data":{
-      "title":"test",
-      "content":"test",
+      "title":"Mot du Fondateur",
+      "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ante tellus, commodo sed lacinia sed, dapibus at dui. Duis sed nisi eu libero bibendum pretium. Praesent viverra hendrerit vehicula. Phasellus lobortis massa quis dictum bibendum. Phasellus sapien orci, iaculis non tempor et, tristique euismod mi.",
       "cover_bg":"",
-      "button":{"text":"test","bg_color":"","text_color":"","border_width":"","border_color":""},
+      "button":{"text":"En savoir plus","bg_color":"","text_color":"","border_width":"","border_color":""},
       "styles":{"bg_color":"","text_color":"","bg_cover":""}},
       "visual_data":{}
 }
