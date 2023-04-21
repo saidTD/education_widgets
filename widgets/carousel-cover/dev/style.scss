@@ -1,0 +1,50 @@
+.carousel-section {
+  .carousel {
+    height: 470px;
+  }
+
+  .carousel-inner {
+    height: 100%;
+  }
+
+  .carousel-item {
+    height: 100%;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .carousel-cover {
+    
+    &__content {
+      transform: translateY(-40%);
+      text-align: center;
+      margin: 0 auto;
+
+      .content__text {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 3rem 5rem 4rem 5rem;
+        background-color: var(--bs-primary);
+
+        p {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 0px;
+        }
+      }
+
+      .content__button {
+        --bs-btn-color: var(--bs-primary);
+        --bs-btn-padding-x: 1.5rem;
+        --bs-btn-padding-y: .9rem;
+        --bs-btn-font-weight: 600;
+        --bs-btn-hover-color: var(--bs-primary);
+        transform: translateY(-50%);
+        margin: 0 auto;
+      }
+    }
+  }
+}
