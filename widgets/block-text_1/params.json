@@ -1,1 +1,19 @@
-{"version":"1.0.2","name":"block text education","repo":"education_widgets","element":"block_text_education","description":"Ce Widget est pour la cover du site education","category":"block","type":"static","space":"education","source_slug":"","variable_name":"","params":[{"id":0,"name":"title","type":"char"},{"id":0,"name":"content","type":"text"},{"id":1,"name":"cover-bg","type":"char"}],"default_data":{"title":"test","content":"test","cover-bg":""},"visual_data":{}}
+{
+  "version": "1.0.2",
+  "name": "block text education",
+  "repo": "education_widgets",
+  "element": "block_text_education",
+  "description": "Ce Widget est pour la block du site education",
+  "category": "block",
+  "type": "static",
+  "space": "education",
+  "source_slug": "",
+  "variable_name": "",
+  "params": [
+    { "id": 0, "name": "title", "type": "char" },
+    { "id": 0, "name": "content", "type": "text" },
+    { "id": 1, "name": "cover-bg", "type": "char" }
+  ],
+  "default_data": { "title": "test", "content": "test", "cover-bg": "" },
+  "visual_data": {}
+}
