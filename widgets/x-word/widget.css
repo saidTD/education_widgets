@@ -19,7 +19,7 @@
 .x-word__block-text {
   position: absolute;
   max-width: 700px;
-  background-color: {{params.styles.bg-color|default:'var(--bs-white)'}};
+  background-color: {{params.styles.bg_color|default:'var(--bs-white)'}};
   box-shadow: 18px 0px 40px 6px #e0e0e0;
   padding: 1.5rem;
   top: 15%;
@@ -33,13 +33,13 @@
   margin-bottom: 1.5rem;
 }
 .x-word__block-text__button {
-  --bs-btn-color: {{params.button.text-color|default: 'var(--bs-primary)'}};
+  --bs-btn-color: {{params.button.text_color|default: 'var(--bs-primary)'}};
   --bs-btn-padding-x: 1.5rem;
   --bs-btn-padding-y: 0.7rem;
   --bs-btn-font-weight: 600;
   --bs-btn-hover-color: var(--bs-primary);
-  --bs-btn-bg: {{params.button.bg-color|default: 'var(--bs-primary)'}};
-  --bs-border-width: {{params.button.border-width|default: '1px'}}
+  --bs-btn-bg: {{params.button.bg_color|default: 'var(--bs-primary)'}};
+  --bs-border_width: {{params.button.border_width|default: '1px'}}
   --bs-btn-border-color: {{params.button.border-color|default: 'transparent'}}
   margin-left: auto;
 }

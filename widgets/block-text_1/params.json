@@ -12,8 +12,8 @@
   "params": [
     { "id": 0, "name": "title", "type": "char" },
     { "id": 0, "name": "content", "type": "text" },
-    { "id": 1, "name": "cover-bg", "type": "char" }
+    { "id": 1, "name": "cover_bg", "type": "char" }
   ],
-  "default_data": { "title": "test", "content": "test", "cover-bg": "" },
+  "default_data": { "title": "test", "content": "test", "cover_bg": "" },
   "visual_data": {}
 }
