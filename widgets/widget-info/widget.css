@@ -1,6 +1,6 @@
 .block-info {
   position: relative;
-  background-color: {{params.styles.bg_color|default:'var(--bs-primary)'}} ;
+  background-color: {{params.styles.bg_color|default:"var(--bs-primary)"}} ;
   padding: 1.5rem;
   max-width: 550px;
 }
@@ -44,19 +44,19 @@
   position: absolute;
   width: 30%;
   height: 2px;
-  background-color: {{params.styles.text_color|default:'rgb(var(--bs-secondary-rgb))'}} ;
+  background-color: {{params.styles.text_color|default:"rgb(var(--bs-secondary-rgb))"}} ;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 .block-info__button {
-  --bs-btn-color: {{params.button.text_color|default:'var(--bs-primary)'}};
+  --bs-btn-color: {{params.button.text_color|default:"var(--bs-primary)"}};
   --bs-btn-padding-x: 1.5rem;
   --bs-btn-padding-y: 0.7rem;
   --bs-btn-font-weight: 600;
   --bs-btn-hover-color: var(--bs-primary);
-  --bs-btn-bg: {{params.button.bg_color|default:'var(--bs-primary)'}};
+  --bs-btn-bg: {{params.button.bg_color|default:"var(--bs-primary)"}};
   --bs-border_width: {{params.button.border_width|default:'1px'}}
-  --bs-btn-border_color: {{params.button.border_color|default: 'transparent'}}
+  --bs-btn-border_color: {{params.button.border_color|default:"transparent"}}
 }
 
