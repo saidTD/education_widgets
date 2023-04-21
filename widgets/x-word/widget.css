@@ -40,7 +40,7 @@
   --bs-btn-hover-color: var(--bs-primary);
   --bs-btn-bg: {{params.button.bg_color|default:'var(--bs-primary)'}};
   --bs-border_width: {{params.button.border_width|default:'1px'}}
-  --bs-btn-border-color: {{params.button.border-color|default: 'transparent'}}
+  --bs-btn-border_color: {{params.button.border_color|default: 'transparent'}}
   margin-left: auto;
 }
 @media (max-width: 991.98px) {
