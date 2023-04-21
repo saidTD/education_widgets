@@ -33,14 +33,14 @@
   margin-bottom: 1.5rem;
 }
 .x-word__block-text__button {
-  --bs-btn-color: {{params.button.text_color}};
+  --bs-btn-color: {{params.button.text_color|default:"var(--bs-primary)"}};
   --bs-btn-padding-x: 1.5rem;
   --bs-btn-padding-y: 0.7rem;
   --bs-btn-font-weight: 600;
   --bs-btn-hover-color: var(--bs-primary);
-  --bs-btn-bg: {{params.button.bg_color}};
+  --bs-btn-bg: {{params.button.bg_color|default:"var(--bs-primary)"}};
   --bs-border_width: {{params.button.border_width|default:'1px'}}
-  --bs-btn-border_color: {{params.button.border_color}}
+  --bs-btn-border_color: {{params.button.border_color|default:"transparent"}}
   margin-left: auto;
 }
 @media (max-width: 991.98px) {
