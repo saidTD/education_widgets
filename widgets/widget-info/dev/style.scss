@@ -1,0 +1,66 @@
+.block-info {
+  position: relative;
+  background-color: var(--bs-primary);
+  padding: 1.5rem;
+  max-width: 550px;
+
+  &-left {
+    margin-left: auto;
+    @media (max-width : 991.98px) {
+      margin-right: auto;
+    }
+  }
+
+  &-rigth {
+    margin-right: auto;
+    @media (max-width : 991.98px) {
+      margin-left: auto;
+      margin-top: 2rem;
+    }
+  }
+
+  @media (max-width : 991.98px) {
+    
+  }
+
+  &__container {
+    position: relative;
+    z-index: 11;
+  }
+
+  &::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .1;
+    background-image: url("../img/block-widget-bg.webp");
+    z-index: 10;
+  }
+
+  &__title h5 {
+    width: max-content;
+    padding-bottom: 20px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 30%;
+      height: 2px;
+      background-color: rgb(var(--bs-secondary-rgb));
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+
+  &__button {
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-padding-x: 1.5rem;
+    --bs-btn-padding-y: .7rem;
+    --bs-btn-font-weight: 600;
+    --bs-btn-hover-color: var(--bs-primary);
+    
+  }
+}
