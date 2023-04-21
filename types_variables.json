@@ -11,5 +11,4 @@
     "image" : { "value" : "image", "name" : "Image" },
     "video" : { "value" : "video", "name" : "Video" },
     "audio" : { "value" : "audio", "name" : "Audio" }
-    
 }
