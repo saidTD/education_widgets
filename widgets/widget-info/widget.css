@@ -52,11 +52,11 @@
 .block-info__button {
   --bs-btn-color: {{params.button.text-color|default: 'var(--bs-primary)'}};
   --bs-btn-padding-x: 1.5rem;
-  --bs-btn-padding-y: .7rem;
+  --bs-btn-padding-y: 0.7rem;
   --bs-btn-font-weight: 600;
   --bs-btn-hover-color: var(--bs-primary);
   --bs-btn-bg: {{params.button.bg-color|default: 'var(--bs-primary)'}};
   --bs-border-width: {{params.button.border-width|default: '1px'}}
-  --bs-btn-border-color: {{params.button.border-color|default: 'transparent'}}
+  --bs-btn-border-color: {{params.button.border-color|default: 'transparent'}}'transparent'}}
 }
 
