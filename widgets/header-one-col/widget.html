@@ -14,7 +14,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <a class="navbar-brand" href="/">
-        <img src="./img/logo.png" alt="logo" />
+        <img src="{{request.theme.static}}/assets/images/logo_tech.png" alt="{% if request.site.name %}{{request.site.name}}{% else %}logo{% endif %}" />
       </a>
       <button
         class="navbar-toggler"
