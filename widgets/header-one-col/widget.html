@@ -14,7 +14,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <a class="navbar-brand" href="/">
-        <img src="{{request.theme.static}}/assets/images/logo_tech.png" alt="{% if request.site.name %}{{request.site.name}}{% else %}logo{% endif %}" />
+        <img src="{{request.theme.static}}/assets/images/logo_tech.png" alt="{{request.site.name|default:'logo'}}" />
       </a>
       <button
         class="navbar-toggler"
@@ -42,11 +42,10 @@
           </ul>
 
           <a 
-            href="#contact" 
-            class="btn btn-primary"
+            href="{{params.btn.url|default:'#contact'}}" 
+            class="btn {{params.btn.classes|default:'btn-primary'}}"
             data-action="scrollTo"
-          >
-            Get in Touch <i class="fa-solid fa-arrow-right-long ms-2"></i>
+          >{{params.btn.text|default:'Get in Touch'}}<i class="fa-solid fa-arrow-right-long ms-2"></i>
           </a>
       </div>
     </div>
