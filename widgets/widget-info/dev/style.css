@@ -3,6 +3,7 @@
   background-color: var(--bs-primary);
   padding: 1.5rem;
   max-width: 550px;
+  text-align: center;
 }
 .block-info-left {
   margin-left: auto;
@@ -20,6 +21,19 @@
     margin-left: auto;
     margin-top: 2rem;
   }
+}
+.block-info--left {
+  text-align: left;
+}
+.block-info--left .block-info__title h5 {
+  width: auto;
+  text-align: left;
+}
+.block-info--left .block-info__title h5::after {
+  content: "";
+  bottom: 0;
+  left: 0;
+  transform: translateX(0);
 }
 .block-info__container {
   position: relative;

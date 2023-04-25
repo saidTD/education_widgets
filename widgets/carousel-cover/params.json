@@ -1,1 +1,42 @@
-{"version":"1.0.7","name":"carousel cover education","repo":"education_widgets","element":"carousel_cover_education","description":"Ce Widget est pour la  widget carousel cover du site education","category":"carousel","type":"static","space":"education","source_slug":"","variable_name":"","params":[{"id":0,"name":"slider_items","type":"list"},{"id":1,"name":"content_cover","type":"object"},{"id":2,"name":"button","type":"object"},{"id":3,"name":"styles","type":"object"},{"id":4,"name":"mode","type":"char"}],"default_data":{"slider_items":[{"text":"","background":"https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/614da95f/90786568.webp"},{"text":"","background":"https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/e0e3764e/b8edad33.webp"}],"content":{"text":"PRE-INSCRIPTIONS POUR L'ANNEE SCOLAIRE 2023/2024"},"button":{"text":"Formulaire de Pré-inscriptions","bg_color":"","text_color":"","border_width":"","border_color":""},"styles":{"bg_color":"","text_color":"","bg_cover":""},"mode":"center"},"visual_data":{"mode_select":["center","bottom"]}}
+{
+  "version": "1.0.7",
+  "name": "carousel cover education",
+  "repo": "education_widgets",
+  "element": "carousel_cover_education",
+  "description": "Ce Widget est pour la  widget carousel cover du site education",
+  "category": "carousel",
+  "type": "static",
+  "space": "education",
+  "source_slug": "",
+  "variable_name": "",
+  "params": [
+    { "id": 0, "name": "slider_items", "type": "list" },
+    { "id": 1, "name": "content_cover", "type": "object" },
+    { "id": 2, "name": "button", "type": "object" },
+    { "id": 3, "name": "styles", "type": "object" },
+    { "id": 4, "name": "mode", "type": "char" }
+  ],
+  "default_data": {
+    "slider_items": [
+      {
+        "text": "",
+        "background": "https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/614da95f/90786568.webp"
+      },
+      {
+        "text": "",
+        "background": "https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/e0e3764e/b8edad33.webp"
+      }
+    ],
+    "content": { "text": "PRE-INSCRIPTIONS POUR L'ANNEE SCOLAIRE 2023/2024" },
+    "button": {
+      "text": "Formulaire de Pré-inscriptions",
+      "bg_color": "",
+      "text_color": "",
+      "border_width": "",
+      "border_color": ""
+    },
+    "styles": { "bg_color": "", "text_color": "", "bg_cover": "" },
+    "mode": "center"
+  },
+  "visual_data": { "mode_select": ["center", "bottom"] }
+}
