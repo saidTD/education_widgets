@@ -10,24 +10,26 @@
 .carousel-section .carousel-item img {
   height: 100%;
 }
-.carousel-section .carousel-cover__content {
+.carousel-section .carousel-cover__content--bottom {
   transform: translateY(-40%);
   text-align: center;
   margin: 0 auto;
 }
-.carousel-section .carousel-cover__content .content__text {
+.carousel-section .carousel-cover__content--bottom .content__text {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
   padding: 3rem 5rem 4rem 5rem;
   background-color: var(--bs-primary);
 }
-.carousel-section .carousel-cover__content .content__text p {
+.carousel-section .carousel-cover__content--bottom .content__text h4 {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 0px;
+  color: var(--bs-secondary);
+  margin-bottom: 2rem;
 }
-.carousel-section .carousel-cover__content .content__button {
+.carousel-section .carousel-cover__content--bottom .content__button {
   --bs-btn-color: var(--bs-primary);
   --bs-btn-padding-x: 1.5rem;
   --bs-btn-padding-y: .9rem;
@@ -35,6 +37,52 @@
   --bs-btn-hover-color: var(--bs-primary);
   transform: translateY(-50%);
   margin: 0 auto;
+}
+.carousel-section .carousel-cover__content--center {
+  width: 100%;
+  max-width: 700px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 11;
+}
+.carousel-section .carousel-cover__content--center .content__text h4 {
+  font-size: 1.7rem;
+  color: var(--bs-primary);
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+.carousel-section .carousel-cover__content--center .content__button {
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: .9rem;
+  --bs-btn-font-weight: 600;
+  --bs-btn-hover-color: var(--bs-primary);
+}
+.carousel-section .carousel-cover__content--center .content__button.content__button--primary {
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-hover-color: var(--bs-white);
+}
+.carousel-section .carousel-cover__content--center .content__button.content__button--secondary {
+  --bs-btn-color: var(--bs-primary);
+}
+
+.carousel-control .carousel-control-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bs-primary);
+  border-radius: 50%;
+  color: var(--bs-secondary);
+}
+.carousel-control .carousel-control-prev-icon,
+.carousel-control .carousel-control-next-icon {
+  background-color: var(--bs-primary);
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -2676,13 +2676,14 @@ function hello() {
      return Carousel;
    });
  })(carousel);
- const carouselSection = document.querySelector(".carousel-section");
- const carouselContent = document.querySelector(".carousel-cover__content");
- function adjustHeight() {
+
+const carouselSection = document.querySelector('.carousel-section');
+const carouselContent = document.querySelector('.carousel-cover__content--bottom');
+(function adjustHeight () {
+   if(!carouselContent) return;
    let heigthContent = carouselContent.getBoundingClientRect().height;
    let carouselHeigth = carouselSection.getBoundingClientRect().height;
-   console.log(`${carouselHeigth - heigthContent * 0.4}px`);
-   carouselSection.style.height = `${carouselHeigth - heigthContent * 0.4}px`;
- }
- adjustHeight();
+   console.log(`${ carouselHeigth - (heigthContent * 0.4)}px`)
+   carouselSection.style.height = `${ carouselHeigth - (heigthContent * 0.4)}px`
+})();
  

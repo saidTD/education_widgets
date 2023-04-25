@@ -22,13 +22,18 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <div class="carousel-cover__content">
+    <div class="carousel-cover__content--{{params.mode}}">
       <div class="content__text">
-        <p class="text-secondary">{{params.content.text}}</p>
+        <h4 class="text-secondary">{{params.content.text}}</h4>
       </div>
-      <a href="#" class="btn btn-secondary content__button">
-        {{params.button.text}}
+      <a href="#" class="btn btn-secondary content__button content__button--secondary">
+        Formulaire de Pré-inscriptions
       </a>
+      {% if params.mode == "center" %}
+      <a href="#" class="btn btn-primary content__button content__button--primary ">
+        Formulaire de Pré-inscriptions
+      </a>
+      {% endif %}
     </div>
   </div>
 </section>
