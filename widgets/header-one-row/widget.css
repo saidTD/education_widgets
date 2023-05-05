@@ -33,7 +33,7 @@ header .navigation .navbar-wrapper .navbar-items {
 @media (max-width: 991px) {
   header .navigation .navbar-wrapper {
     padding-top: var(--nav-height);
-    background: var(--bs-tertiary);
+    background: {{params.menu_bg|default:'#ffffff'}};
     display: grid;
     align-content: center;
     justify-content: center;
