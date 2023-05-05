@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "name": "Two Rows header",
   "element": "education_header",
   "description": "This is the header widget for education websites",
@@ -15,7 +15,7 @@
     { "id": "5", "name": "youtube", "type": "char" },
     { "id": "6", "name": "twitter", "type": "char" },
     { "id": "7", "name": "tiktok", "type": "char" },
-    { "id": "8", "name": "btn-link", "type": "object" }
+    { "id": "8", "name": "btn_link", "type": "object" }
   ],
   "default_data": {
     "links": [
