@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "Two Rows header",
   "element": "education_header",
   "description": "This is the header widget for education websites",
@@ -83,7 +83,7 @@
       "text": "Get in Touch",
       "classes": "btn-primary"
     },
-    "btn-link": {
+    "btn_link": {
       "url": "#contact",
       "name": "Get in Touch"
     }
