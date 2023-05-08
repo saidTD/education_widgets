@@ -6,7 +6,7 @@
      <div class="subscription-bg-clr row flex-row align-items-center justify-content-between">
        <div class="block-text col-xl-6 col-lg-12">
          <h2 class="text-primary text__title mb-3">{{params.title}}</h2>
-         <p class="text-body text__pargh">{{params.description}}
+         <p class="text-body text__pargh">{{params.description|safe}}
          </p>
        </div>
        <div class="subscription__cover col-lg-12 col-xl-6 text-center">
