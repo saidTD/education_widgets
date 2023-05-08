@@ -1,0 +1,45 @@
+{
+  "version" : "1.0.0",
+  "name" : "Nos Services",
+  "repo" : "education_widgets",
+  "element" : "services",
+  "description" : "services widget",
+  "category" : "block",
+  "type" : "dynamics",
+  "source_slug" : "list-metiers",
+  "variable_name" : "list_metiers",
+  "params" : [
+    {"id": "1", "name": "title", "type": "chart"}
+  ],
+  "default_data" : {
+    "list_metiers": [
+      {
+        "name": "Transport Scolaire",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ea minima est nam dolores blanditiis! Lorem, ipsum dolor.",
+        "color": "blue",
+        "cover": "https://www.iconpacks.net/icons/2/free-facebook-icon-2869-thumb.png"
+      },
+      {
+        "name": "Transport Scolaire",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ea minima est nam dolores blanditiis! Lorem, ipsum dolor.",
+        "color": "blue",
+        "cover": "https://www.iconpacks.net/icons/2/free-facebook-icon-2869-thumb.png"
+      },
+      {
+        "name": "Transport Scolaire",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ea minima est nam dolores blanditiis! Lorem, ipsum dolor.",
+        "color": "blue",
+        "cover": "https://www.iconpacks.net/icons/2/free-facebook-icon-2869-thumb.png"
+      },
+      {
+        "name": "Transport Scolaire",
+        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ea minima est nam dolores blanditiis! Lorem, ipsum dolor.",
+        "color": "blue",
+        "cover": "https://www.iconpacks.net/icons/2/free-facebook-icon-2869-thumb.png"
+      }
+    ],
+    "title": "Nos Services Scolaires"
+  },
+  "visual_data" : {
+  }
+}
