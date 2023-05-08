@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widget</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <section class="subscrition-cover py-4">
+    <div class="container">
+      <div class="subscription-bg-clr row flex-row align-items-center justify-content-between">
+        <div class="block-text col-xl-6 col-lg-12">
+          <h2 class="text-primary text__title mb-3">Apprenez une langue. Ouvrez-vous au monde</h2>
+          <p class="text-body text__pargh"><span class="fw-bold">Ecole</span> Ecole Name, établissement, est fier de contribuer, depuis maintenant plus de 37 ans, au rayonnement d’un
+            système éducatif d’excellence qui place l'épanouissement des élèves au cœur de son dispositif et qui met
+            l'ambition de réussir au centre de son action, au quotidien. 
+          </p>
+        </div>
+        <div class="subscription__cover col-lg-12 col-xl-6 text-center">
+          <img src="https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/e67f5086/dbff7782.png" alt="">
+        </div>
+      </div>
+      <div class="subscription__form">
+        <form action="" id="subscription-form">
+          <div class="inputs-row d-flex align-items-center gap-4">
+            <div class="">
+              <input type="text" class="form-control form-control__subscription__form" id="input-fullName" name="full-name" aria-describedby="emailHelp" placeholder="Nom et Prenom" required>
+            </div>
+            <div class="">
+              <input type="tel" class="form-control form-control__subscription__form" id="input-tel" name="tel" aria-describedby="emailHelp" placeholder="Numero de Telephone" required>
+            </div>
+            <div class="">
+              <select class="form-select form-select__subscription__form" aria-label="Default select example" name="lang" required>
+                <option selected>Intéressé/e par </option>
+                <option value="1">anglais</option>
+                <option value="2">Francais</option>
+              </select>
+            </div>
+            <button type="submit" class="btn  subscription__form__button">Base class</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>

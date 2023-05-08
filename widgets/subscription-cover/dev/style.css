@@ -1,0 +1,65 @@
+.subscrition-cover .block-text .text__title {
+  font-weight: 900;
+}
+.subscrition-cover .block-text .text__pargh {
+  font-size: 17px;
+}
+.subscrition-cover .subscription-bg-clr {
+  background-color: var(--bs-white);
+}
+.subscrition-cover .subscription__form {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background-color: var(--bs-primary);
+  transform: translateY(-50%);
+}
+@media (max-width: 992px) {
+  .subscrition-cover .subscription__form {
+    transform: translateY(0px);
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 992px) {
+  .subscrition-cover .subscription__form .inputs-row {
+    flex-direction: column;
+  }
+}
+.subscrition-cover .subscription__form .inputs-row > *:not(.subscription__form__button) {
+  width: 100%;
+}
+.subscrition-cover .subscription__form .subscription__form__button {
+  flex-shrink: 0;
+}
+.subscrition-cover .subscription__form .form-control__subscription__form {
+  --bs-border-color: #b1b1b1;
+  padding: 0.8rem 0.8rem;
+  border-radius: 0px;
+  background-color: transparent;
+  border: 1.5px solid var(--bs-border-color);
+  color: var(--bs-white);
+}
+.subscrition-cover .subscription__form .form-control__subscription__form::placeholder {
+  color: var(--bs-white);
+  font-weight: 500;
+}
+.subscrition-cover .subscription__form .form-select__subscription__form {
+  --bs-border-color: #b1b1b1;
+  --bs-form-select-bg-img:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23adb5bd' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  padding: 0.8rem 0.8rem;
+  border-radius: 0px;
+  background-color: var(--bs-primary);
+  border: 1.5px solid var(--bs-border-color);
+  color: var(--bs-white);
+}
+.subscrition-cover .subscription__form .subscription__form__button {
+  --bs-btn-padding-x: 2rem;
+  --bs-btn-padding-y: .6rem;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: red;
+  --bs-btn-hover-bg: red;
+  --bs-btn-font-weight: 600;
+  --bs-btn-hover-color: var(--bs-white);
+}
+
+/*# sourceMappingURL=style.css.map */
