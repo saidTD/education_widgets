@@ -6,7 +6,7 @@
       <h2 class="gallerie__title py-3">{{params.title}}</h2>
       <div class="gallerie-carousel">
 
-         {% get_widget request=request slug="carousel-widget" name_space="galerie-photo" width_carousel="820" arrow_display=True arrow_position="inside" pagination_display=True medias=params.gallery_media %}
+         {% get_widget request=request slug="carousel-widget" name_space="galerie-photo" width_carousel="820" arrow_display=True arrow_position="inside" pagination_display=True medias={{params.gallery_media}} %}
       </div>
    </div>
 </section>
