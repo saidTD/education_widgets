@@ -1,0 +1,92 @@
+{
+  "version": "1.0.4",
+  "name": "Two Rows header",
+  "element": "education_header",
+  "description": "This is the header widget for education websites",
+  "category": "header",
+  "type": "dynamic",
+  "space": "education",
+  "variable_name": "",
+  "params": [
+    { "id": "1", "name": "links", "type": "list" },
+    { "id": "2", "name": "facebook", "type": "char" },
+    { "id": "3", "name": "instagram", "type": "char" },
+    { "id": "4", "name": "linkedin", "type": "char" },
+    { "id": "5", "name": "youtube", "type": "char" },
+    { "id": "6", "name": "twitter", "type": "char" },
+    { "id": "7", "name": "tiktok", "type": "char" },
+    { "id": "8", "name": "btn_link", "type": "object" }
+  ],
+  "default_data": {
+    "links": [
+      {
+        "name": "Home",
+        "url": "/",
+        "tag": "",
+        "subs": []
+      },
+      {
+        "name": "Center",
+        "url": "#",
+        "tag": "",
+        "subs": [
+          {
+            "name": "Concept",
+            "url": "/",
+            "tag": ""
+          },
+          {
+            "name": "Histoire",
+            "url": "/",
+            "tag": ""
+          }
+        ]
+      },
+      {
+        "name": "About",
+        "url": "#",
+        "tag": "",
+        "subs": []
+      },
+      {
+        "name": "Service",
+        "url": "#",
+        "tag": "",
+        "subs": [
+          {
+            "name": "Services",
+            "url": "/",
+            "tag": ""
+          },
+          {
+            "name": "Produits",
+            "url": "/",
+            "tag": ""
+          }
+        ]
+      },
+      {
+        "name": "Reservation",
+        "url": "#",
+        "tag": "",
+        "subs": []
+      },
+      {
+        "name": "Contact",
+        "url": "#",
+        "tag": "",
+        "subs": []
+      }
+    ],
+    "btn": {
+      "url": "#contact",
+      "text": "Get in Touch",
+      "classes": "btn-primary"
+    },
+    "btn_link": {
+      "url": "#contact",
+      "name": "Get in Touch"
+    }
+  },
+  "visual_data": {}
+}
