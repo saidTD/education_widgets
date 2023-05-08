@@ -18,4 +18,4 @@ function subscription(url){
    })
 }
 
-subscription(url);
+subscription("");
