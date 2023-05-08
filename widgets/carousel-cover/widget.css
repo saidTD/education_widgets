@@ -60,6 +60,7 @@
   --bs-btn-padding-y: .9rem;
   --bs-btn-font-weight: 600;
   --bs-btn-hover-color: var(--bs-primary);
+  margin-top: 0.5rem;
 }
 .carousel-section .carousel-cover__content--center .content__button.content__button--primary {
   --bs-btn-color: var(--bs-white);
