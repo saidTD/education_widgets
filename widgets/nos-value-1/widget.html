@@ -1,0 +1,36 @@
+
+
+
+<section class="widget-value py-5">
+   <div class="container">
+     <div class="widget-value__wrraper row align-items-center">
+       <div class="col-lg-5">
+         <div class="widget-value__text">
+           <div class="widget-value__title mb-3">
+             <h2>{{params.title}}</h2>
+           </div>
+           <p>{{params.description}}</p>
+         </div>
+       </div>
+       <div class="col-sm-12 col-md-12 col-lg-6">
+         <div class="widget-value__values">
+           <ul class="values d-flex">
+            {%for value in params.values %}
+             <li class="values__item">
+               <div class="icon">
+                 <img src="{{params.icon}}" alt="">
+               </div>
+               <div class="word">
+                 {{params.title}}
+               </div>
+             </li>
+             
+             {% endfor %}
+             
+             
+           </ul>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
