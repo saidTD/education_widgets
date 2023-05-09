@@ -17,6 +17,10 @@
    border: 1px solid #ccc;
    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
  }
+
+ .gallery .splide__pagination {
+   bottom: 0rem;
+ } 
  .gallery .splide__pagination__page {
    width: 12px;
    height: 12px;
