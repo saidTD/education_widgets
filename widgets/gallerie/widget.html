@@ -1,12 +1,21 @@
 {% load get_widget  %}
 
 
-<section class="gallerie-widget">
+<section class="gallery">
    <div class="container">
-      <h2 class="gallerie__title py-3">{{params.title}}</h2>
-      <div class="gallerie-carousel">
-
-         {% get_widget request=request slug="carousel-widget" name_space="galerie-photo" width_carousel="820" arrow_display=True arrow_position="inside" pagination_display=True medias=params.gallery_media %}
-      </div>
+      <h2 class="gallerie__title py-3 text-center">{{params.title}}</h2>
+     <div class="gallery__carousel">
+   <div id="main-carousel" class="splide" aria-label="My Awesome Gallery">
+     <div class="splide__track">
+       <ul class="splide__list">
+         {% for gallery in params.gallery_media%}
+         <li class="splide__slide">
+           <img src="{{gallery.file}}" alt="">
+         </li>
+         {% endfor %}
+       </ul>
+     </div>
    </div>
-</section>
+ </div>
+</div>
+ </section>
