@@ -1,0 +1,18 @@
+<section class="services__image">
+  <div class="container">
+    <div class="services__wrraper row">
+      {% for service in params.list_metiers %}
+      <div class="col-sm-12 col-lg-6">
+        <div class="service__image" style=" background-image: url('{{service.cover}}');">
+          <div class="service__image__content" style="background-color: {{service.color}};">
+            <div class="content-wrraper">
+              <h3 class="service__title">{{service.name}}</h3>
+              <p class="service__description">{{service.content_html}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

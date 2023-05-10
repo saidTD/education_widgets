@@ -1,0 +1,24 @@
+.services__image {
+  padding: 2rem 0rem;
+}
+.services__image .service__image {
+  display: flex;
+  min-height: 300px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: 150%;
+  margin-top: 1rem;
+}
+.services__image .service__image__content {
+  padding: 1.5rem;
+  width: 75%;
+  display: flex;
+  clip-path: polygon(0 0, 64% 0, 95% 100%, 0% 100%);
+}
+.services__image .service__image .content-wrraper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 80%;
+  color: var(--bs-white);
+}
