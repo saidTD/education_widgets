@@ -3,10 +3,10 @@
 }
 .services__image .service__image {
   display: flex;
-  min-height: 300px;
+  min-height: 250px;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position-x: 150%;
+  background-size: cover;
+  background-position-x: 50%;
   margin-top: 1rem;
 }
 .services__image .service__image__content {
