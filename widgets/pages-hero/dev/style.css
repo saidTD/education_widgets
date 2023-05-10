@@ -1,0 +1,45 @@
+.hero {
+  position: relative;
+  padding: 4rem 0;
+  background-color: #eaeaf6;
+}
+.hero__cover {
+  padding: 6rem 0rem;
+  background-color: var(--bs-primary);
+}
+.hero__cover .hero__title {
+  position: relative;
+  color: var(--bs-secondary);
+  z-index: 11;
+}
+.hero__cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/e0e3764e/b8edad33.webp");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+}
+.hero__title {
+  color: var(--bs-primary);
+}
+
+.title-border-center {
+  width: max-content;
+  padding-bottom: 15px;
+  text-align: center;
+  position: relative;
+}
+.title-border-center::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: currentColor;
+}
+
+/*# sourceMappingURL=style.css.map */

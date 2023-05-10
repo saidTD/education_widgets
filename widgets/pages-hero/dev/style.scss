@@ -1,0 +1,50 @@
+.hero {
+  position: relative;
+  padding: 4rem 0;
+  background-color: #eaeaf6;
+
+  &__cover {
+    padding: 6rem 0rem;
+    background-color: var(--bs-primary);
+
+    .hero__title {
+      position: relative;
+      color: var(--bs-secondary);
+      z-index: 11;
+    }
+    
+  }
+
+  &__cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/e0e3764e/b8edad33.webp");
+    background-position: center;
+    background-size: cover ;
+    opacity: .1;
+  }
+
+  &__title {
+    color: var(--bs-primary);
+  }
+
+}
+
+.title-border-center {
+  width: max-content;
+  padding-bottom: 15px;
+  text-align: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: currentColor;
+  }
+}
