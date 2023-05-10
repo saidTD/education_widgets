@@ -1,1 +1,62 @@
-{"version":"1.0.1","name":"nos-value 1 education","repo":"education_widgets","element":"nos-value-1","description":"Ce Widget est pour la  widget nos-value du site education","category":"listing","type":"static","space":"education","source_slug":"","variable_name":"","params":[{"id":0,"name":"title","type":"char"},{"id":1,"name":"description","type":"char"},{"id":0,"name":"background_image","type":"char"},{"id":0,"name":"values","type":"list"}],"default_data":{"title":"Nos Value","description":"Aujourd’hui plus qu’hier, un label éducatif nourri d’une passion avec des valeurs phares mêlant ","background_image":"https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/e0e3764e/b8edad33.webp","values":[{"title":"Respect","icon":""},{"title":"Respect","icon":""},{"title":"Respect","icon":""},{"title":"Respect","icon":""},{"title":"Respect","icon":""}]},"visual_data":{}}
+{
+    "version": "1.0.1",
+    "name": "nos-value 1 education",
+    "repo": "education_widgets",
+    "element": "nos-value-1",
+    "description": "Ce Widget est pour la  widget nos-value du site education",
+    "category": "listing",
+    "type": "static",
+    "space": "education",
+    "source_slug": "",
+    "variable_name": "",
+    "params": [
+        {
+            "id": 0,
+            "name": "title",
+            "type": "char"
+        },
+        {
+            "id": 1,
+            "name": "description",
+            "type": "char"
+        },
+        {
+            "id": 0,
+            "name": "background_image",
+            "type": "char"
+        },
+        {
+            "id": 0,
+            "name": "values",
+            "type": "list"
+        }
+    ],
+    "default_data": {
+        "title": "Nos Value",
+        "description": "Aujourd’hui plus qu’hier, un label éducatif nourri d’une passion avec des valeurs phares mêlant ",
+        "background_image": "https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/e0e3764e/b8edad33.webp",
+        "values": [
+            {
+                "title": "Respect",
+                "icon": ""
+            },
+            {
+                "title": "Respect",
+                "icon": ""
+            },
+            {
+                "title": "Respect",
+                "icon": ""
+            },
+            {
+                "title": "Respect",
+                "icon": ""
+            },
+            {
+                "title": "Respect",
+                "icon": ""
+            }
+        ]
+    },
+    "visual_data": {}
+}
