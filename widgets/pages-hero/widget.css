@@ -1,7 +1,8 @@
 .hero {
   position: relative;
-  padding: 4rem 0;
+  padding: {{params.styles.offset_top|default:'4'}}rem 0 4rem 0;
   background-color: {{params.background_color}};
+  
 }
 .hero__cover {
   padding: 6rem 0rem;

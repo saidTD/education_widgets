@@ -35,7 +35,7 @@
       "border_width": "",
       "border_color": ""
     },
-    "styles": { "bg_color": "", "text_color": "", "bg_cover": "" },
+    "styles": { "bg_color": "", "text_color": "", "bg_cover": "", "offset_top" : "0" },
     "mode": "center"
   },
   "visual_data": { "mode_select": ["center", "bottom"] }

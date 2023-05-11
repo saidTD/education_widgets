@@ -1,3 +1,6 @@
+.carousel-section {
+  padding-top: {{ params.style.offset_top }};
+}
 .carousel-section .carousel {
   height: 470px;
 }
