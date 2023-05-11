@@ -1,5 +1,5 @@
 .carousel-section {
-  padding-top: {{ params.style.offset_top }};
+  padding-top: {{ params.style.offset_top }}px;
 }
 .carousel-section .carousel {
   height: 470px;
@@ -88,4 +88,3 @@
   background-color: var(--bs-primary);
   border-radius: 50%;
 }
-

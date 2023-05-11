@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  padding: {{params.styles.offset_top|default:'4'}}rem 0 4rem 0;
+  padding: {{params.styles.offset_top|default:'4'}}px 0 4rem 0;
   background-color: {{params.background_color}};
   
 }
@@ -41,4 +41,3 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: currentColor;
-}
