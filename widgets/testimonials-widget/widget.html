@@ -1,0 +1,27 @@
+<section class="testimonials testimonials__default">
+  <div class="container">
+    <div class="testimonials__wrraper">
+      <div id="testimonials__carousel" class="splide" role="group" aria-label="Splide testimonials">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for commentaire in list_commentaires %}
+            <li class="splide__slide">
+              <div class="testimonial__content d-flex align-items-center">
+                <img class="content__profile"
+                  src="{{commentaire.cover}}"
+                  alt="">
+                <div class="content__text">
+                  <p class="testimonial__text">
+                    {{commentaire.comment}}
+                  </p>
+                  <p class="testimonial__name">{{commentaire.name}}</p>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
