@@ -12,6 +12,7 @@
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  color : {{params.style.text_color}}
 }
 @media (min-width: 992px) {
   .testimonials__default .testimonial__content {
