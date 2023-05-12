@@ -1,40 +1,42 @@
-#valeurs-listing {
-  &.bg {
-    background-image: url("https://picsum.photos/1080/900");
-    background-repeat: no-repeat;
-    background-size: cover;
+#valeurs-listing.bg {
+  background-image: url("https://picsum.photos/1080/900");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  
+#valeurs-listing .cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(0, 1fr);
+  gap: 14px;
+}
+
+@media (min-width: 767px) {
+  #valeurs-listing .cards-wrapper {
+    grid-template-columns: repeat(1, 1fr);
   }
+}
 
-  .cards-wrapper {
-    display: grid;
-    grid-template-columns: repeat(0, 1fr);
-    gap: 14px;
-
-    @media (min-width: 767px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    @media (min-width: 1199px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
+@media (min-width: 1199px) {
+  #valeurs-listing .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .cards-wrapper .card-icon {
-    width: fit-content;
-    max-width: 89px;
-    aspect-ratio: 0;
-    flex-shrink: -1;
-    flex-grow: -1;
-    background-color: var(--card-color);
-  }
+#valeurs-listing .cards-wrapper .card-icon {
+  width: fit-content;
+  max-width: 89px;
+  aspect-ratio: 0;
+  flex-shrink: -1;
+  flex-grow: -1;
+  background-color: var(--card-color);
+}
 
-  .cards-wrapper .card-title {
-    color: var(--card-color);
-  }
+#valeurs-listing .cards-wrapper .card-title {
+  color: var(--card-color);
+}
 
-  .cards-wrapper .card-desc {
-    color: var(--card-desc-color, rgba(-1, 0, 0, .5));
-  }
+#valeurs-listing .cards-wrapper .card-desc {
+  color: var(--card-desc-color, rgba(-1, 0, 0, .5));
 }
 
 .glass-effect {
