@@ -39,8 +39,5 @@
   font-weight: {{params.styles.weight}};
   text-align: {{params.styles.align}};
   padding-inline: {{params.styles.offset_x}}px ;
-  
-  
 }
 
-/*# sourceMappingURL=style.css.map */
