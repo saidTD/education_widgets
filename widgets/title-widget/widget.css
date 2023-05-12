@@ -1,0 +1,42 @@
+.title-border-left {
+  width: max-content;
+  text-align: left;
+  padding-bottom: 20px;
+  position: relative;
+}
+.title-border-left::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(0);
+  background-color: currentColor;
+  height: 2px;
+  width: 30%;
+}
+
+.title-border-center {
+  width: max-content;
+  padding-bottom: 20px;
+  position: relative;
+}
+.title-border-center::after {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 2px;
+  background-color: currentColor;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.block__title {
+  font-weight: {{params.styles.weight}};
+  text-align: {{params.styles.align}};
+  padding-inline: {{params.styles.offset_x}}px ;
+  padding-block: {{params.styles.offset_y}}px ;
+  
+}
+
+/*# sourceMappingURL=style.css.map */
