@@ -31,11 +31,15 @@
   transform: translateX(-50%);
 }
 
+.title-widget {
+  padding-block: {{params.styles.offset_y}}px ;
+}
+
 .block__title {
   font-weight: {{params.styles.weight}};
   text-align: {{params.styles.align}};
   padding-inline: {{params.styles.offset_x}}px ;
-  padding-block: {{params.styles.offset_y}}px ;
+  
   
 }
 
