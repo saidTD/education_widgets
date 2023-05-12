@@ -1,29 +1,3 @@
-.hero {
-  position: relative;
-  padding: 4rem 0;
-  background-color: {{params.background_color}};
-}
-.hero__cover {
-  padding: 6rem 0rem;
-  background-color: var(--bs-primary);
-}
-.hero__cover .hero__title {
-  position: relative;
-  color: var(--bs-secondary);
-  z-index: 11;
-}
-.hero__cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url({{params.background_image}});
-  background-position: center;
-  background-size: cover;
-  opacity: 0.1;
-}
-.hero__title {
-  color: var(--bs-primary);
-}
 
 .title-border-center {
   width: max-content;
@@ -40,4 +14,36 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: currentColor;
+
+}
+
+.hero {
+  padding-top: {{params.styles.offset_top|default:'4'}}px;
+}
+.hero__text .hero__background {
+  position: relative;
+  padding: 4rem 0;
+  background-color: {{params.background_color}};
+}
+.hero__cover .hero__background {
+  position: relative;
+  padding: 6rem 0rem;
+  background-color: {{params.background_color|default:'var(--bs-primary)'}};
+}
+.hero__cover .hero__background .hero__title {
+  position: relative;
+  color: var(--bs-secondary);
+  z-index: 11;
+}
+.hero__cover .hero__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url({{params.background_image}});
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+}
+.hero__title {
+  color: var(--bs-primary);
 }

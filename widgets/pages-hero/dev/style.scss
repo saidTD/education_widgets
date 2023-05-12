@@ -1,9 +1,17 @@
 .hero {
-  position: relative;
-  padding: 4rem 0;
-  background-color: #eaeaf6;
+  
+  padding-top: 0px;
 
-  &__cover {
+  
+
+  &__text &__background {
+    position: relative;
+    padding: 4rem 0;
+    background-color: #eaeaf6;
+  }
+
+  &__cover &__background {
+    position: relative;
     padding: 6rem 0rem;
     background-color: var(--bs-primary);
 
@@ -15,7 +23,7 @@
     
   }
 
-  &__cover::after {
+  &__cover &__background::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -29,22 +37,4 @@
     color: var(--bs-primary);
   }
 
-}
-
-.title-border-center {
-  width: max-content;
-  padding-bottom: 15px;
-  text-align: center;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: 40%;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: currentColor;
-  }
 }

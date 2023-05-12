@@ -1,18 +1,22 @@
 .hero {
+  padding-top: 0px;
+}
+.hero__text .hero__background {
   position: relative;
   padding: 4rem 0;
   background-color: #eaeaf6;
 }
-.hero__cover {
+.hero__cover .hero__background {
+  position: relative;
   padding: 6rem 0rem;
   background-color: var(--bs-primary);
 }
-.hero__cover .hero__title {
+.hero__cover .hero__background .hero__title {
   position: relative;
   color: var(--bs-secondary);
   z-index: 11;
 }
-.hero__cover::after {
+.hero__cover .hero__background::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -23,23 +27,6 @@
 }
 .hero__title {
   color: var(--bs-primary);
-}
-
-.title-border-center {
-  width: max-content;
-  padding-bottom: 15px;
-  text-align: center;
-  position: relative;
-}
-.title-border-center::after {
-  content: "";
-  position: absolute;
-  width: 40%;
-  height: 2px;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: currentColor;
 }
 
 /*# sourceMappingURL=style.css.map */
