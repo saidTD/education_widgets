@@ -1,14 +1,16 @@
 {
     "version": "1.0.2",
-    "name": "Nos Valeurs 2",
-    "repo": "education_widgets",
+    "label": "Liste des Valeurs en Grid",
+    "name": "Liste des Valeurs en Grid",
+    "repo": "liste_values_grid",
     "element": "nos_valeurs",
-    "description": "nos valeurs widget",
+    "description": "Ce widget pour présenter une liste des valeurs sous format d'une Grid",
     "category": "listing",
     "type": "dynamic",
     "space": "education",
     "source_slug": "list-metiers",
     "variable_name": "list_metiers",
+    "legacy": false,
     "params": [
         {
             "id": "1",

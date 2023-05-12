@@ -1,12 +1,14 @@
 {
   "version": "1.0.1",
-  "name": "One Row header",
-  "element": "education_header",
-  "description": "This is the header widget for education websites",
+  "label": "Header simple avec une Menu",
+  "name": "Header simple avec Menu",
+  "element": "header_simple",
+  "description": "Ce widget pour présenter un Header Simple dans une seule ligne avec une Menu de navigation",
   "category": "header",
   "type": "dynamic",
   "space": "education",
   "variable_name": "",
+  "legacy": false,
   "params": [{ "id": "1", "name": "links", "type": "list" }],
   "default_data": {
     "links": [

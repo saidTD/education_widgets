@@ -1,14 +1,16 @@
 {
     "version": "1.0.1",
-    "name": "nos-value 1 education",
+    "label": "Liste des Valeurs aligné horizontalement",
+    "name": "Liste des valeurs horizontale",
     "repo": "education_widgets",
-    "element": "nos-value-1",
-    "description": "Ce Widget est pour la  widget nos-value du site education",
+    "element": "liste_values_horizontal",
+    "description": "Ce Widget est pour présenter la liste des valeurs dans une ligne horizontale",
     "category": "listing",
     "type": "static",
     "space": "education",
     "source_slug": "",
     "variable_name": "",
+    "legacy": false,
     "params": [
         {
             "id": 0,

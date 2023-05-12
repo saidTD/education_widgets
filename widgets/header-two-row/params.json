@@ -1,12 +1,14 @@
 {
   "version": "1.0.4",
-  "name": "Two Rows header",
-  "element": "education_header",
-  "description": "This is the header widget for education websites",
+  "label": "Header avec le logo et la Menu",
+  "name": "Header avec le logo et la Menu",
+  "element": "header_logo_top_menu",
+  "description": "Ce Widget pour présenter un Header avec le logo en haut et le menu en bas",
   "category": "header",
   "type": "dynamic",
   "space": "education",
   "variable_name": "",
+  "legacy": false,
   "params": [
     { "id": "1", "name": "links", "type": "list" },
     { "id": "2", "name": "facebook", "type": "char" },

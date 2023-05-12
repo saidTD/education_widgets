@@ -1,14 +1,16 @@
 {
     "version": "1.0.6",
-    "name": "Nos Services",
+    "label": "Liste des Services en Columns",
+    "name": "Liste des Services en Columns",
     "repo": "education_widgets",
-    "element": "services",
-    "description": "services widget",
+    "element": "liste_services_columns",
+    "description": "Ce Widget est pour présenter les services sous format des columns horizontals",
     "category": "listing",
     "type": "dynamic",
     "space": "education",
     "source_slug": "list-metiers",
     "variable_name": "list_metiers",
+    "legacy": false,
     "params": [
         {
             "id": "1",
