@@ -13,12 +13,22 @@ var clippingParents = "clippingParents";
 var viewport = "viewport";
 var popper = "popper";
 var reference = "reference";
-var variationPlacements = /* @__PURE__ */ basePlacements.reduce(function(acc, placement) {
+var variationPlacements = /* @__PURE__ */ basePlacements.reduce(function (
+  acc,
+  placement
+) {
   return acc.concat([placement + "-" + start, placement + "-" + end]);
-}, []);
-var placements = /* @__PURE__ */ [].concat(basePlacements, [auto]).reduce(function(acc, placement) {
-  return acc.concat([placement, placement + "-" + start, placement + "-" + end]);
-}, []);
+},
+[]);
+var placements = /* @__PURE__ */ []
+  .concat(basePlacements, [auto])
+  .reduce(function (acc, placement) {
+    return acc.concat([
+      placement,
+      placement + "-" + start,
+      placement + "-" + end,
+    ]);
+  }, []);
 var beforeRead = "beforeRead";
 var read = "read";
 var afterRead = "afterRead";
@@ -28,7 +38,17 @@ var afterMain = "afterMain";
 var beforeWrite = "beforeWrite";
 var write = "write";
 var afterWrite = "afterWrite";
-var modifierPhases = [beforeRead, read, afterRead, beforeMain, main$1, afterMain, beforeWrite, write, afterWrite];
+var modifierPhases = [
+  beforeRead,
+  read,
+  afterRead,
+  beforeMain,
+  main$1,
+  afterMain,
+  beforeWrite,
+  write,
+  afterWrite,
+];
 function getNodeName(element) {
   return element ? (element.nodeName || "").toLowerCase() : null;
 }
@@ -59,7 +79,7 @@ function isShadowRoot(node) {
 }
 function applyStyles(_ref) {
   var state = _ref.state;
-  Object.keys(state.elements).forEach(function(name) {
+  Object.keys(state.elements).forEach(function (name) {
     var style2 = state.styles[name] || {};
     var attributes = state.attributes[name] || {};
     var element = state.elements[name];
@@ -67,7 +87,7 @@ function applyStyles(_ref) {
       return;
     }
     Object.assign(element.style, style2);
-    Object.keys(attributes).forEach(function(name2) {
+    Object.keys(attributes).forEach(function (name2) {
       var value = attributes[name2];
       if (value === false) {
         element.removeAttribute(name2);
@@ -84,24 +104,28 @@ function effect$2(_ref2) {
       position: state.options.strategy,
       left: "0",
       top: "0",
-      margin: "0"
+      margin: "0",
     },
     arrow: {
-      position: "absolute"
+      position: "absolute",
     },
-    reference: {}
+    reference: {},
   };
   Object.assign(state.elements.popper.style, initialStyles.popper);
   state.styles = initialStyles;
   if (state.elements.arrow) {
     Object.assign(state.elements.arrow.style, initialStyles.arrow);
   }
-  return function() {
-    Object.keys(state.elements).forEach(function(name) {
+  return function () {
+    Object.keys(state.elements).forEach(function (name) {
       var element = state.elements[name];
       var attributes = state.attributes[name] || {};
-      var styleProperties = Object.keys(state.styles.hasOwnProperty(name) ? state.styles[name] : initialStyles[name]);
-      var style2 = styleProperties.reduce(function(style3, property) {
+      var styleProperties = Object.keys(
+        state.styles.hasOwnProperty(name)
+          ? state.styles[name]
+          : initialStyles[name]
+      );
+      var style2 = styleProperties.reduce(function (style3, property) {
         style3[property] = "";
         return style3;
       }, {});
@@ -109,7 +133,7 @@ function effect$2(_ref2) {
         return;
       }
       Object.assign(element.style, style2);
-      Object.keys(attributes).forEach(function(attribute) {
+      Object.keys(attributes).forEach(function (attribute) {
         element.removeAttribute(attribute);
       });
     });
@@ -121,7 +145,7 @@ const applyStyles$1 = {
   phase: "write",
   fn: applyStyles,
   effect: effect$2,
-  requires: ["computeStyles"]
+  requires: ["computeStyles"],
 };
 function getBasePlacement(placement) {
   return placement.split("-")[0];
@@ -132,9 +156,11 @@ var round = Math.round;
 function getUAString() {
   var uaData = navigator.userAgentData;
   if (uaData != null && uaData.brands) {
-    return uaData.brands.map(function(item) {
-      return item.brand + "/" + item.version;
-    }).join(" ");
+    return uaData.brands
+      .map(function (item) {
+        return item.brand + "/" + item.version;
+      })
+      .join(" ");
   }
   return navigator.userAgent;
 }
@@ -152,13 +178,26 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy) {
   var scaleX = 1;
   var scaleY = 1;
   if (includeScale && isHTMLElement$1(element)) {
-    scaleX = element.offsetWidth > 0 ? round(clientRect.width) / element.offsetWidth || 1 : 1;
-    scaleY = element.offsetHeight > 0 ? round(clientRect.height) / element.offsetHeight || 1 : 1;
+    scaleX =
+      element.offsetWidth > 0
+        ? round(clientRect.width) / element.offsetWidth || 1
+        : 1;
+    scaleY =
+      element.offsetHeight > 0
+        ? round(clientRect.height) / element.offsetHeight || 1
+        : 1;
   }
-  var _ref = isElement(element) ? getWindow(element) : window, visualViewport = _ref.visualViewport;
+  var _ref = isElement(element) ? getWindow(element) : window,
+    visualViewport = _ref.visualViewport;
   var addVisualOffsets = !isLayoutViewport() && isFixedStrategy;
-  var x = (clientRect.left + (addVisualOffsets && visualViewport ? visualViewport.offsetLeft : 0)) / scaleX;
-  var y = (clientRect.top + (addVisualOffsets && visualViewport ? visualViewport.offsetTop : 0)) / scaleY;
+  var x =
+    (clientRect.left +
+      (addVisualOffsets && visualViewport ? visualViewport.offsetLeft : 0)) /
+    scaleX;
+  var y =
+    (clientRect.top +
+      (addVisualOffsets && visualViewport ? visualViewport.offsetTop : 0)) /
+    scaleY;
   var width = clientRect.width / scaleX;
   var height = clientRect.height / scaleY;
   return {
@@ -169,7 +208,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy) {
     bottom: y + height,
     left: x,
     x,
-    y
+    y,
   };
 }
 function getLayoutRect(element) {
@@ -186,7 +225,7 @@ function getLayoutRect(element) {
     x: element.offsetLeft,
     y: element.offsetTop,
     width,
-    height
+    height,
   };
 }
 function contains(parent, child2) {
@@ -211,10 +250,12 @@ function isTableElement(element) {
   return ["table", "td", "th"].indexOf(getNodeName(element)) >= 0;
 }
 function getDocumentElement(element) {
-  return ((isElement(element) ? element.ownerDocument : (
-    // $FlowFixMe[prop-missing]
-    element.document
-  )) || window.document).documentElement;
+  return (
+    (isElement(element)
+      ? element.ownerDocument
+      : // $FlowFixMe[prop-missing]
+        element.document) || window.document
+  ).documentElement;
 }
 function getParentNode(element) {
   if (getNodeName(element) === "html") {
@@ -232,8 +273,10 @@ function getParentNode(element) {
   );
 }
 function getTrueOffsetParent(element) {
-  if (!isHTMLElement$1(element) || // https://github.com/popperjs/popper-core/issues/837
-  getComputedStyle$1(element).position === "fixed") {
+  if (
+    !isHTMLElement$1(element) || // https://github.com/popperjs/popper-core/issues/837
+    getComputedStyle$1(element).position === "fixed"
+  ) {
     return null;
   }
   return element.offsetParent;
@@ -251,9 +294,19 @@ function getContainingBlock(element) {
   if (isShadowRoot(currentNode)) {
     currentNode = currentNode.host;
   }
-  while (isHTMLElement$1(currentNode) && ["html", "body"].indexOf(getNodeName(currentNode)) < 0) {
+  while (
+    isHTMLElement$1(currentNode) &&
+    ["html", "body"].indexOf(getNodeName(currentNode)) < 0
+  ) {
     var css = getComputedStyle$1(currentNode);
-    if (css.transform !== "none" || css.perspective !== "none" || css.contain === "paint" || ["transform", "perspective"].indexOf(css.willChange) !== -1 || isFirefox && css.willChange === "filter" || isFirefox && css.filter && css.filter !== "none") {
+    if (
+      css.transform !== "none" ||
+      css.perspective !== "none" ||
+      css.contain === "paint" ||
+      ["transform", "perspective"].indexOf(css.willChange) !== -1 ||
+      (isFirefox && css.willChange === "filter") ||
+      (isFirefox && css.filter && css.filter !== "none")
+    ) {
       return currentNode;
     } else {
       currentNode = currentNode.parentNode;
@@ -264,10 +317,19 @@ function getContainingBlock(element) {
 function getOffsetParent(element) {
   var window2 = getWindow(element);
   var offsetParent = getTrueOffsetParent(element);
-  while (offsetParent && isTableElement(offsetParent) && getComputedStyle$1(offsetParent).position === "static") {
+  while (
+    offsetParent &&
+    isTableElement(offsetParent) &&
+    getComputedStyle$1(offsetParent).position === "static"
+  ) {
     offsetParent = getTrueOffsetParent(offsetParent);
   }
-  if (offsetParent && (getNodeName(offsetParent) === "html" || getNodeName(offsetParent) === "body" && getComputedStyle$1(offsetParent).position === "static")) {
+  if (
+    offsetParent &&
+    (getNodeName(offsetParent) === "html" ||
+      (getNodeName(offsetParent) === "body" &&
+        getComputedStyle$1(offsetParent).position === "static"))
+  ) {
     return window2;
   }
   return offsetParent || getContainingBlock(element) || window2;
@@ -287,27 +349,38 @@ function getFreshSideObject() {
     top: 0,
     right: 0,
     bottom: 0,
-    left: 0
+    left: 0,
   };
 }
 function mergePaddingObject(paddingObject) {
   return Object.assign({}, getFreshSideObject(), paddingObject);
 }
 function expandToHashMap(value, keys) {
-  return keys.reduce(function(hashMap, key) {
+  return keys.reduce(function (hashMap, key) {
     hashMap[key] = value;
     return hashMap;
   }, {});
 }
 var toPaddingObject = function toPaddingObject2(padding, state) {
-  padding = typeof padding === "function" ? padding(Object.assign({}, state.rects, {
-    placement: state.placement
-  })) : padding;
-  return mergePaddingObject(typeof padding !== "number" ? padding : expandToHashMap(padding, basePlacements));
+  padding =
+    typeof padding === "function"
+      ? padding(
+          Object.assign({}, state.rects, {
+            placement: state.placement,
+          })
+        )
+      : padding;
+  return mergePaddingObject(
+    typeof padding !== "number"
+      ? padding
+      : expandToHashMap(padding, basePlacements)
+  );
 };
 function arrow(_ref) {
   var _state$modifiersData$;
-  var state = _ref.state, name = _ref.name, options = _ref.options;
+  var state = _ref.state,
+    name = _ref.name,
+    options = _ref.options;
   var arrowElement = state.elements.arrow;
   var popperOffsets2 = state.modifiersData.popperOffsets;
   var basePlacement = getBasePlacement(state.placement);
@@ -321,21 +394,36 @@ function arrow(_ref) {
   var arrowRect = getLayoutRect(arrowElement);
   var minProp = axis === "y" ? top : left;
   var maxProp = axis === "y" ? bottom : right;
-  var endDiff = state.rects.reference[len] + state.rects.reference[axis] - popperOffsets2[axis] - state.rects.popper[len];
+  var endDiff =
+    state.rects.reference[len] +
+    state.rects.reference[axis] -
+    popperOffsets2[axis] -
+    state.rects.popper[len];
   var startDiff = popperOffsets2[axis] - state.rects.reference[axis];
   var arrowOffsetParent = getOffsetParent(arrowElement);
-  var clientSize = arrowOffsetParent ? axis === "y" ? arrowOffsetParent.clientHeight || 0 : arrowOffsetParent.clientWidth || 0 : 0;
+  var clientSize = arrowOffsetParent
+    ? axis === "y"
+      ? arrowOffsetParent.clientHeight || 0
+      : arrowOffsetParent.clientWidth || 0
+    : 0;
   var centerToReference = endDiff / 2 - startDiff / 2;
   var min2 = paddingObject[minProp];
   var max2 = clientSize - arrowRect[len] - paddingObject[maxProp];
   var center = clientSize / 2 - arrowRect[len] / 2 + centerToReference;
   var offset2 = within(min2, center, max2);
   var axisProp = axis;
-  state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset2, _state$modifiersData$.centerOffset = offset2 - center, _state$modifiersData$);
+  state.modifiersData[name] =
+    ((_state$modifiersData$ = {}),
+    (_state$modifiersData$[axisProp] = offset2),
+    (_state$modifiersData$.centerOffset = offset2 - center),
+    _state$modifiersData$);
 }
 function effect$1(_ref2) {
-  var state = _ref2.state, options = _ref2.options;
-  var _options$element = options.element, arrowElement = _options$element === void 0 ? "[data-popper-arrow]" : _options$element;
+  var state = _ref2.state,
+    options = _ref2.options;
+  var _options$element = options.element,
+    arrowElement =
+      _options$element === void 0 ? "[data-popper-arrow]" : _options$element;
   if (arrowElement == null) {
     return;
   }
@@ -357,7 +445,7 @@ const arrow$1 = {
   fn: arrow,
   effect: effect$1,
   requires: ["popperOffsets"],
-  requiresIfExists: ["preventOverflow"]
+  requiresIfExists: ["preventOverflow"],
 };
 function getVariation(placement) {
   return placement.split("-")[1];
@@ -366,28 +454,44 @@ var unsetSides = {
   top: "auto",
   right: "auto",
   bottom: "auto",
-  left: "auto"
+  left: "auto",
 };
 function roundOffsetsByDPR(_ref) {
-  var x = _ref.x, y = _ref.y;
+  var x = _ref.x,
+    y = _ref.y;
   var win = window;
   var dpr = win.devicePixelRatio || 1;
   return {
     x: round(x * dpr) / dpr || 0,
-    y: round(y * dpr) / dpr || 0
+    y: round(y * dpr) / dpr || 0,
   };
 }
 function mapToStyles(_ref2) {
   var _Object$assign2;
-  var popper2 = _ref2.popper, popperRect = _ref2.popperRect, placement = _ref2.placement, variation = _ref2.variation, offsets = _ref2.offsets, position = _ref2.position, gpuAcceleration = _ref2.gpuAcceleration, adaptive = _ref2.adaptive, roundOffsets = _ref2.roundOffsets, isFixed = _ref2.isFixed;
-  var _offsets$x = offsets.x, x = _offsets$x === void 0 ? 0 : _offsets$x, _offsets$y = offsets.y, y = _offsets$y === void 0 ? 0 : _offsets$y;
-  var _ref3 = typeof roundOffsets === "function" ? roundOffsets({
-    x,
-    y
-  }) : {
-    x,
-    y
-  };
+  var popper2 = _ref2.popper,
+    popperRect = _ref2.popperRect,
+    placement = _ref2.placement,
+    variation = _ref2.variation,
+    offsets = _ref2.offsets,
+    position = _ref2.position,
+    gpuAcceleration = _ref2.gpuAcceleration,
+    adaptive = _ref2.adaptive,
+    roundOffsets = _ref2.roundOffsets,
+    isFixed = _ref2.isFixed;
+  var _offsets$x = offsets.x,
+    x = _offsets$x === void 0 ? 0 : _offsets$x,
+    _offsets$y = offsets.y,
+    y = _offsets$y === void 0 ? 0 : _offsets$y;
+  var _ref3 =
+    typeof roundOffsets === "function"
+      ? roundOffsets({
+          x,
+          y,
+        })
+      : {
+          x,
+          y,
+        };
   x = _ref3.x;
   y = _ref3.y;
   var hasX = offsets.hasOwnProperty("x");
@@ -401,78 +505,134 @@ function mapToStyles(_ref2) {
     var widthProp = "clientWidth";
     if (offsetParent === getWindow(popper2)) {
       offsetParent = getDocumentElement(popper2);
-      if (getComputedStyle$1(offsetParent).position !== "static" && position === "absolute") {
+      if (
+        getComputedStyle$1(offsetParent).position !== "static" &&
+        position === "absolute"
+      ) {
         heightProp = "scrollHeight";
         widthProp = "scrollWidth";
       }
     }
     offsetParent = offsetParent;
-    if (placement === top || (placement === left || placement === right) && variation === end) {
+    if (
+      placement === top ||
+      ((placement === left || placement === right) && variation === end)
+    ) {
       sideY = bottom;
-      var offsetY = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.height : (
-        // $FlowFixMe[prop-missing]
-        offsetParent[heightProp]
-      );
+      var offsetY =
+        isFixed && offsetParent === win && win.visualViewport
+          ? win.visualViewport.height
+          : // $FlowFixMe[prop-missing]
+            offsetParent[heightProp];
       y -= offsetY - popperRect.height;
       y *= gpuAcceleration ? 1 : -1;
     }
-    if (placement === left || (placement === top || placement === bottom) && variation === end) {
+    if (
+      placement === left ||
+      ((placement === top || placement === bottom) && variation === end)
+    ) {
       sideX = right;
-      var offsetX = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.width : (
-        // $FlowFixMe[prop-missing]
-        offsetParent[widthProp]
-      );
+      var offsetX =
+        isFixed && offsetParent === win && win.visualViewport
+          ? win.visualViewport.width
+          : // $FlowFixMe[prop-missing]
+            offsetParent[widthProp];
       x -= offsetX - popperRect.width;
       x *= gpuAcceleration ? 1 : -1;
     }
   }
-  var commonStyles = Object.assign({
-    position
-  }, adaptive && unsetSides);
-  var _ref4 = roundOffsets === true ? roundOffsetsByDPR({
-    x,
-    y
-  }) : {
-    x,
-    y
-  };
+  var commonStyles = Object.assign(
+    {
+      position,
+    },
+    adaptive && unsetSides
+  );
+  var _ref4 =
+    roundOffsets === true
+      ? roundOffsetsByDPR({
+          x,
+          y,
+        })
+      : {
+          x,
+          y,
+        };
   x = _ref4.x;
   y = _ref4.y;
   if (gpuAcceleration) {
     var _Object$assign;
-    return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? "0" : "", _Object$assign[sideX] = hasX ? "0" : "", _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
+    return Object.assign(
+      {},
+      commonStyles,
+      ((_Object$assign = {}),
+      (_Object$assign[sideY] = hasY ? "0" : ""),
+      (_Object$assign[sideX] = hasX ? "0" : ""),
+      (_Object$assign.transform =
+        (win.devicePixelRatio || 1) <= 1
+          ? "translate(" + x + "px, " + y + "px)"
+          : "translate3d(" + x + "px, " + y + "px, 0)"),
+      _Object$assign)
+    );
   }
-  return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y + "px" : "", _Object$assign2[sideX] = hasX ? x + "px" : "", _Object$assign2.transform = "", _Object$assign2));
+  return Object.assign(
+    {},
+    commonStyles,
+    ((_Object$assign2 = {}),
+    (_Object$assign2[sideY] = hasY ? y + "px" : ""),
+    (_Object$assign2[sideX] = hasX ? x + "px" : ""),
+    (_Object$assign2.transform = ""),
+    _Object$assign2)
+  );
 }
 function computeStyles(_ref5) {
-  var state = _ref5.state, options = _ref5.options;
-  var _options$gpuAccelerat = options.gpuAcceleration, gpuAcceleration = _options$gpuAccelerat === void 0 ? true : _options$gpuAccelerat, _options$adaptive = options.adaptive, adaptive = _options$adaptive === void 0 ? true : _options$adaptive, _options$roundOffsets = options.roundOffsets, roundOffsets = _options$roundOffsets === void 0 ? true : _options$roundOffsets;
+  var state = _ref5.state,
+    options = _ref5.options;
+  var _options$gpuAccelerat = options.gpuAcceleration,
+    gpuAcceleration =
+      _options$gpuAccelerat === void 0 ? true : _options$gpuAccelerat,
+    _options$adaptive = options.adaptive,
+    adaptive = _options$adaptive === void 0 ? true : _options$adaptive,
+    _options$roundOffsets = options.roundOffsets,
+    roundOffsets =
+      _options$roundOffsets === void 0 ? true : _options$roundOffsets;
   var commonStyles = {
     placement: getBasePlacement(state.placement),
     variation: getVariation(state.placement),
     popper: state.elements.popper,
     popperRect: state.rects.popper,
     gpuAcceleration,
-    isFixed: state.options.strategy === "fixed"
+    isFixed: state.options.strategy === "fixed",
   };
   if (state.modifiersData.popperOffsets != null) {
-    state.styles.popper = Object.assign({}, state.styles.popper, mapToStyles(Object.assign({}, commonStyles, {
-      offsets: state.modifiersData.popperOffsets,
-      position: state.options.strategy,
-      adaptive,
-      roundOffsets
-    })));
+    state.styles.popper = Object.assign(
+      {},
+      state.styles.popper,
+      mapToStyles(
+        Object.assign({}, commonStyles, {
+          offsets: state.modifiersData.popperOffsets,
+          position: state.options.strategy,
+          adaptive,
+          roundOffsets,
+        })
+      )
+    );
   }
   if (state.modifiersData.arrow != null) {
-    state.styles.arrow = Object.assign({}, state.styles.arrow, mapToStyles(Object.assign({}, commonStyles, {
-      offsets: state.modifiersData.arrow,
-      position: "absolute",
-      adaptive: false,
-      roundOffsets
-    })));
+    state.styles.arrow = Object.assign(
+      {},
+      state.styles.arrow,
+      mapToStyles(
+        Object.assign({}, commonStyles, {
+          offsets: state.modifiersData.arrow,
+          position: "absolute",
+          adaptive: false,
+          roundOffsets,
+        })
+      )
+    );
   }
   state.attributes.popper = Object.assign({}, state.attributes.popper, {
-    "data-popper-placement": state.placement
+    "data-popper-placement": state.placement,
   });
 }
 const computeStyles$1 = {
@@ -480,27 +640,35 @@ const computeStyles$1 = {
   enabled: true,
   phase: "beforeWrite",
   fn: computeStyles,
-  data: {}
+  data: {},
 };
 var passive = {
-  passive: true
+  passive: true,
 };
 function effect(_ref) {
-  var state = _ref.state, instance = _ref.instance, options = _ref.options;
-  var _options$scroll = options.scroll, scroll = _options$scroll === void 0 ? true : _options$scroll, _options$resize = options.resize, resize = _options$resize === void 0 ? true : _options$resize;
+  var state = _ref.state,
+    instance = _ref.instance,
+    options = _ref.options;
+  var _options$scroll = options.scroll,
+    scroll = _options$scroll === void 0 ? true : _options$scroll,
+    _options$resize = options.resize,
+    resize = _options$resize === void 0 ? true : _options$resize;
   var window2 = getWindow(state.elements.popper);
-  var scrollParents = [].concat(state.scrollParents.reference, state.scrollParents.popper);
+  var scrollParents = [].concat(
+    state.scrollParents.reference,
+    state.scrollParents.popper
+  );
   if (scroll) {
-    scrollParents.forEach(function(scrollParent) {
+    scrollParents.forEach(function (scrollParent) {
       scrollParent.addEventListener("scroll", instance.update, passive);
     });
   }
   if (resize) {
     window2.addEventListener("resize", instance.update, passive);
   }
-  return function() {
+  return function () {
     if (scroll) {
-      scrollParents.forEach(function(scrollParent) {
+      scrollParents.forEach(function (scrollParent) {
         scrollParent.removeEventListener("scroll", instance.update, passive);
       });
     }
@@ -513,28 +681,27 @@ const eventListeners = {
   name: "eventListeners",
   enabled: true,
   phase: "write",
-  fn: function fn() {
-  },
+  fn: function fn() {},
   effect,
-  data: {}
+  data: {},
 };
 var hash$1 = {
   left: "right",
   right: "left",
   bottom: "top",
-  top: "bottom"
+  top: "bottom",
 };
 function getOppositePlacement(placement) {
-  return placement.replace(/left|right|bottom|top/g, function(matched) {
+  return placement.replace(/left|right|bottom|top/g, function (matched) {
     return hash$1[matched];
   });
 }
 var hash = {
   start: "end",
-  end: "start"
+  end: "start",
 };
 function getOppositeVariationPlacement(placement) {
-  return placement.replace(/start|end/g, function(matched) {
+  return placement.replace(/start|end/g, function (matched) {
     return hash[matched];
   });
 }
@@ -544,11 +711,14 @@ function getWindowScroll(node) {
   var scrollTop = win.pageYOffset;
   return {
     scrollLeft,
-    scrollTop
+    scrollTop,
   };
 }
 function getWindowScrollBarX(element) {
-  return getBoundingClientRect(getDocumentElement(element)).left + getWindowScroll(element).scrollLeft;
+  return (
+    getBoundingClientRect(getDocumentElement(element)).left +
+    getWindowScroll(element).scrollLeft
+  );
 }
 function getViewportRect(element, strategy) {
   var win = getWindow(element);
@@ -562,7 +732,7 @@ function getViewportRect(element, strategy) {
     width = visualViewport.width;
     height = visualViewport.height;
     var layoutViewport = isLayoutViewport();
-    if (layoutViewport || !layoutViewport && strategy === "fixed") {
+    if (layoutViewport || (!layoutViewport && strategy === "fixed")) {
       x = visualViewport.offsetLeft;
       y = visualViewport.offsetTop;
     }
@@ -571,16 +741,29 @@ function getViewportRect(element, strategy) {
     width,
     height,
     x: x + getWindowScrollBarX(element),
-    y
+    y,
   };
 }
 function getDocumentRect(element) {
   var _element$ownerDocumen;
   var html = getDocumentElement(element);
   var winScroll = getWindowScroll(element);
-  var body = (_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body;
-  var width = max$1(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
-  var height = max$1(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
+  var body =
+    (_element$ownerDocumen = element.ownerDocument) == null
+      ? void 0
+      : _element$ownerDocumen.body;
+  var width = max$1(
+    html.scrollWidth,
+    html.clientWidth,
+    body ? body.scrollWidth : 0,
+    body ? body.clientWidth : 0
+  );
+  var height = max$1(
+    html.scrollHeight,
+    html.clientHeight,
+    body ? body.scrollHeight : 0,
+    body ? body.clientHeight : 0
+  );
   var x = -winScroll.scrollLeft + getWindowScrollBarX(element);
   var y = -winScroll.scrollTop;
   if (getComputedStyle$1(body || html).direction === "rtl") {
@@ -590,11 +773,14 @@ function getDocumentRect(element) {
     width,
     height,
     x,
-    y
+    y,
   };
 }
 function isScrollParent(element) {
-  var _getComputedStyle = getComputedStyle$1(element), overflow = _getComputedStyle.overflow, overflowX = _getComputedStyle.overflowX, overflowY = _getComputedStyle.overflowY;
+  var _getComputedStyle = getComputedStyle$1(element),
+    overflow = _getComputedStyle.overflow,
+    overflowX = _getComputedStyle.overflowX,
+    overflowY = _getComputedStyle.overflowY;
   return /auto|scroll|overlay|hidden/.test(overflow + overflowY + overflowX);
 }
 function getScrollParent(node) {
@@ -612,21 +798,30 @@ function listScrollParents(element, list) {
     list = [];
   }
   var scrollParent = getScrollParent(element);
-  var isBody = scrollParent === ((_element$ownerDocumen = element.ownerDocument) == null ? void 0 : _element$ownerDocumen.body);
+  var isBody =
+    scrollParent ===
+    ((_element$ownerDocumen = element.ownerDocument) == null
+      ? void 0
+      : _element$ownerDocumen.body);
   var win = getWindow(scrollParent);
-  var target = isBody ? [win].concat(win.visualViewport || [], isScrollParent(scrollParent) ? scrollParent : []) : scrollParent;
+  var target = isBody
+    ? [win].concat(
+        win.visualViewport || [],
+        isScrollParent(scrollParent) ? scrollParent : []
+      )
+    : scrollParent;
   var updatedList = list.concat(target);
-  return isBody ? updatedList : (
-    // $FlowFixMe[incompatible-call]: isBody tells us target will be an HTMLElement here
-    updatedList.concat(listScrollParents(getParentNode(target)))
-  );
+  return isBody
+    ? updatedList
+    : // $FlowFixMe[incompatible-call]: isBody tells us target will be an HTMLElement here
+      updatedList.concat(listScrollParents(getParentNode(target)));
 }
 function rectToClientRect(rect2) {
   return Object.assign({}, rect2, {
     left: rect2.x,
     top: rect2.y,
     right: rect2.x + rect2.width,
-    bottom: rect2.y + rect2.height
+    bottom: rect2.y + rect2.height,
   });
 }
 function getInnerBoundingClientRect(element, strategy) {
@@ -642,31 +837,50 @@ function getInnerBoundingClientRect(element, strategy) {
   return rect2;
 }
 function getClientRectFromMixedType(element, clippingParent, strategy) {
-  return clippingParent === viewport ? rectToClientRect(getViewportRect(element, strategy)) : isElement(clippingParent) ? getInnerBoundingClientRect(clippingParent, strategy) : rectToClientRect(getDocumentRect(getDocumentElement(element)));
+  return clippingParent === viewport
+    ? rectToClientRect(getViewportRect(element, strategy))
+    : isElement(clippingParent)
+    ? getInnerBoundingClientRect(clippingParent, strategy)
+    : rectToClientRect(getDocumentRect(getDocumentElement(element)));
 }
 function getClippingParents(element) {
   var clippingParents2 = listScrollParents(getParentNode(element));
-  var canEscapeClipping = ["absolute", "fixed"].indexOf(getComputedStyle$1(element).position) >= 0;
-  var clipperElement = canEscapeClipping && isHTMLElement$1(element) ? getOffsetParent(element) : element;
+  var canEscapeClipping =
+    ["absolute", "fixed"].indexOf(getComputedStyle$1(element).position) >= 0;
+  var clipperElement =
+    canEscapeClipping && isHTMLElement$1(element)
+      ? getOffsetParent(element)
+      : element;
   if (!isElement(clipperElement)) {
     return [];
   }
-  return clippingParents2.filter(function(clippingParent) {
-    return isElement(clippingParent) && contains(clippingParent, clipperElement) && getNodeName(clippingParent) !== "body";
+  return clippingParents2.filter(function (clippingParent) {
+    return (
+      isElement(clippingParent) &&
+      contains(clippingParent, clipperElement) &&
+      getNodeName(clippingParent) !== "body"
+    );
   });
 }
 function getClippingRect(element, boundary, rootBoundary, strategy) {
-  var mainClippingParents = boundary === "clippingParents" ? getClippingParents(element) : [].concat(boundary);
+  var mainClippingParents =
+    boundary === "clippingParents"
+      ? getClippingParents(element)
+      : [].concat(boundary);
   var clippingParents2 = [].concat(mainClippingParents, [rootBoundary]);
   var firstClippingParent = clippingParents2[0];
-  var clippingRect = clippingParents2.reduce(function(accRect, clippingParent) {
+  var clippingRect = clippingParents2.reduce(function (
+    accRect,
+    clippingParent
+  ) {
     var rect2 = getClientRectFromMixedType(element, clippingParent, strategy);
     accRect.top = max$1(rect2.top, accRect.top);
     accRect.right = min$1(rect2.right, accRect.right);
     accRect.bottom = min$1(rect2.bottom, accRect.bottom);
     accRect.left = max$1(rect2.left, accRect.left);
     return accRect;
-  }, getClientRectFromMixedType(element, firstClippingParent, strategy));
+  },
+  getClientRectFromMixedType(element, firstClippingParent, strategy));
   clippingRect.width = clippingRect.right - clippingRect.left;
   clippingRect.height = clippingRect.bottom - clippingRect.top;
   clippingRect.x = clippingRect.left;
@@ -674,7 +888,9 @@ function getClippingRect(element, boundary, rootBoundary, strategy) {
   return clippingRect;
 }
 function computeOffsets(_ref) {
-  var reference2 = _ref.reference, element = _ref.element, placement = _ref.placement;
+  var reference2 = _ref.reference,
+    element = _ref.element,
+    placement = _ref.placement;
   var basePlacement = placement ? getBasePlacement(placement) : null;
   var variation = placement ? getVariation(placement) : null;
   var commonX = reference2.x + reference2.width / 2 - element.width / 2;
@@ -684,31 +900,31 @@ function computeOffsets(_ref) {
     case top:
       offsets = {
         x: commonX,
-        y: reference2.y - element.height
+        y: reference2.y - element.height,
       };
       break;
     case bottom:
       offsets = {
         x: commonX,
-        y: reference2.y + reference2.height
+        y: reference2.y + reference2.height,
       };
       break;
     case right:
       offsets = {
         x: reference2.x + reference2.width,
-        y: commonY
+        y: commonY,
       };
       break;
     case left:
       offsets = {
         x: reference2.x - element.width,
-        y: commonY
+        y: commonY,
       };
       break;
     default:
       offsets = {
         x: reference2.x,
-        y: reference2.y
+        y: reference2.y,
       };
   }
   var mainAxis = basePlacement ? getMainAxisFromPlacement(basePlacement) : null;
@@ -716,10 +932,12 @@ function computeOffsets(_ref) {
     var len = mainAxis === "y" ? "height" : "width";
     switch (variation) {
       case start:
-        offsets[mainAxis] = offsets[mainAxis] - (reference2[len] / 2 - element[len] / 2);
+        offsets[mainAxis] =
+          offsets[mainAxis] - (reference2[len] / 2 - element[len] / 2);
         break;
       case end:
-        offsets[mainAxis] = offsets[mainAxis] + (reference2[len] / 2 - element[len] / 2);
+        offsets[mainAxis] =
+          offsets[mainAxis] + (reference2[len] / 2 - element[len] / 2);
         break;
     }
   }
@@ -729,31 +947,69 @@ function detectOverflow(state, options) {
   if (options === void 0) {
     options = {};
   }
-  var _options = options, _options$placement = _options.placement, placement = _options$placement === void 0 ? state.placement : _options$placement, _options$strategy = _options.strategy, strategy = _options$strategy === void 0 ? state.strategy : _options$strategy, _options$boundary = _options.boundary, boundary = _options$boundary === void 0 ? clippingParents : _options$boundary, _options$rootBoundary = _options.rootBoundary, rootBoundary = _options$rootBoundary === void 0 ? viewport : _options$rootBoundary, _options$elementConte = _options.elementContext, elementContext = _options$elementConte === void 0 ? popper : _options$elementConte, _options$altBoundary = _options.altBoundary, altBoundary = _options$altBoundary === void 0 ? false : _options$altBoundary, _options$padding = _options.padding, padding = _options$padding === void 0 ? 0 : _options$padding;
-  var paddingObject = mergePaddingObject(typeof padding !== "number" ? padding : expandToHashMap(padding, basePlacements));
+  var _options = options,
+    _options$placement = _options.placement,
+    placement =
+      _options$placement === void 0 ? state.placement : _options$placement,
+    _options$strategy = _options.strategy,
+    strategy =
+      _options$strategy === void 0 ? state.strategy : _options$strategy,
+    _options$boundary = _options.boundary,
+    boundary =
+      _options$boundary === void 0 ? clippingParents : _options$boundary,
+    _options$rootBoundary = _options.rootBoundary,
+    rootBoundary =
+      _options$rootBoundary === void 0 ? viewport : _options$rootBoundary,
+    _options$elementConte = _options.elementContext,
+    elementContext =
+      _options$elementConte === void 0 ? popper : _options$elementConte,
+    _options$altBoundary = _options.altBoundary,
+    altBoundary =
+      _options$altBoundary === void 0 ? false : _options$altBoundary,
+    _options$padding = _options.padding,
+    padding = _options$padding === void 0 ? 0 : _options$padding;
+  var paddingObject = mergePaddingObject(
+    typeof padding !== "number"
+      ? padding
+      : expandToHashMap(padding, basePlacements)
+  );
   var altContext = elementContext === popper ? reference : popper;
   var popperRect = state.rects.popper;
   var element = state.elements[altBoundary ? altContext : elementContext];
-  var clippingClientRect = getClippingRect(isElement(element) ? element : element.contextElement || getDocumentElement(state.elements.popper), boundary, rootBoundary, strategy);
+  var clippingClientRect = getClippingRect(
+    isElement(element)
+      ? element
+      : element.contextElement || getDocumentElement(state.elements.popper),
+    boundary,
+    rootBoundary,
+    strategy
+  );
   var referenceClientRect = getBoundingClientRect(state.elements.reference);
   var popperOffsets2 = computeOffsets({
     reference: referenceClientRect,
     element: popperRect,
     strategy: "absolute",
-    placement
+    placement,
   });
-  var popperClientRect = rectToClientRect(Object.assign({}, popperRect, popperOffsets2));
-  var elementClientRect = elementContext === popper ? popperClientRect : referenceClientRect;
+  var popperClientRect = rectToClientRect(
+    Object.assign({}, popperRect, popperOffsets2)
+  );
+  var elementClientRect =
+    elementContext === popper ? popperClientRect : referenceClientRect;
   var overflowOffsets = {
     top: clippingClientRect.top - elementClientRect.top + paddingObject.top,
-    bottom: elementClientRect.bottom - clippingClientRect.bottom + paddingObject.bottom,
+    bottom:
+      elementClientRect.bottom -
+      clippingClientRect.bottom +
+      paddingObject.bottom,
     left: clippingClientRect.left - elementClientRect.left + paddingObject.left,
-    right: elementClientRect.right - clippingClientRect.right + paddingObject.right
+    right:
+      elementClientRect.right - clippingClientRect.right + paddingObject.right,
   };
   var offsetData = state.modifiersData.offset;
   if (elementContext === popper && offsetData) {
     var offset2 = offsetData[placement];
-    Object.keys(overflowOffsets).forEach(function(key) {
+    Object.keys(overflowOffsets).forEach(function (key) {
       var multiply = [right, bottom].indexOf(key) >= 0 ? 1 : -1;
       var axis = [top, bottom].indexOf(key) >= 0 ? "y" : "x";
       overflowOffsets[key] += offset2[axis] * multiply;
@@ -765,27 +1021,39 @@ function computeAutoPlacement(state, options) {
   if (options === void 0) {
     options = {};
   }
-  var _options = options, placement = _options.placement, boundary = _options.boundary, rootBoundary = _options.rootBoundary, padding = _options.padding, flipVariations = _options.flipVariations, _options$allowedAutoP = _options.allowedAutoPlacements, allowedAutoPlacements = _options$allowedAutoP === void 0 ? placements : _options$allowedAutoP;
+  var _options = options,
+    placement = _options.placement,
+    boundary = _options.boundary,
+    rootBoundary = _options.rootBoundary,
+    padding = _options.padding,
+    flipVariations = _options.flipVariations,
+    _options$allowedAutoP = _options.allowedAutoPlacements,
+    allowedAutoPlacements =
+      _options$allowedAutoP === void 0 ? placements : _options$allowedAutoP;
   var variation = getVariation(placement);
-  var placements$1 = variation ? flipVariations ? variationPlacements : variationPlacements.filter(function(placement2) {
-    return getVariation(placement2) === variation;
-  }) : basePlacements;
-  var allowedPlacements = placements$1.filter(function(placement2) {
+  var placements$1 = variation
+    ? flipVariations
+      ? variationPlacements
+      : variationPlacements.filter(function (placement2) {
+          return getVariation(placement2) === variation;
+        })
+    : basePlacements;
+  var allowedPlacements = placements$1.filter(function (placement2) {
     return allowedAutoPlacements.indexOf(placement2) >= 0;
   });
   if (allowedPlacements.length === 0) {
     allowedPlacements = placements$1;
   }
-  var overflows = allowedPlacements.reduce(function(acc, placement2) {
+  var overflows = allowedPlacements.reduce(function (acc, placement2) {
     acc[placement2] = detectOverflow(state, {
       placement: placement2,
       boundary,
       rootBoundary,
-      padding
+      padding,
     })[getBasePlacement(placement2)];
     return acc;
   }, {});
-  return Object.keys(overflows).sort(function(a, b) {
+  return Object.keys(overflows).sort(function (a, b) {
     return overflows[a] - overflows[b];
   });
 }
@@ -794,28 +1062,56 @@ function getExpandedFallbackPlacements(placement) {
     return [];
   }
   var oppositePlacement = getOppositePlacement(placement);
-  return [getOppositeVariationPlacement(placement), oppositePlacement, getOppositeVariationPlacement(oppositePlacement)];
+  return [
+    getOppositeVariationPlacement(placement),
+    oppositePlacement,
+    getOppositeVariationPlacement(oppositePlacement),
+  ];
 }
 function flip(_ref) {
-  var state = _ref.state, options = _ref.options, name = _ref.name;
+  var state = _ref.state,
+    options = _ref.options,
+    name = _ref.name;
   if (state.modifiersData[name]._skip) {
     return;
   }
-  var _options$mainAxis = options.mainAxis, checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis, _options$altAxis = options.altAxis, checkAltAxis = _options$altAxis === void 0 ? true : _options$altAxis, specifiedFallbackPlacements = options.fallbackPlacements, padding = options.padding, boundary = options.boundary, rootBoundary = options.rootBoundary, altBoundary = options.altBoundary, _options$flipVariatio = options.flipVariations, flipVariations = _options$flipVariatio === void 0 ? true : _options$flipVariatio, allowedAutoPlacements = options.allowedAutoPlacements;
+  var _options$mainAxis = options.mainAxis,
+    checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis,
+    _options$altAxis = options.altAxis,
+    checkAltAxis = _options$altAxis === void 0 ? true : _options$altAxis,
+    specifiedFallbackPlacements = options.fallbackPlacements,
+    padding = options.padding,
+    boundary = options.boundary,
+    rootBoundary = options.rootBoundary,
+    altBoundary = options.altBoundary,
+    _options$flipVariatio = options.flipVariations,
+    flipVariations =
+      _options$flipVariatio === void 0 ? true : _options$flipVariatio,
+    allowedAutoPlacements = options.allowedAutoPlacements;
   var preferredPlacement = state.options.placement;
   var basePlacement = getBasePlacement(preferredPlacement);
   var isBasePlacement = basePlacement === preferredPlacement;
-  var fallbackPlacements = specifiedFallbackPlacements || (isBasePlacement || !flipVariations ? [getOppositePlacement(preferredPlacement)] : getExpandedFallbackPlacements(preferredPlacement));
-  var placements2 = [preferredPlacement].concat(fallbackPlacements).reduce(function(acc, placement2) {
-    return acc.concat(getBasePlacement(placement2) === auto ? computeAutoPlacement(state, {
-      placement: placement2,
-      boundary,
-      rootBoundary,
-      padding,
-      flipVariations,
-      allowedAutoPlacements
-    }) : placement2);
-  }, []);
+  var fallbackPlacements =
+    specifiedFallbackPlacements ||
+    (isBasePlacement || !flipVariations
+      ? [getOppositePlacement(preferredPlacement)]
+      : getExpandedFallbackPlacements(preferredPlacement));
+  var placements2 = [preferredPlacement]
+    .concat(fallbackPlacements)
+    .reduce(function (acc, placement2) {
+      return acc.concat(
+        getBasePlacement(placement2) === auto
+          ? computeAutoPlacement(state, {
+              placement: placement2,
+              boundary,
+              rootBoundary,
+              padding,
+              flipVariations,
+              allowedAutoPlacements,
+            })
+          : placement2
+      );
+    }, []);
   var referenceRect = state.rects.reference;
   var popperRect = state.rects.popper;
   var checksMap = /* @__PURE__ */ new Map();
@@ -832,9 +1128,15 @@ function flip(_ref) {
       boundary,
       rootBoundary,
       altBoundary,
-      padding
+      padding,
     });
-    var mainVariationSide = isVertical ? isStartVariation ? right : left : isStartVariation ? bottom : top;
+    var mainVariationSide = isVertical
+      ? isStartVariation
+        ? right
+        : left
+      : isStartVariation
+      ? bottom
+      : top;
     if (referenceRect[len] > popperRect[len]) {
       mainVariationSide = getOppositePlacement(mainVariationSide);
     }
@@ -844,11 +1146,16 @@ function flip(_ref) {
       checks.push(overflow[_basePlacement] <= 0);
     }
     if (checkAltAxis) {
-      checks.push(overflow[mainVariationSide] <= 0, overflow[altVariationSide] <= 0);
+      checks.push(
+        overflow[mainVariationSide] <= 0,
+        overflow[altVariationSide] <= 0
+      );
     }
-    if (checks.every(function(check) {
-      return check;
-    })) {
+    if (
+      checks.every(function (check) {
+        return check;
+      })
+    ) {
       firstFittingPlacement = placement;
       makeFallbackChecks = false;
       break;
@@ -858,10 +1165,10 @@ function flip(_ref) {
   if (makeFallbackChecks) {
     var numberOfChecks = flipVariations ? 3 : 1;
     var _loop = function _loop2(_i2) {
-      var fittingPlacement = placements2.find(function(placement2) {
+      var fittingPlacement = placements2.find(function (placement2) {
         var checks2 = checksMap.get(placement2);
         if (checks2) {
-          return checks2.slice(0, _i2).every(function(check) {
+          return checks2.slice(0, _i2).every(function (check) {
             return check;
           });
         }
@@ -873,8 +1180,7 @@ function flip(_ref) {
     };
     for (var _i = numberOfChecks; _i > 0; _i--) {
       var _ret = _loop(_i);
-      if (_ret === "break")
-        break;
+      if (_ret === "break") break;
     }
   }
   if (state.placement !== firstFittingPlacement) {
@@ -890,52 +1196,60 @@ const flip$1 = {
   fn: flip,
   requiresIfExists: ["offset"],
   data: {
-    _skip: false
-  }
+    _skip: false,
+  },
 };
 function getSideOffsets(overflow, rect2, preventedOffsets) {
   if (preventedOffsets === void 0) {
     preventedOffsets = {
       x: 0,
-      y: 0
+      y: 0,
     };
   }
   return {
     top: overflow.top - rect2.height - preventedOffsets.y,
     right: overflow.right - rect2.width + preventedOffsets.x,
     bottom: overflow.bottom - rect2.height + preventedOffsets.y,
-    left: overflow.left - rect2.width - preventedOffsets.x
+    left: overflow.left - rect2.width - preventedOffsets.x,
   };
 }
 function isAnySideFullyClipped(overflow) {
-  return [top, right, bottom, left].some(function(side) {
+  return [top, right, bottom, left].some(function (side) {
     return overflow[side] >= 0;
   });
 }
 function hide(_ref) {
-  var state = _ref.state, name = _ref.name;
+  var state = _ref.state,
+    name = _ref.name;
   var referenceRect = state.rects.reference;
   var popperRect = state.rects.popper;
   var preventedOffsets = state.modifiersData.preventOverflow;
   var referenceOverflow = detectOverflow(state, {
-    elementContext: "reference"
+    elementContext: "reference",
   });
   var popperAltOverflow = detectOverflow(state, {
-    altBoundary: true
+    altBoundary: true,
   });
-  var referenceClippingOffsets = getSideOffsets(referenceOverflow, referenceRect);
-  var popperEscapeOffsets = getSideOffsets(popperAltOverflow, popperRect, preventedOffsets);
+  var referenceClippingOffsets = getSideOffsets(
+    referenceOverflow,
+    referenceRect
+  );
+  var popperEscapeOffsets = getSideOffsets(
+    popperAltOverflow,
+    popperRect,
+    preventedOffsets
+  );
   var isReferenceHidden = isAnySideFullyClipped(referenceClippingOffsets);
   var hasPopperEscaped = isAnySideFullyClipped(popperEscapeOffsets);
   state.modifiersData[name] = {
     referenceClippingOffsets,
     popperEscapeOffsets,
     isReferenceHidden,
-    hasPopperEscaped
+    hasPopperEscaped,
   };
   state.attributes.popper = Object.assign({}, state.attributes.popper, {
     "data-popper-reference-hidden": isReferenceHidden,
-    "data-popper-escaped": hasPopperEscaped
+    "data-popper-escaped": hasPopperEscaped,
   });
 }
 const hide$1 = {
@@ -943,32 +1257,46 @@ const hide$1 = {
   enabled: true,
   phase: "main",
   requiresIfExists: ["preventOverflow"],
-  fn: hide
+  fn: hide,
 };
 function distanceAndSkiddingToXY(placement, rects, offset2) {
   var basePlacement = getBasePlacement(placement);
   var invertDistance = [left, top].indexOf(basePlacement) >= 0 ? -1 : 1;
-  var _ref = typeof offset2 === "function" ? offset2(Object.assign({}, rects, {
-    placement
-  })) : offset2, skidding = _ref[0], distance = _ref[1];
+  var _ref =
+      typeof offset2 === "function"
+        ? offset2(
+            Object.assign({}, rects, {
+              placement,
+            })
+          )
+        : offset2,
+    skidding = _ref[0],
+    distance = _ref[1];
   skidding = skidding || 0;
   distance = (distance || 0) * invertDistance;
-  return [left, right].indexOf(basePlacement) >= 0 ? {
-    x: distance,
-    y: skidding
-  } : {
-    x: skidding,
-    y: distance
-  };
+  return [left, right].indexOf(basePlacement) >= 0
+    ? {
+        x: distance,
+        y: skidding,
+      }
+    : {
+        x: skidding,
+        y: distance,
+      };
 }
 function offset(_ref2) {
-  var state = _ref2.state, options = _ref2.options, name = _ref2.name;
-  var _options$offset = options.offset, offset2 = _options$offset === void 0 ? [0, 0] : _options$offset;
-  var data = placements.reduce(function(acc, placement) {
+  var state = _ref2.state,
+    options = _ref2.options,
+    name = _ref2.name;
+  var _options$offset = options.offset,
+    offset2 = _options$offset === void 0 ? [0, 0] : _options$offset;
+  var data = placements.reduce(function (acc, placement) {
     acc[placement] = distanceAndSkiddingToXY(placement, state.rects, offset2);
     return acc;
   }, {});
-  var _data$state$placement = data[state.placement], x = _data$state$placement.x, y = _data$state$placement.y;
+  var _data$state$placement = data[state.placement],
+    x = _data$state$placement.x,
+    y = _data$state$placement.y;
   if (state.modifiersData.popperOffsets != null) {
     state.modifiersData.popperOffsets.x += x;
     state.modifiersData.popperOffsets.y += y;
@@ -980,15 +1308,16 @@ const offset$1 = {
   enabled: true,
   phase: "main",
   requires: ["popperOffsets"],
-  fn: offset
+  fn: offset,
 };
 function popperOffsets(_ref) {
-  var state = _ref.state, name = _ref.name;
+  var state = _ref.state,
+    name = _ref.name;
   state.modifiersData[name] = computeOffsets({
     reference: state.rects.reference,
     element: state.rects.popper,
     strategy: "absolute",
-    placement: state.placement
+    placement: state.placement,
   });
 }
 const popperOffsets$1 = {
@@ -996,19 +1325,32 @@ const popperOffsets$1 = {
   enabled: true,
   phase: "read",
   fn: popperOffsets,
-  data: {}
+  data: {},
 };
 function getAltAxis(axis) {
   return axis === "x" ? "y" : "x";
 }
 function preventOverflow(_ref) {
-  var state = _ref.state, options = _ref.options, name = _ref.name;
-  var _options$mainAxis = options.mainAxis, checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis, _options$altAxis = options.altAxis, checkAltAxis = _options$altAxis === void 0 ? false : _options$altAxis, boundary = options.boundary, rootBoundary = options.rootBoundary, altBoundary = options.altBoundary, padding = options.padding, _options$tether = options.tether, tether = _options$tether === void 0 ? true : _options$tether, _options$tetherOffset = options.tetherOffset, tetherOffset = _options$tetherOffset === void 0 ? 0 : _options$tetherOffset;
+  var state = _ref.state,
+    options = _ref.options,
+    name = _ref.name;
+  var _options$mainAxis = options.mainAxis,
+    checkMainAxis = _options$mainAxis === void 0 ? true : _options$mainAxis,
+    _options$altAxis = options.altAxis,
+    checkAltAxis = _options$altAxis === void 0 ? false : _options$altAxis,
+    boundary = options.boundary,
+    rootBoundary = options.rootBoundary,
+    altBoundary = options.altBoundary,
+    padding = options.padding,
+    _options$tether = options.tether,
+    tether = _options$tether === void 0 ? true : _options$tether,
+    _options$tetherOffset = options.tetherOffset,
+    tetherOffset = _options$tetherOffset === void 0 ? 0 : _options$tetherOffset;
   var overflow = detectOverflow(state, {
     boundary,
     rootBoundary,
     padding,
-    altBoundary
+    altBoundary,
   });
   var basePlacement = getBasePlacement(state.placement);
   var variation = getVariation(state.placement);
@@ -1018,20 +1360,33 @@ function preventOverflow(_ref) {
   var popperOffsets2 = state.modifiersData.popperOffsets;
   var referenceRect = state.rects.reference;
   var popperRect = state.rects.popper;
-  var tetherOffsetValue = typeof tetherOffset === "function" ? tetherOffset(Object.assign({}, state.rects, {
-    placement: state.placement
-  })) : tetherOffset;
-  var normalizedTetherOffsetValue = typeof tetherOffsetValue === "number" ? {
-    mainAxis: tetherOffsetValue,
-    altAxis: tetherOffsetValue
-  } : Object.assign({
-    mainAxis: 0,
-    altAxis: 0
-  }, tetherOffsetValue);
-  var offsetModifierState = state.modifiersData.offset ? state.modifiersData.offset[state.placement] : null;
+  var tetherOffsetValue =
+    typeof tetherOffset === "function"
+      ? tetherOffset(
+          Object.assign({}, state.rects, {
+            placement: state.placement,
+          })
+        )
+      : tetherOffset;
+  var normalizedTetherOffsetValue =
+    typeof tetherOffsetValue === "number"
+      ? {
+          mainAxis: tetherOffsetValue,
+          altAxis: tetherOffsetValue,
+        }
+      : Object.assign(
+          {
+            mainAxis: 0,
+            altAxis: 0,
+          },
+          tetherOffsetValue
+        );
+  var offsetModifierState = state.modifiersData.offset
+    ? state.modifiersData.offset[state.placement]
+    : null;
   var data = {
     x: 0,
-    y: 0
+    y: 0,
   };
   if (!popperOffsets2) {
     return;
@@ -1048,22 +1403,59 @@ function preventOverflow(_ref) {
     var minLen = variation === start ? referenceRect[len] : popperRect[len];
     var maxLen = variation === start ? -popperRect[len] : -referenceRect[len];
     var arrowElement = state.elements.arrow;
-    var arrowRect = tether && arrowElement ? getLayoutRect(arrowElement) : {
-      width: 0,
-      height: 0
-    };
-    var arrowPaddingObject = state.modifiersData["arrow#persistent"] ? state.modifiersData["arrow#persistent"].padding : getFreshSideObject();
+    var arrowRect =
+      tether && arrowElement
+        ? getLayoutRect(arrowElement)
+        : {
+            width: 0,
+            height: 0,
+          };
+    var arrowPaddingObject = state.modifiersData["arrow#persistent"]
+      ? state.modifiersData["arrow#persistent"].padding
+      : getFreshSideObject();
     var arrowPaddingMin = arrowPaddingObject[mainSide];
     var arrowPaddingMax = arrowPaddingObject[altSide];
     var arrowLen = within(0, referenceRect[len], arrowRect[len]);
-    var minOffset = isBasePlacement ? referenceRect[len] / 2 - additive - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis : minLen - arrowLen - arrowPaddingMin - normalizedTetherOffsetValue.mainAxis;
-    var maxOffset = isBasePlacement ? -referenceRect[len] / 2 + additive + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis : maxLen + arrowLen + arrowPaddingMax + normalizedTetherOffsetValue.mainAxis;
-    var arrowOffsetParent = state.elements.arrow && getOffsetParent(state.elements.arrow);
-    var clientOffset = arrowOffsetParent ? mainAxis === "y" ? arrowOffsetParent.clientTop || 0 : arrowOffsetParent.clientLeft || 0 : 0;
-    var offsetModifierValue = (_offsetModifierState$ = offsetModifierState == null ? void 0 : offsetModifierState[mainAxis]) != null ? _offsetModifierState$ : 0;
+    var minOffset = isBasePlacement
+      ? referenceRect[len] / 2 -
+        additive -
+        arrowLen -
+        arrowPaddingMin -
+        normalizedTetherOffsetValue.mainAxis
+      : minLen -
+        arrowLen -
+        arrowPaddingMin -
+        normalizedTetherOffsetValue.mainAxis;
+    var maxOffset = isBasePlacement
+      ? -referenceRect[len] / 2 +
+        additive +
+        arrowLen +
+        arrowPaddingMax +
+        normalizedTetherOffsetValue.mainAxis
+      : maxLen +
+        arrowLen +
+        arrowPaddingMax +
+        normalizedTetherOffsetValue.mainAxis;
+    var arrowOffsetParent =
+      state.elements.arrow && getOffsetParent(state.elements.arrow);
+    var clientOffset = arrowOffsetParent
+      ? mainAxis === "y"
+        ? arrowOffsetParent.clientTop || 0
+        : arrowOffsetParent.clientLeft || 0
+      : 0;
+    var offsetModifierValue =
+      (_offsetModifierState$ =
+        offsetModifierState == null ? void 0 : offsetModifierState[mainAxis]) !=
+      null
+        ? _offsetModifierState$
+        : 0;
     var tetherMin = offset2 + minOffset - offsetModifierValue - clientOffset;
     var tetherMax = offset2 + maxOffset - offsetModifierValue;
-    var preventedOffset = within(tether ? min$1(min2, tetherMin) : min2, offset2, tether ? max$1(max2, tetherMax) : max2);
+    var preventedOffset = within(
+      tether ? min$1(min2, tetherMin) : min2,
+      offset2,
+      tether ? max$1(max2, tetherMax) : max2
+    );
     popperOffsets2[mainAxis] = preventedOffset;
     data[mainAxis] = preventedOffset - offset2;
   }
@@ -1076,10 +1468,34 @@ function preventOverflow(_ref) {
     var _min = _offset + overflow[_mainSide];
     var _max = _offset - overflow[_altSide];
     var isOriginSide = [top, left].indexOf(basePlacement) !== -1;
-    var _offsetModifierValue = (_offsetModifierState$2 = offsetModifierState == null ? void 0 : offsetModifierState[altAxis]) != null ? _offsetModifierState$2 : 0;
-    var _tetherMin = isOriginSide ? _min : _offset - referenceRect[_len] - popperRect[_len] - _offsetModifierValue + normalizedTetherOffsetValue.altAxis;
-    var _tetherMax = isOriginSide ? _offset + referenceRect[_len] + popperRect[_len] - _offsetModifierValue - normalizedTetherOffsetValue.altAxis : _max;
-    var _preventedOffset = tether && isOriginSide ? withinMaxClamp(_tetherMin, _offset, _tetherMax) : within(tether ? _tetherMin : _min, _offset, tether ? _tetherMax : _max);
+    var _offsetModifierValue =
+      (_offsetModifierState$2 =
+        offsetModifierState == null ? void 0 : offsetModifierState[altAxis]) !=
+      null
+        ? _offsetModifierState$2
+        : 0;
+    var _tetherMin = isOriginSide
+      ? _min
+      : _offset -
+        referenceRect[_len] -
+        popperRect[_len] -
+        _offsetModifierValue +
+        normalizedTetherOffsetValue.altAxis;
+    var _tetherMax = isOriginSide
+      ? _offset +
+        referenceRect[_len] +
+        popperRect[_len] -
+        _offsetModifierValue -
+        normalizedTetherOffsetValue.altAxis
+      : _max;
+    var _preventedOffset =
+      tether && isOriginSide
+        ? withinMaxClamp(_tetherMin, _offset, _tetherMax)
+        : within(
+            tether ? _tetherMin : _min,
+            _offset,
+            tether ? _tetherMax : _max
+          );
     popperOffsets2[altAxis] = _preventedOffset;
     data[altAxis] = _preventedOffset - _offset;
   }
@@ -1090,12 +1506,12 @@ const preventOverflow$1 = {
   enabled: true,
   phase: "main",
   fn: preventOverflow,
-  requiresIfExists: ["offset"]
+  requiresIfExists: ["offset"],
 };
 function getHTMLElementScroll(element) {
   return {
     scrollLeft: element.scrollLeft,
-    scrollTop: element.scrollTop
+    scrollTop: element.scrollTop,
   };
 }
 function getNodeScroll(node) {
@@ -1116,20 +1532,27 @@ function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
     isFixed = false;
   }
   var isOffsetParentAnElement = isHTMLElement$1(offsetParent);
-  var offsetParentIsScaled = isHTMLElement$1(offsetParent) && isElementScaled(offsetParent);
+  var offsetParentIsScaled =
+    isHTMLElement$1(offsetParent) && isElementScaled(offsetParent);
   var documentElement = getDocumentElement(offsetParent);
-  var rect2 = getBoundingClientRect(elementOrVirtualElement, offsetParentIsScaled, isFixed);
+  var rect2 = getBoundingClientRect(
+    elementOrVirtualElement,
+    offsetParentIsScaled,
+    isFixed
+  );
   var scroll = {
     scrollLeft: 0,
-    scrollTop: 0
+    scrollTop: 0,
   };
   var offsets = {
     x: 0,
-    y: 0
+    y: 0,
   };
-  if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
-    if (getNodeName(offsetParent) !== "body" || // https://github.com/popperjs/popper-core/issues/1078
-    isScrollParent(documentElement)) {
+  if (isOffsetParentAnElement || (!isOffsetParentAnElement && !isFixed)) {
+    if (
+      getNodeName(offsetParent) !== "body" || // https://github.com/popperjs/popper-core/issues/1078
+      isScrollParent(documentElement)
+    ) {
       scroll = getNodeScroll(offsetParent);
     }
     if (isHTMLElement$1(offsetParent)) {
@@ -1144,20 +1567,23 @@ function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
     x: rect2.left + scroll.scrollLeft - offsets.x,
     y: rect2.top + scroll.scrollTop - offsets.y,
     width: rect2.width,
-    height: rect2.height
+    height: rect2.height,
   };
 }
 function order(modifiers) {
   var map = /* @__PURE__ */ new Map();
   var visited = /* @__PURE__ */ new Set();
   var result = [];
-  modifiers.forEach(function(modifier) {
+  modifiers.forEach(function (modifier) {
     map.set(modifier.name, modifier);
   });
   function sort(modifier) {
     visited.add(modifier.name);
-    var requires = [].concat(modifier.requires || [], modifier.requiresIfExists || []);
-    requires.forEach(function(dep) {
+    var requires = [].concat(
+      modifier.requires || [],
+      modifier.requiresIfExists || []
+    );
+    requires.forEach(function (dep) {
       if (!visited.has(dep)) {
         var depModifier = map.get(dep);
         if (depModifier) {
@@ -1167,7 +1593,7 @@ function order(modifiers) {
     });
     result.push(modifier);
   }
-  modifiers.forEach(function(modifier) {
+  modifiers.forEach(function (modifier) {
     if (!visited.has(modifier.name)) {
       sort(modifier);
     }
@@ -1176,18 +1602,20 @@ function order(modifiers) {
 }
 function orderModifiers(modifiers) {
   var orderedModifiers = order(modifiers);
-  return modifierPhases.reduce(function(acc, phase) {
-    return acc.concat(orderedModifiers.filter(function(modifier) {
-      return modifier.phase === phase;
-    }));
+  return modifierPhases.reduce(function (acc, phase) {
+    return acc.concat(
+      orderedModifiers.filter(function (modifier) {
+        return modifier.phase === phase;
+      })
+    );
   }, []);
 }
 function debounce(fn2) {
   var pending;
-  return function() {
+  return function () {
     if (!pending) {
-      pending = new Promise(function(resolve) {
-        Promise.resolve().then(function() {
+      pending = new Promise(function (resolve) {
+        Promise.resolve().then(function () {
           pending = void 0;
           resolve(fn2());
         });
@@ -1197,28 +1625,34 @@ function debounce(fn2) {
   };
 }
 function mergeByName(modifiers) {
-  var merged = modifiers.reduce(function(merged2, current) {
+  var merged = modifiers.reduce(function (merged2, current) {
     var existing = merged2[current.name];
-    merged2[current.name] = existing ? Object.assign({}, existing, current, {
-      options: Object.assign({}, existing.options, current.options),
-      data: Object.assign({}, existing.data, current.data)
-    }) : current;
+    merged2[current.name] = existing
+      ? Object.assign({}, existing, current, {
+          options: Object.assign({}, existing.options, current.options),
+          data: Object.assign({}, existing.data, current.data),
+        })
+      : current;
     return merged2;
   }, {});
-  return Object.keys(merged).map(function(key) {
+  return Object.keys(merged).map(function (key) {
     return merged[key];
   });
 }
 var DEFAULT_OPTIONS = {
   placement: "bottom",
   modifiers: [],
-  strategy: "absolute"
+  strategy: "absolute",
 };
 function areValidElements() {
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+  for (
+    var _len = arguments.length, args = new Array(_len), _key = 0;
+    _key < _len;
+    _key++
+  ) {
     args[_key] = arguments[_key];
   }
-  return !args.some(function(element) {
+  return !args.some(function (element) {
     return !(element && typeof element.getBoundingClientRect === "function");
   });
 }
@@ -1226,7 +1660,15 @@ function popperGenerator(generatorOptions) {
   if (generatorOptions === void 0) {
     generatorOptions = {};
   }
-  var _generatorOptions = generatorOptions, _generatorOptions$def = _generatorOptions.defaultModifiers, defaultModifiers2 = _generatorOptions$def === void 0 ? [] : _generatorOptions$def, _generatorOptions$def2 = _generatorOptions.defaultOptions, defaultOptions = _generatorOptions$def2 === void 0 ? DEFAULT_OPTIONS : _generatorOptions$def2;
+  var _generatorOptions = generatorOptions,
+    _generatorOptions$def = _generatorOptions.defaultModifiers,
+    defaultModifiers2 =
+      _generatorOptions$def === void 0 ? [] : _generatorOptions$def,
+    _generatorOptions$def2 = _generatorOptions.defaultOptions,
+    defaultOptions =
+      _generatorOptions$def2 === void 0
+        ? DEFAULT_OPTIONS
+        : _generatorOptions$def2;
   return function createPopper2(reference2, popper2, options) {
     if (options === void 0) {
       options = defaultOptions;
@@ -1238,25 +1680,39 @@ function popperGenerator(generatorOptions) {
       modifiersData: {},
       elements: {
         reference: reference2,
-        popper: popper2
+        popper: popper2,
       },
       attributes: {},
-      styles: {}
+      styles: {},
     };
     var effectCleanupFns = [];
     var isDestroyed = false;
     var instance = {
       state,
       setOptions: function setOptions(setOptionsAction) {
-        var options2 = typeof setOptionsAction === "function" ? setOptionsAction(state.options) : setOptionsAction;
+        var options2 =
+          typeof setOptionsAction === "function"
+            ? setOptionsAction(state.options)
+            : setOptionsAction;
         cleanupModifierEffects();
-        state.options = Object.assign({}, defaultOptions, state.options, options2);
+        state.options = Object.assign(
+          {},
+          defaultOptions,
+          state.options,
+          options2
+        );
         state.scrollParents = {
-          reference: isElement(reference2) ? listScrollParents(reference2) : reference2.contextElement ? listScrollParents(reference2.contextElement) : [],
-          popper: listScrollParents(popper2)
+          reference: isElement(reference2)
+            ? listScrollParents(reference2)
+            : reference2.contextElement
+            ? listScrollParents(reference2.contextElement)
+            : [],
+          popper: listScrollParents(popper2),
         };
-        var orderedModifiers = orderModifiers(mergeByName([].concat(defaultModifiers2, state.options.modifiers)));
-        state.orderedModifiers = orderedModifiers.filter(function(m) {
+        var orderedModifiers = orderModifiers(
+          mergeByName([].concat(defaultModifiers2, state.options.modifiers))
+        );
+        state.orderedModifiers = orderedModifiers.filter(function (m) {
           return m.enabled;
         });
         runModifierEffects();
@@ -1271,18 +1727,27 @@ function popperGenerator(generatorOptions) {
         if (isDestroyed) {
           return;
         }
-        var _state$elements = state.elements, reference3 = _state$elements.reference, popper3 = _state$elements.popper;
+        var _state$elements = state.elements,
+          reference3 = _state$elements.reference,
+          popper3 = _state$elements.popper;
         if (!areValidElements(reference3, popper3)) {
           return;
         }
         state.rects = {
-          reference: getCompositeRect(reference3, getOffsetParent(popper3), state.options.strategy === "fixed"),
-          popper: getLayoutRect(popper3)
+          reference: getCompositeRect(
+            reference3,
+            getOffsetParent(popper3),
+            state.options.strategy === "fixed"
+          ),
+          popper: getLayoutRect(popper3),
         };
         state.reset = false;
         state.placement = state.options.placement;
-        state.orderedModifiers.forEach(function(modifier) {
-          return state.modifiersData[modifier.name] = Object.assign({}, modifier.data);
+        state.orderedModifiers.forEach(function (modifier) {
+          return (state.modifiersData[modifier.name] = Object.assign(
+            {},
+            modifier.data
+          ));
         });
         for (var index = 0; index < state.orderedModifiers.length; index++) {
           if (state.reset === true) {
@@ -1290,21 +1755,27 @@ function popperGenerator(generatorOptions) {
             index = -1;
             continue;
           }
-          var _state$orderedModifie = state.orderedModifiers[index], fn2 = _state$orderedModifie.fn, _state$orderedModifie2 = _state$orderedModifie.options, _options = _state$orderedModifie2 === void 0 ? {} : _state$orderedModifie2, name = _state$orderedModifie.name;
+          var _state$orderedModifie = state.orderedModifiers[index],
+            fn2 = _state$orderedModifie.fn,
+            _state$orderedModifie2 = _state$orderedModifie.options,
+            _options =
+              _state$orderedModifie2 === void 0 ? {} : _state$orderedModifie2,
+            name = _state$orderedModifie.name;
           if (typeof fn2 === "function") {
-            state = fn2({
-              state,
-              options: _options,
-              name,
-              instance
-            }) || state;
+            state =
+              fn2({
+                state,
+                options: _options,
+                name,
+                instance,
+              }) || state;
           }
         }
       },
       // Async and optimistically optimized update – it will not be executed if
       // not necessary (debounced to run at most once-per-tick)
-      update: debounce(function() {
-        return new Promise(function(resolve) {
+      update: debounce(function () {
+        return new Promise(function (resolve) {
           instance.forceUpdate();
           resolve(state);
         });
@@ -1312,34 +1783,36 @@ function popperGenerator(generatorOptions) {
       destroy: function destroy() {
         cleanupModifierEffects();
         isDestroyed = true;
-      }
+      },
     };
     if (!areValidElements(reference2, popper2)) {
       return instance;
     }
-    instance.setOptions(options).then(function(state2) {
+    instance.setOptions(options).then(function (state2) {
       if (!isDestroyed && options.onFirstUpdate) {
         options.onFirstUpdate(state2);
       }
     });
     function runModifierEffects() {
-      state.orderedModifiers.forEach(function(_ref3) {
-        var name = _ref3.name, _ref3$options = _ref3.options, options2 = _ref3$options === void 0 ? {} : _ref3$options, effect2 = _ref3.effect;
+      state.orderedModifiers.forEach(function (_ref3) {
+        var name = _ref3.name,
+          _ref3$options = _ref3.options,
+          options2 = _ref3$options === void 0 ? {} : _ref3$options,
+          effect2 = _ref3.effect;
         if (typeof effect2 === "function") {
           var cleanupFn = effect2({
             state,
             name,
             instance,
-            options: options2
+            options: options2,
           });
-          var noopFn = function noopFn2() {
-          };
+          var noopFn = function noopFn2() {};
           effectCleanupFns.push(cleanupFn || noopFn);
         }
       });
     }
     function cleanupModifierEffects() {
-      effectCleanupFns.forEach(function(fn2) {
+      effectCleanupFns.forEach(function (fn2) {
         return fn2();
       });
       effectCleanupFns = [];
@@ -1347,14 +1820,24 @@ function popperGenerator(generatorOptions) {
     return instance;
   };
 }
-var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyStyles$1, offset$1, flip$1, preventOverflow$1, arrow$1, hide$1];
+var defaultModifiers = [
+  eventListeners,
+  popperOffsets$1,
+  computeStyles$1,
+  applyStyles$1,
+  offset$1,
+  flip$1,
+  preventOverflow$1,
+  arrow$1,
+  hide$1,
+];
 var createPopper = /* @__PURE__ */ popperGenerator({
-  defaultModifiers
+  defaultModifiers,
 });
 const popcorn = document.querySelector("#popcorn");
 const tooltip = document.querySelector("#tooltip");
 createPopper(popcorn, tooltip, {
-  placement: "top"
+  placement: "top",
 });
 hello();
 function _defineProperties(target, props) {
@@ -1362,16 +1845,13 @@ function _defineProperties(target, props) {
     var descriptor = props[i];
     descriptor.enumerable = descriptor.enumerable || false;
     descriptor.configurable = true;
-    if ("value" in descriptor)
-      descriptor.writable = true;
+    if ("value" in descriptor) descriptor.writable = true;
     Object.defineProperty(target, descriptor.key, descriptor);
   }
 }
 function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps)
-    _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps)
-    _defineProperties(Constructor, staticProps);
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
   Object.defineProperty(Constructor, "prototype", { writable: false });
   return Constructor;
 }
@@ -1396,7 +1876,7 @@ var STATES = {
   MOVING,
   SCROLLING,
   DRAGGING,
-  DESTROYED
+  DESTROYED,
 };
 function empty(array) {
   array.length = 0;
@@ -1408,8 +1888,7 @@ function apply(func) {
   return func.bind.apply(func, [null].concat(slice(arguments, 1)));
 }
 var nextTick = setTimeout;
-var noop = function noop2() {
-};
+var noop = function noop2() {};
 function raf(func) {
   return requestAnimationFrame(func);
 }
@@ -1428,7 +1907,10 @@ function isNull(subject) {
 }
 function isHTMLElement(subject) {
   try {
-    return subject instanceof (subject.ownerDocument.defaultView || window).HTMLElement;
+    return (
+      subject instanceof
+      (subject.ownerDocument.defaultView || window).HTMLElement
+    );
   } catch (e) {
     return false;
   }
@@ -1448,7 +1930,7 @@ function push(array, items) {
 }
 function toggleClass(elm, classes, add) {
   if (elm) {
-    forEach(classes, function(name) {
+    forEach(classes, function (name) {
       if (name) {
         elm.classList[add ? "add" : "remove"](name);
       }
@@ -1462,7 +1944,7 @@ function append(parent, children2) {
   forEach(children2, parent.appendChild.bind(parent));
 }
 function before(nodes, ref) {
-  forEach(nodes, function(node) {
+  forEach(nodes, function (node) {
     var parent = (ref || node).parentNode;
     if (parent) {
       parent.insertBefore(node, ref);
@@ -1470,13 +1952,18 @@ function before(nodes, ref) {
   });
 }
 function matches(elm, selector) {
-  return isHTMLElement(elm) && (elm["msMatchesSelector"] || elm.matches).call(elm, selector);
+  return (
+    isHTMLElement(elm) &&
+    (elm["msMatchesSelector"] || elm.matches).call(elm, selector)
+  );
 }
 function children(parent, selector) {
   var children2 = parent ? slice(parent.children) : [];
-  return selector ? children2.filter(function(child2) {
-    return matches(child2, selector);
-  }) : children2;
+  return selector
+    ? children2.filter(function (child2) {
+        return matches(child2, selector);
+      })
+    : children2;
 }
 function child(parent, selector) {
   return selector ? children(parent, selector)[0] : parent.firstElementChild;
@@ -1484,27 +1971,33 @@ function child(parent, selector) {
 var ownKeys = Object.keys;
 function forOwn(object, iteratee, right2) {
   if (object) {
-    (right2 ? ownKeys(object).reverse() : ownKeys(object)).forEach(function(key) {
+    (right2 ? ownKeys(object).reverse() : ownKeys(object)).forEach(function (
+      key
+    ) {
       key !== "__proto__" && iteratee(object[key], key);
     });
   }
   return object;
 }
 function assign(object) {
-  slice(arguments, 1).forEach(function(source) {
-    forOwn(source, function(value, key) {
+  slice(arguments, 1).forEach(function (source) {
+    forOwn(source, function (value, key) {
       object[key] = source[key];
     });
   });
   return object;
 }
 function merge(object) {
-  slice(arguments, 1).forEach(function(source) {
-    forOwn(source, function(value, key) {
+  slice(arguments, 1).forEach(function (source) {
+    forOwn(source, function (value, key) {
       if (isArray(value)) {
         object[key] = value.slice();
       } else if (isObject(value)) {
-        object[key] = merge({}, isObject(object[key]) ? object[key] : {}, value);
+        object[key] = merge(
+          {},
+          isObject(object[key]) ? object[key] : {},
+          value
+        );
       } else {
         object[key] = value;
       }
@@ -1513,25 +2006,27 @@ function merge(object) {
   return object;
 }
 function omit(object, keys) {
-  forEach(keys || ownKeys(object), function(key) {
+  forEach(keys || ownKeys(object), function (key) {
     delete object[key];
   });
 }
 function removeAttribute(elms, attrs) {
-  forEach(elms, function(elm) {
-    forEach(attrs, function(attr) {
+  forEach(elms, function (elm) {
+    forEach(attrs, function (attr) {
       elm && elm.removeAttribute(attr);
     });
   });
 }
 function setAttribute(elms, attrs, value) {
   if (isObject(attrs)) {
-    forOwn(attrs, function(value2, name) {
+    forOwn(attrs, function (value2, name) {
       setAttribute(elms, name, value2);
     });
   } else {
-    forEach(elms, function(elm) {
-      isNull(value) || value === "" ? removeAttribute(elm, attrs) : elm.setAttribute(attrs, String(value));
+    forEach(elms, function (elm) {
+      isNull(value) || value === ""
+        ? removeAttribute(elm, attrs)
+        : elm.setAttribute(attrs, String(value));
     });
   }
 }
@@ -1555,9 +2050,10 @@ function display(elm, display2) {
   style(elm, "display", display2);
 }
 function focus(elm) {
-  elm["setActive"] && elm["setActive"]() || elm.focus({
-    preventScroll: true
-  });
+  (elm["setActive"] && elm["setActive"]()) ||
+    elm.focus({
+      preventScroll: true,
+    });
 }
 function getAttribute(elm, attr) {
   return elm.getAttribute(attr);
@@ -1569,7 +2065,7 @@ function rect(target) {
   return target.getBoundingClientRect();
 }
 function remove(nodes) {
-  forEach(nodes, function(node) {
+  forEach(nodes, function (node) {
     if (node && node.parentNode) {
       node.parentNode.removeChild(node);
     }
@@ -1607,14 +2103,20 @@ function assert(condition, message) {
     throw new Error("[" + PROJECT_CODE + "] " + (message || ""));
   }
 }
-var min = Math.min, max = Math.max, floor = Math.floor, ceil = Math.ceil, abs = Math.abs;
+var min = Math.min,
+  max = Math.max,
+  floor = Math.floor,
+  ceil = Math.ceil,
+  abs = Math.abs;
 function approximatelyEqual(x, y, epsilon) {
   return abs(x - y) < epsilon;
 }
 function between(number, x, y, exclusive) {
   var minimum = min(x, y);
   var maximum = max(x, y);
-  return exclusive ? minimum < number && number < maximum : minimum <= number && number <= maximum;
+  return exclusive
+    ? minimum < number && number < maximum
+    : minimum <= number && number <= maximum;
 }
 function clamp(number, x, y) {
   var minimum = min(x, y);
@@ -1625,7 +2127,7 @@ function sign(x) {
   return +(x > 0) - +(x < 0);
 }
 function format(string, replacements) {
-  forEach(replacements, function(replacement) {
+  forEach(replacements, function (replacement) {
     string = string.replace("%s", "" + replacement);
   });
   return string;
@@ -1635,22 +2137,31 @@ function pad(number) {
 }
 var ids = {};
 function uniqueId(prefix) {
-  return "" + prefix + pad(ids[prefix] = (ids[prefix] || 0) + 1);
+  return "" + prefix + pad((ids[prefix] = (ids[prefix] || 0) + 1));
 }
 function EventBinder() {
   var listeners = [];
   function bind(targets, events, callback, options) {
-    forEachEvent(targets, events, function(target, event, namespace) {
+    forEachEvent(targets, events, function (target, event, namespace) {
       var isEventTarget = "addEventListener" in target;
-      var remover = isEventTarget ? target.removeEventListener.bind(target, event, callback, options) : target["removeListener"].bind(target, callback);
-      isEventTarget ? target.addEventListener(event, callback, options) : target["addListener"](callback);
+      var remover = isEventTarget
+        ? target.removeEventListener.bind(target, event, callback, options)
+        : target["removeListener"].bind(target, callback);
+      isEventTarget
+        ? target.addEventListener(event, callback, options)
+        : target["addListener"](callback);
       listeners.push([target, event, namespace, callback, remover]);
     });
   }
   function unbind(targets, events, callback) {
-    forEachEvent(targets, events, function(target, event, namespace) {
-      listeners = listeners.filter(function(listener) {
-        if (listener[0] === target && listener[1] === event && listener[2] === namespace && (!callback || listener[3] === callback)) {
+    forEachEvent(targets, events, function (target, event, namespace) {
+      listeners = listeners.filter(function (listener) {
+        if (
+          listener[0] === target &&
+          listener[1] === event &&
+          listener[2] === namespace &&
+          (!callback || listener[3] === callback)
+        ) {
           listener[4]();
           return false;
         }
@@ -1664,7 +2175,7 @@ function EventBinder() {
     if (typeof CustomEvent === "function") {
       e = new CustomEvent(type, {
         bubbles,
-        detail
+        detail,
       });
     } else {
       e = document.createEvent("CustomEvent");
@@ -1674,17 +2185,18 @@ function EventBinder() {
     return e;
   }
   function forEachEvent(targets, events, iteratee) {
-    forEach(targets, function(target) {
-      target && forEach(events, function(events2) {
-        events2.split(" ").forEach(function(eventNS) {
-          var fragment = eventNS.split(".");
-          iteratee(target, fragment[0], fragment[1]);
+    forEach(targets, function (target) {
+      target &&
+        forEach(events, function (events2) {
+          events2.split(" ").forEach(function (eventNS) {
+            var fragment = eventNS.split(".");
+            iteratee(target, fragment[0], fragment[1]);
+          });
         });
-      });
     });
   }
   function destroy() {
-    listeners.forEach(function(data) {
+    listeners.forEach(function (data) {
       data[4]();
     });
     empty(listeners);
@@ -1693,7 +2205,7 @@ function EventBinder() {
     bind,
     unbind,
     dispatch,
-    destroy
+    destroy,
   };
 }
 var EVENT_MOUNTED = "mounted";
@@ -1732,7 +2244,7 @@ function EventInterface(Splide2) {
   var bus = Splide2 ? Splide2.event.bus : document.createDocumentFragment();
   var binder = EventBinder();
   function on(events, callback) {
-    binder.bind(bus, toArray(events).join(" "), function(e) {
+    binder.bind(bus, toArray(events).join(" "), function (e) {
       callback.apply(callback, isArray(e.detail) ? e.detail : []);
     });
   }
@@ -1746,7 +2258,7 @@ function EventInterface(Splide2) {
     bus,
     on,
     off: apply(binder.unbind, bus),
-    emit
+    emit,
   });
 }
 function RequestInterval(interval, onInterval, onUpdate, limit) {
@@ -1804,7 +2316,7 @@ function RequestInterval(interval, onInterval, onUpdate, limit) {
     pause,
     cancel,
     set,
-    isPaused
+    isPaused,
   };
 }
 function State(initialState) {
@@ -1817,12 +2329,12 @@ function State(initialState) {
   }
   return {
     set,
-    is
+    is,
   };
 }
 function Throttle(func, duration) {
   var interval = RequestInterval(duration || 0, func, null, 1);
-  return function() {
+  return function () {
     interval.isPaused() && interval.start();
   };
 }
@@ -1834,11 +2346,16 @@ function Media(Splide2, Components2, options) {
   var queries = [];
   function setup() {
     var isMin = options.mediaQuery === "min";
-    ownKeys(breakpoints).sort(function(n, m) {
-      return isMin ? +n - +m : +m - +n;
-    }).forEach(function(key) {
-      register(breakpoints[key], "(" + (isMin ? "min" : "max") + "-width:" + key + "px)");
-    });
+    ownKeys(breakpoints)
+      .sort(function (n, m) {
+        return isMin ? +n - +m : +m - +n;
+      })
+      .forEach(function (key) {
+        register(
+          breakpoints[key],
+          "(" + (isMin ? "min" : "max") + "-width:" + key + "px)"
+        );
+      });
     register(reducedMotion, MEDIA_PREFERS_REDUCED_MOTION);
     update();
   }
@@ -1855,7 +2372,7 @@ function Media(Splide2, Components2, options) {
   function update() {
     var destroyed = state.is(DESTROYED);
     var direction = options.direction;
-    var merged = queries.reduce(function(merged2, entry) {
+    var merged = queries.reduce(function (merged2, entry) {
       return merge(merged2, entry[1].matches ? entry[0] : {});
     }, {});
     omit(options);
@@ -1871,7 +2388,9 @@ function Media(Splide2, Components2, options) {
   }
   function reduce(enable) {
     if (matchMedia(MEDIA_PREFERS_REDUCED_MOTION).matches) {
-      enable ? merge(options, reducedMotion) : omit(options, ownKeys(reducedMotion));
+      enable
+        ? merge(options, reducedMotion)
+        : omit(options, ownKeys(reducedMotion));
     }
   }
   function set(opts, base, notify) {
@@ -1885,7 +2404,7 @@ function Media(Splide2, Components2, options) {
     setup,
     destroy,
     reduce,
-    set
+    set,
   };
 }
 var ARROW = "Arrow";
@@ -1903,23 +2422,28 @@ var ORIENTATION_MAP = {
   X: ["Y"],
   Y: ["X"],
   ArrowLeft: [ARROW_UP, ARROW_RIGHT],
-  ArrowRight: [ARROW_DOWN, ARROW_LEFT]
+  ArrowRight: [ARROW_DOWN, ARROW_LEFT],
 };
 function Direction(Splide2, Components2, options) {
   function resolve(prop, axisOnly, direction) {
     direction = direction || options.direction;
     var index = direction === RTL && !axisOnly ? 1 : direction === TTB ? 0 : -1;
-    return ORIENTATION_MAP[prop] && ORIENTATION_MAP[prop][index] || prop.replace(/width|left|right/i, function(match, offset2) {
-      var replacement = ORIENTATION_MAP[match.toLowerCase()][index] || match;
-      return offset2 > 0 ? replacement.charAt(0).toUpperCase() + replacement.slice(1) : replacement;
-    });
+    return (
+      (ORIENTATION_MAP[prop] && ORIENTATION_MAP[prop][index]) ||
+      prop.replace(/width|left|right/i, function (match, offset2) {
+        var replacement = ORIENTATION_MAP[match.toLowerCase()][index] || match;
+        return offset2 > 0
+          ? replacement.charAt(0).toUpperCase() + replacement.slice(1)
+          : replacement;
+      })
+    );
   }
   function orient(value) {
     return value * (options.direction === RTL ? 1 : -1);
   }
   return {
     resolve,
-    orient
+    orient,
   };
 }
 var ROLE = "role";
@@ -1937,7 +2461,18 @@ var ARIA_ROLEDESCRIPTION = ARIA_PREFIX + "roledescription";
 var ARIA_LIVE = ARIA_PREFIX + "live";
 var ARIA_BUSY = ARIA_PREFIX + "busy";
 var ARIA_ATOMIC = ARIA_PREFIX + "atomic";
-var ALL_ATTRIBUTES = [ROLE, TAB_INDEX, DISABLED, ARIA_CONTROLS, ARIA_CURRENT, ARIA_LABEL, ARIA_LABELLEDBY, ARIA_HIDDEN, ARIA_ORIENTATION, ARIA_ROLEDESCRIPTION];
+var ALL_ATTRIBUTES = [
+  ROLE,
+  TAB_INDEX,
+  DISABLED,
+  ARIA_CONTROLS,
+  ARIA_CURRENT,
+  ARIA_LABEL,
+  ARIA_LABELLEDBY,
+  ARIA_HIDDEN,
+  ARIA_ORIENTATION,
+  ARIA_ROLEDESCRIPTION,
+];
 var CLASS_PREFIX = PROJECT_CODE + "__";
 var STATUS_CLASS_PREFIX = "is-";
 var CLASS_ROOT = PROJECT_CODE;
@@ -1965,7 +2500,15 @@ var CLASS_VISIBLE = STATUS_CLASS_PREFIX + "visible";
 var CLASS_LOADING = STATUS_CLASS_PREFIX + "loading";
 var CLASS_FOCUS_IN = STATUS_CLASS_PREFIX + "focus-in";
 var CLASS_OVERFLOW = STATUS_CLASS_PREFIX + "overflow";
-var STATUS_CLASSES = [CLASS_ACTIVE, CLASS_VISIBLE, CLASS_PREV, CLASS_NEXT, CLASS_LOADING, CLASS_FOCUS_IN, CLASS_OVERFLOW];
+var STATUS_CLASSES = [
+  CLASS_ACTIVE,
+  CLASS_VISIBLE,
+  CLASS_PREV,
+  CLASS_NEXT,
+  CLASS_LOADING,
+  CLASS_FOCUS_IN,
+  CLASS_OVERFLOW,
+];
 var CLASSES = {
   slide: CLASS_SLIDE,
   clone: CLASS_CLONE,
@@ -1975,7 +2518,7 @@ var CLASSES = {
   next: CLASS_ARROW_NEXT,
   pagination: CLASS_PAGINATION,
   page: CLASS_PAGINATION_PAGE,
-  spinner: CLASS_SPINNER
+  spinner: CLASS_SPINNER,
 };
 function closest(from, selector) {
   if (isFunction(from.closest)) {
@@ -1996,7 +2539,9 @@ var POINTER_DOWN_EVENTS = "touchstart mousedown";
 var POINTER_MOVE_EVENTS = "touchmove mousemove";
 var POINTER_UP_EVENTS = "touchend touchcancel mouseup click";
 function Elements(Splide2, Components2, options) {
-  var _EventInterface = EventInterface(Splide2), on = _EventInterface.on, bind = _EventInterface.bind;
+  var _EventInterface = EventInterface(Splide2),
+    on = _EventInterface.on,
+    bind = _EventInterface.bind;
   var root = Splide2.root;
   var i18n = options.i18n;
   var elements = {};
@@ -2015,12 +2560,17 @@ function Elements(Splide2, Components2, options) {
     on(EVENT_REFRESH, destroy);
     on(EVENT_REFRESH, setup);
     on(EVENT_UPDATED, update);
-    bind(document, POINTER_DOWN_EVENTS + " keydown", function(e) {
-      isUsingKey = e.type === "keydown";
-    }, {
-      capture: true
-    });
-    bind(root, "focusin", function() {
+    bind(
+      document,
+      POINTER_DOWN_EVENTS + " keydown",
+      function (e) {
+        isUsingKey = e.type === "keydown";
+      },
+      {
+        capture: true,
+      }
+    );
+    bind(root, "focusin", function () {
       toggleClass(root, CLASS_FOCUS_IN, !!isUsingKey);
     });
   }
@@ -2046,22 +2596,28 @@ function Elements(Splide2, Components2, options) {
     track = find("." + CLASS_TRACK);
     list = child(track, "." + CLASS_LIST);
     assert(track && list, "A track/list element is missing.");
-    push(slides, children(list, "." + CLASS_SLIDE + ":not(." + CLASS_CLONE + ")"));
-    forOwn({
-      arrows: CLASS_ARROWS,
-      pagination: CLASS_PAGINATION,
-      prev: CLASS_ARROW_PREV,
-      next: CLASS_ARROW_NEXT,
-      bar: CLASS_PROGRESS_BAR,
-      toggle: CLASS_TOGGLE
-    }, function(className, key) {
-      elements[key] = find("." + className);
-    });
+    push(
+      slides,
+      children(list, "." + CLASS_SLIDE + ":not(." + CLASS_CLONE + ")")
+    );
+    forOwn(
+      {
+        arrows: CLASS_ARROWS,
+        pagination: CLASS_PAGINATION,
+        prev: CLASS_ARROW_PREV,
+        next: CLASS_ARROW_NEXT,
+        bar: CLASS_PROGRESS_BAR,
+        toggle: CLASS_TOGGLE,
+      },
+      function (className, key) {
+        elements[key] = find("." + className);
+      }
+    );
     assign(elements, {
       root,
       track,
       list,
-      slides
+      slides,
     });
   }
   function init() {
@@ -2081,12 +2637,18 @@ function Elements(Splide2, Components2, options) {
     return elm && closest(elm, "." + CLASS_ROOT) === root ? elm : void 0;
   }
   function getClasses(base) {
-    return [base + "--" + options.type, base + "--" + options.direction, options.drag && base + "--draggable", options.isNavigation && base + "--nav", base === CLASS_ROOT && CLASS_ACTIVE];
+    return [
+      base + "--" + options.type,
+      base + "--" + options.direction,
+      options.drag && base + "--draggable",
+      options.isNavigation && base + "--nav",
+      base === CLASS_ROOT && CLASS_ACTIVE,
+    ];
   }
   return assign(elements, {
     setup,
     mount,
-    destroy
+    destroy,
   });
 }
 var SLIDE = "slide";
@@ -2094,9 +2656,17 @@ var LOOP = "loop";
 var FADE = "fade";
 function Slide$1(Splide2, index, slideIndex, slide) {
   var event = EventInterface(Splide2);
-  var on = event.on, emit = event.emit, bind = event.bind;
-  var Components = Splide2.Components, root = Splide2.root, options = Splide2.options;
-  var isNavigation = options.isNavigation, updateOnMove = options.updateOnMove, i18n = options.i18n, pagination = options.pagination, slideFocus = options.slideFocus;
+  var on = event.on,
+    emit = event.emit,
+    bind = event.bind;
+  var Components = Splide2.Components,
+    root = Splide2.root,
+    options = Splide2.options;
+  var isNavigation = options.isNavigation,
+    updateOnMove = options.updateOnMove,
+    i18n = options.i18n,
+    pagination = options.pagination,
+    slideFocus = options.slideFocus;
   var resolve = Components.Direction.resolve;
   var styles = getAttribute(slide, "style");
   var label = getAttribute(slide, ARIA_LABEL);
@@ -2108,7 +2678,11 @@ function Slide$1(Splide2, index, slideIndex, slide) {
       slide.id = root.id + "-slide" + pad(index + 1);
       setAttribute(slide, ROLE, pagination ? "tabpanel" : "group");
       setAttribute(slide, ARIA_ROLEDESCRIPTION, i18n.slide);
-      setAttribute(slide, ARIA_LABEL, label || format(i18n.slideLabel, [index + 1, Splide2.length]));
+      setAttribute(
+        slide,
+        ARIA_LABEL,
+        label || format(i18n.slideLabel, [index + 1, Splide2.length])
+      );
     }
     listen();
   }
@@ -2130,11 +2704,17 @@ function Slide$1(Splide2, index, slideIndex, slide) {
     setAttribute(slide, ARIA_LABEL, label || "");
   }
   function initNavigation() {
-    var controls = Splide2.splides.map(function(target) {
-      var Slide2 = target.splide.Components.Slides.getAt(index);
-      return Slide2 ? Slide2.slide.id : "";
-    }).join(" ");
-    setAttribute(slide, ARIA_LABEL, format(i18n.slideX, (isClone ? slideIndex : index) + 1));
+    var controls = Splide2.splides
+      .map(function (target) {
+        var Slide2 = target.splide.Components.Slides.getAt(index);
+        return Slide2 ? Slide2.slide.id : "";
+      })
+      .join(" ");
+    setAttribute(
+      slide,
+      ARIA_LABEL,
+      format(i18n.slideX, (isClone ? slideIndex : index) + 1)
+    );
     setAttribute(slide, ARIA_CONTROLS, controls);
     setAttribute(slide, ROLE, slideFocus ? "button" : "");
     slideFocus && removeAttribute(slide, ARIA_ROLEDESCRIPTION);
@@ -2157,7 +2737,7 @@ function Slide$1(Splide2, index, slideIndex, slide) {
     var active = isActive();
     if (active !== hasClass(slide, CLASS_ACTIVE)) {
       toggleClass(slide, CLASS_ACTIVE, active);
-      setAttribute(slide, ARIA_CURRENT, isNavigation && active || "");
+      setAttribute(slide, ARIA_CURRENT, (isNavigation && active) || "");
       emit(active ? EVENT_ACTIVE : EVENT_INACTIVE, self);
     }
   }
@@ -2167,7 +2747,11 @@ function Slide$1(Splide2, index, slideIndex, slide) {
     if (!Splide2.state.is([MOVING, SCROLLING])) {
       setAttribute(slide, ARIA_HIDDEN, hidden || "");
     }
-    setAttribute(queryAll(slide, options.focusableNodes || ""), TAB_INDEX, hidden ? -1 : "");
+    setAttribute(
+      queryAll(slide, options.focusableNodes || ""),
+      TAB_INDEX,
+      hidden ? -1 : ""
+    );
     if (slideFocus) {
       setAttribute(slide, TAB_INDEX, hidden ? -1 : 0);
     }
@@ -2181,11 +2765,11 @@ function Slide$1(Splide2, index, slideIndex, slide) {
     }
   }
   function style$1(prop, value, useContainer) {
-    style(useContainer && container || slide, prop, value);
+    style((useContainer && container) || slide, prop, value);
   }
   function isActive() {
     var curr = Splide2.index;
-    return curr === index || options.cloneStatus && curr === slideIndex;
+    return curr === index || (options.cloneStatus && curr === slideIndex);
   }
   function isVisible() {
     if (Splide2.is(FADE)) {
@@ -2195,7 +2779,10 @@ function Slide$1(Splide2, index, slideIndex, slide) {
     var slideRect = rect(slide);
     var left2 = resolve("left", true);
     var right2 = resolve("right", true);
-    return floor(trackRect[left2]) <= ceil(slideRect[left2]) && floor(slideRect[right2]) <= ceil(trackRect[right2]);
+    return (
+      floor(trackRect[left2]) <= ceil(slideRect[left2]) &&
+      floor(slideRect[right2]) <= ceil(trackRect[right2])
+    );
   }
   function isWithin(from, distance) {
     var diff = abs(from - index);
@@ -2214,13 +2801,18 @@ function Slide$1(Splide2, index, slideIndex, slide) {
     destroy,
     update,
     style: style$1,
-    isWithin
+    isWithin,
   };
   return self;
 }
 function Slides(Splide2, Components2, options) {
-  var _EventInterface2 = EventInterface(Splide2), on = _EventInterface2.on, emit = _EventInterface2.emit, bind = _EventInterface2.bind;
-  var _Components2$Elements = Components2.Elements, slides = _Components2$Elements.slides, list = _Components2$Elements.list;
+  var _EventInterface2 = EventInterface(Splide2),
+    on = _EventInterface2.on,
+    emit = _EventInterface2.emit,
+    bind = _EventInterface2.bind;
+  var _Components2$Elements = Components2.Elements,
+    slides = _Components2$Elements.slides,
+    list = _Components2$Elements.list;
   var Slides2 = [];
   function mount() {
     init();
@@ -2228,18 +2820,18 @@ function Slides(Splide2, Components2, options) {
     on(EVENT_REFRESH, init);
   }
   function init() {
-    slides.forEach(function(slide, index) {
+    slides.forEach(function (slide, index) {
       register(slide, index, -1);
     });
   }
   function destroy() {
-    forEach$1(function(Slide2) {
+    forEach$1(function (Slide2) {
       Slide2.destroy();
     });
     empty(Slides2);
   }
   function update() {
-    forEach$1(function(Slide2) {
+    forEach$1(function (Slide2) {
       Slide2.update();
     });
   }
@@ -2247,20 +2839,22 @@ function Slides(Splide2, Components2, options) {
     var object = Slide$1(Splide2, index, slideIndex, slide);
     object.mount();
     Slides2.push(object);
-    Slides2.sort(function(Slide1, Slide2) {
+    Slides2.sort(function (Slide1, Slide2) {
       return Slide1.index - Slide2.index;
     });
   }
   function get(excludeClones) {
-    return excludeClones ? filter(function(Slide2) {
-      return !Slide2.isClone;
-    }) : Slides2;
+    return excludeClones
+      ? filter(function (Slide2) {
+          return !Slide2.isClone;
+        })
+      : Slides2;
   }
   function getIn(page) {
     var Controller2 = Components2.Controller;
     var index = Controller2.toIndex(page);
     var max2 = Controller2.hasFocus() ? 1 : options.perPage;
-    return filter(function(Slide2) {
+    return filter(function (Slide2) {
       return between(Slide2.index, index, index + max2 - 1);
     });
   }
@@ -2268,7 +2862,7 @@ function Slides(Splide2, Components2, options) {
     return filter(index)[0];
   }
   function add(items, index) {
-    forEach(items, function(slide) {
+    forEach(items, function (slide) {
       if (isString(slide)) {
         slide = parseHtml(slide);
       }
@@ -2282,21 +2876,29 @@ function Slides(Splide2, Components2, options) {
     emit(EVENT_REFRESH);
   }
   function remove$1(matcher) {
-    remove(filter(matcher).map(function(Slide2) {
-      return Slide2.slide;
-    }));
+    remove(
+      filter(matcher).map(function (Slide2) {
+        return Slide2.slide;
+      })
+    );
     emit(EVENT_REFRESH);
   }
   function forEach$1(iteratee, excludeClones) {
     get(excludeClones).forEach(iteratee);
   }
   function filter(matcher) {
-    return Slides2.filter(isFunction(matcher) ? matcher : function(Slide2) {
-      return isString(matcher) ? matches(Slide2.slide, matcher) : includes(toArray(matcher), Slide2.index);
-    });
+    return Slides2.filter(
+      isFunction(matcher)
+        ? matcher
+        : function (Slide2) {
+            return isString(matcher)
+              ? matches(Slide2.slide, matcher)
+              : includes(toArray(matcher), Slide2.index);
+          }
+    );
   }
   function style2(prop, value, useContainer) {
-    forEach$1(function(Slide2) {
+    forEach$1(function (Slide2) {
       Slide2.style(prop, value, useContainer);
     });
   }
@@ -2304,8 +2906,8 @@ function Slides(Splide2, Components2, options) {
     var images = queryAll(elm, "img");
     var length = images.length;
     if (length) {
-      images.forEach(function(img) {
-        bind(img, "load error", function() {
+      images.forEach(function (img) {
+        bind(img, "load error", function () {
           if (!--length) {
             callback();
           }
@@ -2335,15 +2937,22 @@ function Slides(Splide2, Components2, options) {
     filter,
     style: style2,
     getLength,
-    isEnough
+    isEnough,
   };
 }
 function Layout(Splide2, Components2, options) {
-  var _EventInterface3 = EventInterface(Splide2), on = _EventInterface3.on, bind = _EventInterface3.bind, emit = _EventInterface3.emit;
+  var _EventInterface3 = EventInterface(Splide2),
+    on = _EventInterface3.on,
+    bind = _EventInterface3.bind,
+    emit = _EventInterface3.emit;
   var Slides2 = Components2.Slides;
   var resolve = Components2.Direction.resolve;
-  var _Components2$Elements2 = Components2.Elements, root = _Components2$Elements2.root, track = _Components2$Elements2.track, list = _Components2$Elements2.list;
-  var getAt = Slides2.getAt, styleSlides = Slides2.style;
+  var _Components2$Elements2 = Components2.Elements,
+    root = _Components2$Elements2.root,
+    track = _Components2$Elements2.track,
+    list = _Components2$Elements2.list;
+  var getAt = Slides2.getAt,
+    styleSlides = Slides2.style;
   var vertical;
   var rootRect;
   var overflow;
@@ -2362,7 +2971,11 @@ function Layout(Splide2, Components2, options) {
   }
   function resize(force) {
     var newRect = rect(root);
-    if (force || rootRect.width !== newRect.width || rootRect.height !== newRect.height) {
+    if (
+      force ||
+      rootRect.width !== newRect.width ||
+      rootRect.height !== newRect.height
+    ) {
       style(track, "height", cssTrackHeight());
       styleSlides(resolve("marginRight"), unit(options.gap));
       styleSlides("width", cssSlideWidth());
@@ -2378,14 +2991,24 @@ function Layout(Splide2, Components2, options) {
   function cssPadding(right2) {
     var padding = options.padding;
     var prop = resolve(right2 ? "right" : "left");
-    return padding && unit(padding[prop] || (isObject(padding) ? 0 : padding)) || "0px";
+    return (
+      (padding && unit(padding[prop] || (isObject(padding) ? 0 : padding))) ||
+      "0px"
+    );
   }
   function cssTrackHeight() {
     var height = "";
     if (vertical) {
       height = cssHeight();
       assert(height, "height or heightRatio is missing.");
-      height = "calc(" + height + " - " + cssPadding(false) + " - " + cssPadding(true) + ")";
+      height =
+        "calc(" +
+        height +
+        " - " +
+        cssPadding(false) +
+        " - " +
+        cssPadding(true) +
+        ")";
     }
     return height;
   }
@@ -2393,21 +3016,35 @@ function Layout(Splide2, Components2, options) {
     return unit(options.height || rect(list).width * options.heightRatio);
   }
   function cssSlideWidth() {
-    return options.autoWidth ? null : unit(options.fixedWidth) || (vertical ? "" : cssSlideSize());
+    return options.autoWidth
+      ? null
+      : unit(options.fixedWidth) || (vertical ? "" : cssSlideSize());
   }
   function cssSlideHeight() {
-    return unit(options.fixedHeight) || (vertical ? options.autoHeight ? null : cssSlideSize() : cssHeight());
+    return (
+      unit(options.fixedHeight) ||
+      (vertical ? (options.autoHeight ? null : cssSlideSize()) : cssHeight())
+    );
   }
   function cssSlideSize() {
     var gap = unit(options.gap);
-    return "calc((100%" + (gap && " + " + gap) + ")/" + (options.perPage || 1) + (gap && " - " + gap) + ")";
+    return (
+      "calc((100%" +
+      (gap && " + " + gap) +
+      ")/" +
+      (options.perPage || 1) +
+      (gap && " - " + gap) +
+      ")"
+    );
   }
   function listSize() {
     return rect(list)[resolve("width")];
   }
   function slideSize(index, withoutGap) {
     var Slide2 = getAt(index || 0);
-    return Slide2 ? rect(Slide2.slide)[resolve("width")] + (withoutGap ? 0 : getGap()) : 0;
+    return Slide2
+      ? rect(Slide2.slide)[resolve("width")] + (withoutGap ? 0 : getGap())
+      : 0;
   }
   function totalSize(index, withoutGap) {
     var Slide2 = getAt(index);
@@ -2419,14 +3056,22 @@ function Layout(Splide2, Components2, options) {
     return 0;
   }
   function sliderSize(withoutGap) {
-    return totalSize(Splide2.length - 1) - totalSize(0) + slideSize(0, withoutGap);
+    return (
+      totalSize(Splide2.length - 1) - totalSize(0) + slideSize(0, withoutGap)
+    );
   }
   function getGap() {
     var Slide2 = getAt(0);
-    return Slide2 && parseFloat(style(Slide2.slide, resolve("marginRight"))) || 0;
+    return (
+      (Slide2 && parseFloat(style(Slide2.slide, resolve("marginRight")))) || 0
+    );
   }
   function getPadding(right2) {
-    return parseFloat(style(track, resolve("padding" + (right2 ? "Right" : "Left")))) || 0;
+    return (
+      parseFloat(
+        style(track, resolve("padding" + (right2 ? "Right" : "Left")))
+      ) || 0
+    );
   }
   function isOverflow() {
     return Splide2.is(FADE) || sliderSize(true) > listSize();
@@ -2439,21 +3084,22 @@ function Layout(Splide2, Components2, options) {
     sliderSize,
     totalSize,
     getPadding,
-    isOverflow
+    isOverflow,
   };
 }
 var MULTIPLIER = 2;
 function Clones(Splide2, Components2, options) {
   var event = EventInterface(Splide2);
   var on = event.on;
-  var Elements2 = Components2.Elements, Slides2 = Components2.Slides;
+  var Elements2 = Components2.Elements,
+    Slides2 = Components2.Slides;
   var resolve = Components2.Direction.resolve;
   var clones = [];
   var cloneCount;
   function mount() {
     on(EVENT_REFRESH, remount);
     on([EVENT_UPDATED, EVENT_RESIZE], observe);
-    if (cloneCount = computeCloneCount()) {
+    if ((cloneCount = computeCloneCount())) {
       generate(cloneCount);
       Components2.Layout.resize(true);
     }
@@ -2482,12 +3128,19 @@ function Clones(Splide2, Components2, options) {
       while (slides.length < count) {
         push(slides, slides);
       }
-      push(slides.slice(-count), slides.slice(0, count)).forEach(function(Slide2, index) {
+      push(slides.slice(-count), slides.slice(0, count)).forEach(function (
+        Slide2,
+        index
+      ) {
         var isHead = index < count;
         var clone = cloneDeep(Slide2.slide, index);
         isHead ? before(clone, slides[0].slide) : append(Elements2.list, clone);
         push(clones, clone);
-        Slides2.register(clone, index - count + (isHead ? 0 : length), Slide2.index);
+        Slides2.register(
+          clone,
+          index - count + (isHead ? 0 : length),
+          Slide2.index
+        );
       });
     }
   }
@@ -2502,27 +3155,46 @@ function Clones(Splide2, Components2, options) {
     if (!Splide2.is(LOOP)) {
       clones2 = 0;
     } else if (isUndefined(clones2)) {
-      var fixedSize = options[resolve("fixedWidth")] && Components2.Layout.slideSize(0);
-      var fixedCount = fixedSize && ceil(rect(Elements2.track)[resolve("width")] / fixedSize);
-      clones2 = fixedCount || options[resolve("autoWidth")] && Splide2.length || options.perPage * MULTIPLIER;
+      var fixedSize =
+        options[resolve("fixedWidth")] && Components2.Layout.slideSize(0);
+      var fixedCount =
+        fixedSize && ceil(rect(Elements2.track)[resolve("width")] / fixedSize);
+      clones2 =
+        fixedCount ||
+        (options[resolve("autoWidth")] && Splide2.length) ||
+        options.perPage * MULTIPLIER;
     }
     return clones2;
   }
   return {
     mount,
-    destroy
+    destroy,
   };
 }
 function Move(Splide2, Components2, options) {
-  var _EventInterface4 = EventInterface(Splide2), on = _EventInterface4.on, emit = _EventInterface4.emit;
+  var _EventInterface4 = EventInterface(Splide2),
+    on = _EventInterface4.on,
+    emit = _EventInterface4.emit;
   var set = Splide2.state.set;
-  var _Components2$Layout = Components2.Layout, slideSize = _Components2$Layout.slideSize, getPadding = _Components2$Layout.getPadding, totalSize = _Components2$Layout.totalSize, listSize = _Components2$Layout.listSize, sliderSize = _Components2$Layout.sliderSize;
-  var _Components2$Directio = Components2.Direction, resolve = _Components2$Directio.resolve, orient = _Components2$Directio.orient;
-  var _Components2$Elements3 = Components2.Elements, list = _Components2$Elements3.list, track = _Components2$Elements3.track;
+  var _Components2$Layout = Components2.Layout,
+    slideSize = _Components2$Layout.slideSize,
+    getPadding = _Components2$Layout.getPadding,
+    totalSize = _Components2$Layout.totalSize,
+    listSize = _Components2$Layout.listSize,
+    sliderSize = _Components2$Layout.sliderSize;
+  var _Components2$Directio = Components2.Direction,
+    resolve = _Components2$Directio.resolve,
+    orient = _Components2$Directio.orient;
+  var _Components2$Elements3 = Components2.Elements,
+    list = _Components2$Elements3.list,
+    track = _Components2$Elements3.track;
   var Transition;
   function mount() {
     Transition = Components2.Transition;
-    on([EVENT_MOUNTED, EVENT_RESIZED, EVENT_UPDATED, EVENT_REFRESH], reposition);
+    on(
+      [EVENT_MOUNTED, EVENT_RESIZED, EVENT_UPDATED, EVENT_REFRESH],
+      reposition
+    );
   }
   function reposition() {
     if (!Components2.Controller.isBusy()) {
@@ -2538,7 +3210,7 @@ function Move(Splide2, Components2, options) {
     }
     set(MOVING);
     emit(EVENT_MOVE, index, prev, dest);
-    Transition.start(index, function() {
+    Transition.start(index, function () {
       set(IDLE);
       emit(EVENT_MOVED, index, prev, dest);
       callback && callback();
@@ -2550,7 +3222,11 @@ function Move(Splide2, Components2, options) {
   function translate(position, preventLoop) {
     if (!Splide2.is(FADE)) {
       var destination = preventLoop ? position : loop(position);
-      style(list, "transform", "translate" + resolve("X") + "(" + destination + "px)");
+      style(
+        list,
+        "transform",
+        "translate" + resolve("X") + "(" + destination + "px)"
+      );
       position !== destination && emit(EVENT_SHIFTED);
     }
   }
@@ -2568,7 +3244,8 @@ function Move(Splide2, Components2, options) {
   function shift(position, backwards) {
     var excess = position - getLimit(backwards);
     var size = sliderSize();
-    position -= orient(size * (ceil(abs(excess) / size) || 1)) * (backwards ? 1 : -1);
+    position -=
+      orient(size * (ceil(abs(excess) / size) || 1)) * (backwards ? 1 : -1);
     return position;
   }
   function cancel() {
@@ -2607,19 +3284,28 @@ function Move(Splide2, Components2, options) {
   }
   function offset2(index) {
     var focus2 = options.focus;
-    return focus2 === "center" ? (listSize() - slideSize(index, true)) / 2 : +focus2 * slideSize(index) || 0;
+    return focus2 === "center"
+      ? (listSize() - slideSize(index, true)) / 2
+      : +focus2 * slideSize(index) || 0;
   }
   function getLimit(max2) {
-    return toPosition(max2 ? Components2.Controller.getEnd() : 0, !!options.trimSpace);
+    return toPosition(
+      max2 ? Components2.Controller.getEnd() : 0,
+      !!options.trimSpace
+    );
   }
   function canShift(backwards) {
     var shifted = orient(shift(getPosition(), backwards));
-    return backwards ? shifted >= 0 : shifted <= list[resolve("scrollWidth")] - rect(track)[resolve("width")];
+    return backwards
+      ? shifted >= 0
+      : shifted <= list[resolve("scrollWidth")] - rect(track)[resolve("width")];
   }
   function exceededLimit(max2, position) {
     position = isUndefined(position) ? getPosition() : position;
-    var exceededMin = max2 !== true && orient(position) < orient(getLimit(false));
-    var exceededMax = max2 !== false && orient(position) > orient(getLimit(true));
+    var exceededMin =
+      max2 !== true && orient(position) < orient(getLimit(false));
+    var exceededMax =
+      max2 !== false && orient(position) > orient(getLimit(true));
     return exceededMin || exceededMax;
   }
   return {
@@ -2634,14 +3320,20 @@ function Move(Splide2, Components2, options) {
     getPosition,
     getLimit,
     exceededLimit,
-    reposition
+    reposition,
   };
 }
 function Controller(Splide2, Components2, options) {
-  var _EventInterface5 = EventInterface(Splide2), on = _EventInterface5.on, emit = _EventInterface5.emit;
+  var _EventInterface5 = EventInterface(Splide2),
+    on = _EventInterface5.on,
+    emit = _EventInterface5.emit;
   var Move2 = Components2.Move;
-  var getPosition = Move2.getPosition, getLimit = Move2.getLimit, toPosition = Move2.toPosition;
-  var _Components2$Slides = Components2.Slides, isEnough = _Components2$Slides.isEnough, getLength = _Components2$Slides.getLength;
+  var getPosition = Move2.getPosition,
+    getLimit = Move2.getLimit,
+    toPosition = Move2.toPosition;
+  var _Components2$Slides = Components2.Slides,
+    isEnough = _Components2$Slides.isEnough,
+    getLength = _Components2$Slides.getLength;
   var omitEnd = options.omitEnd;
   var isLoop = Splide2.is(LOOP);
   var isSlide = Splide2.is(SLIDE);
@@ -2685,7 +3377,7 @@ function Controller(Splide2, Components2, options) {
     }
   }
   function scroll(destination, duration, snap, callback) {
-    Components2.Scroll.scroll(destination, duration, snap, function() {
+    Components2.Scroll.scroll(destination, duration, snap, function () {
       var index = loop(Move2.toIndex(getPosition()));
       setIndex(omitEnd ? min(index, endIndex) : index);
       callback && callback();
@@ -2694,9 +3386,14 @@ function Controller(Splide2, Components2, options) {
   function parse(control) {
     var index = currIndex;
     if (isString(control)) {
-      var _ref = control.match(/([+\-<>])(\d+)?/) || [], indicator = _ref[1], number = _ref[2];
+      var _ref = control.match(/([+\-<>])(\d+)?/) || [],
+        indicator = _ref[1],
+        number = _ref[2];
       if (indicator === "+" || indicator === "-") {
-        index = computeDestIndex(currIndex + +("" + indicator + (+number || 1)), currIndex);
+        index = computeDestIndex(
+          currIndex + +("" + indicator + (+number || 1)),
+          currIndex
+        );
       } else if (indicator === ">") {
         index = number ? toIndex(+number) : getNext(true);
       } else if (indicator === "<") {
@@ -2709,7 +3406,11 @@ function Controller(Splide2, Components2, options) {
   }
   function getAdjacent(prev, destination) {
     var number = perMove || (hasFocus() ? 1 : perPage);
-    var dest = computeDestIndex(currIndex + number * (prev ? -1 : 1), currIndex, !(perMove || hasFocus()));
+    var dest = computeDestIndex(
+      currIndex + number * (prev ? -1 : 1),
+      currIndex,
+      !(perMove || hasFocus())
+    );
     if (dest === -1 && isSlide) {
       if (!approximatelyEqual(getPosition(), getLimit(!prev), 1)) {
         return prev ? 0 : endIndex;
@@ -2726,11 +3427,18 @@ function Controller(Splide2, Components2, options) {
         snapPage = false;
       }
       if (dest < 0 || dest > endIndex) {
-        if (!perMove && (between(0, dest, from, true) || between(endIndex, from, dest, true))) {
+        if (
+          !perMove &&
+          (between(0, dest, from, true) || between(endIndex, from, dest, true))
+        ) {
           dest = toIndex(toPage(dest));
         } else {
           if (isLoop) {
-            dest = snapPage ? dest < 0 ? -(slideCount % perPage || perPage) : slideCount : dest;
+            dest = snapPage
+              ? dest < 0
+                ? -(slideCount % perPage || perPage)
+                : slideCount
+              : dest;
           } else if (options.rewind) {
             dest = dest < 0 ? endIndex : 0;
           } else {
@@ -2750,7 +3458,10 @@ function Controller(Splide2, Components2, options) {
   function computeMovableDestIndex(dest) {
     if (isSlide && options.trimSpace === "move" && dest !== currIndex) {
       var position = getPosition();
-      while (position === toPosition(dest, true) && between(dest, 0, Splide2.length - 1, !options.rewind)) {
+      while (
+        position === toPosition(dest, true) &&
+        between(dest, 0, Splide2.length - 1, !options.rewind)
+      ) {
         dest < currIndex ? --dest : ++dest;
       }
     }
@@ -2760,7 +3471,7 @@ function Controller(Splide2, Components2, options) {
     return isLoop ? (index + slideCount) % slideCount || 0 : index;
   }
   function getEnd() {
-    var end2 = slideCount - (hasFocus() || isLoop && perMove ? 1 : perPage);
+    var end2 = slideCount - (hasFocus() || (isLoop && perMove) ? 1 : perPage);
     while (omitEnd && end2-- > 0) {
       if (toPosition(slideCount - 1, true) !== toPosition(end2, true)) {
         end2++;
@@ -2773,7 +3484,9 @@ function Controller(Splide2, Components2, options) {
     return clamp(hasFocus() ? page : perPage * page, 0, endIndex);
   }
   function toPage(index) {
-    return hasFocus() ? min(index, endIndex) : floor((index >= endIndex ? slideCount - 1 : index) / perPage);
+    return hasFocus()
+      ? min(index, endIndex)
+      : floor((index >= endIndex ? slideCount - 1 : index) / perPage);
   }
   function toDest(destination) {
     var closest2 = Move2.toIndex(destination);
@@ -2808,18 +3521,24 @@ function Controller(Splide2, Components2, options) {
     toPage,
     toDest,
     hasFocus,
-    isBusy
+    isBusy,
   };
 }
 var XML_NAME_SPACE = "http://www.w3.org/2000/svg";
-var PATH = "m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z";
+var PATH =
+  "m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z";
 var SIZE = 40;
 function Arrows(Splide2, Components2, options) {
   var event = EventInterface(Splide2);
-  var on = event.on, bind = event.bind, emit = event.emit;
-  var classes = options.classes, i18n = options.i18n;
-  var Elements2 = Components2.Elements, Controller2 = Components2.Controller;
-  var placeholder = Elements2.arrows, track = Elements2.track;
+  var on = event.on,
+    bind = event.bind,
+    emit = event.emit;
+  var classes = options.classes,
+    i18n = options.i18n;
+  var Elements2 = Components2.Elements,
+    Controller2 = Components2.Controller;
+  var placeholder = Elements2.arrows,
+    track = Elements2.track;
   var wrapper = placeholder;
   var prev = Elements2.prev;
   var next = Elements2.next;
@@ -2842,10 +3561,13 @@ function Arrows(Splide2, Components2, options) {
     if (prev && next) {
       assign(arrows, {
         prev,
-        next
+        next,
       });
       display(wrapper, enabled ? "" : "none");
-      addClass(wrapper, wrapperClasses = CLASS_ARROWS + "--" + options.direction);
+      addClass(
+        wrapper,
+        (wrapperClasses = CLASS_ARROWS + "--" + options.direction)
+      );
       if (enabled) {
         listen();
         update();
@@ -2865,7 +3587,16 @@ function Arrows(Splide2, Components2, options) {
     }
   }
   function listen() {
-    on([EVENT_MOUNTED, EVENT_MOVED, EVENT_REFRESH, EVENT_SCROLLED, EVENT_END_INDEX_CHANGED], update);
+    on(
+      [
+        EVENT_MOUNTED,
+        EVENT_MOVED,
+        EVENT_REFRESH,
+        EVENT_SCROLLED,
+        EVENT_END_INDEX_CHANGED,
+      ],
+      update
+    );
     bind(next, "click", apply(go, ">"));
     bind(prev, "click", apply(go, "<"));
   }
@@ -2881,7 +3612,24 @@ function Arrows(Splide2, Components2, options) {
     !placeholder && before(wrapper, track);
   }
   function createArrow(prev2) {
-    var arrow2 = '<button class="' + classes.arrow + " " + (prev2 ? classes.prev : classes.next) + '" type="button"><svg xmlns="' + XML_NAME_SPACE + '" viewBox="0 0 ' + SIZE + " " + SIZE + '" width="' + SIZE + '" height="' + SIZE + '" focusable="false"><path d="' + (options.arrowPath || PATH) + '" />';
+    var arrow2 =
+      '<button class="' +
+      classes.arrow +
+      " " +
+      (prev2 ? classes.prev : classes.next) +
+      '" type="button"><svg xmlns="' +
+      XML_NAME_SPACE +
+      '" viewBox="0 0 ' +
+      SIZE +
+      " " +
+      SIZE +
+      '" width="' +
+      SIZE +
+      '" height="' +
+      SIZE +
+      '" focusable="false"><path d="' +
+      (options.arrowPath || PATH) +
+      '" />';
     return parseHtml(arrow2);
   }
   function update() {
@@ -2889,8 +3637,10 @@ function Arrows(Splide2, Components2, options) {
       var index = Splide2.index;
       var prevIndex = Controller2.getPrev();
       var nextIndex = Controller2.getNext();
-      var prevLabel = prevIndex > -1 && index < prevIndex ? i18n.last : i18n.prev;
-      var nextLabel = nextIndex > -1 && index > nextIndex ? i18n.first : i18n.next;
+      var prevLabel =
+        prevIndex > -1 && index < prevIndex ? i18n.last : i18n.prev;
+      var nextLabel =
+        nextIndex > -1 && index > nextIndex ? i18n.first : i18n.next;
       prev.disabled = prevIndex < 0;
       next.disabled = nextIndex < 0;
       setAttribute(prev, ARIA_LABEL, prevLabel);
@@ -2902,15 +3652,25 @@ function Arrows(Splide2, Components2, options) {
     arrows,
     mount,
     destroy,
-    update
+    update,
   };
 }
 var INTERVAL_DATA_ATTRIBUTE = DATA_ATTRIBUTE + "-interval";
 function Autoplay(Splide2, Components2, options) {
-  var _EventInterface6 = EventInterface(Splide2), on = _EventInterface6.on, bind = _EventInterface6.bind, emit = _EventInterface6.emit;
-  var interval = RequestInterval(options.interval, Splide2.go.bind(Splide2, ">"), onAnimationFrame);
+  var _EventInterface6 = EventInterface(Splide2),
+    on = _EventInterface6.on,
+    bind = _EventInterface6.bind,
+    emit = _EventInterface6.emit;
+  var interval = RequestInterval(
+    options.interval,
+    Splide2.go.bind(Splide2, ">"),
+    onAnimationFrame
+  );
   var isPaused = interval.isPaused;
-  var Elements2 = Components2.Elements, _Components2$Elements4 = Components2.Elements, root = _Components2$Elements4.root, toggle = _Components2$Elements4.toggle;
+  var Elements2 = Components2.Elements,
+    _Components2$Elements4 = Components2.Elements,
+    root = _Components2$Elements4.root,
+    toggle = _Components2$Elements4.toggle;
   var autoplay = options.autoplay;
   var hovered;
   var focused;
@@ -2925,19 +3685,19 @@ function Autoplay(Splide2, Components2, options) {
   }
   function listen() {
     if (options.pauseOnHover) {
-      bind(root, "mouseenter mouseleave", function(e) {
+      bind(root, "mouseenter mouseleave", function (e) {
         hovered = e.type === "mouseenter";
         autoToggle();
       });
     }
     if (options.pauseOnFocus) {
-      bind(root, "focusin focusout", function(e) {
+      bind(root, "focusin focusout", function (e) {
         focused = e.type === "focusin";
         autoToggle();
       });
     }
     if (toggle) {
-      bind(toggle, "click", function() {
+      bind(toggle, "click", function () {
         stopped ? play() : pause(true);
       });
     }
@@ -2971,7 +3731,11 @@ function Autoplay(Splide2, Components2, options) {
   function update() {
     if (toggle) {
       toggleClass(toggle, CLASS_ACTIVE, !stopped);
-      setAttribute(toggle, ARIA_LABEL, options.i18n[stopped ? "play" : "pause"]);
+      setAttribute(
+        toggle,
+        ARIA_LABEL,
+        options.i18n[stopped ? "play" : "pause"]
+      );
     }
   }
   function onAnimationFrame(rate) {
@@ -2981,18 +3745,22 @@ function Autoplay(Splide2, Components2, options) {
   }
   function onMove(index) {
     var Slide2 = Components2.Slides.getAt(index);
-    interval.set(Slide2 && +getAttribute(Slide2.slide, INTERVAL_DATA_ATTRIBUTE) || options.interval);
+    interval.set(
+      (Slide2 && +getAttribute(Slide2.slide, INTERVAL_DATA_ATTRIBUTE)) ||
+        options.interval
+    );
   }
   return {
     mount,
     destroy: interval.cancel,
     play,
     pause,
-    isPaused
+    isPaused,
   };
 }
 function Cover(Splide2, Components2, options) {
-  var _EventInterface7 = EventInterface(Splide2), on = _EventInterface7.on;
+  var _EventInterface7 = EventInterface(Splide2),
+    on = _EventInterface7.on;
   function mount() {
     if (options.cover) {
       on(EVENT_LAZYLOAD_LOADED, apply(toggle, true));
@@ -3000,7 +3768,7 @@ function Cover(Splide2, Components2, options) {
     }
   }
   function cover(cover2) {
-    Components2.Slides.forEach(function(Slide2) {
+    Components2.Slides.forEach(function (Slide2) {
       var img = child(Slide2.container || Slide2.slide, "img");
       if (img && img.src) {
         toggle(cover2, img, Slide2);
@@ -3008,12 +3776,16 @@ function Cover(Splide2, Components2, options) {
     });
   }
   function toggle(cover2, img, Slide2) {
-    Slide2.style("background", cover2 ? 'center/cover no-repeat url("' + img.src + '")' : "", true);
+    Slide2.style(
+      "background",
+      cover2 ? 'center/cover no-repeat url("' + img.src + '")' : "",
+      true
+    );
     display(img, cover2 ? "none" : "");
   }
   return {
     mount,
-    destroy: apply(cover, false)
+    destroy: apply(cover, false),
   };
 }
 var BOUNCE_DIFF_THRESHOLD = 10;
@@ -3022,10 +3794,15 @@ var FRICTION_FACTOR = 0.6;
 var BASE_VELOCITY = 1.5;
 var MIN_DURATION = 800;
 function Scroll(Splide2, Components2, options) {
-  var _EventInterface8 = EventInterface(Splide2), on = _EventInterface8.on, emit = _EventInterface8.emit;
+  var _EventInterface8 = EventInterface(Splide2),
+    on = _EventInterface8.on,
+    emit = _EventInterface8.emit;
   var set = Splide2.state.set;
   var Move2 = Components2.Move;
-  var getPosition = Move2.getPosition, getLimit = Move2.getLimit, exceededLimit = Move2.exceededLimit, translate = Move2.translate;
+  var getPosition = Move2.getPosition,
+    getLimit = Move2.getLimit,
+    exceededLimit = Move2.exceededLimit,
+    translate = Move2.translate;
   var isSlide = Splide2.is(SLIDE);
   var interval;
   var callback;
@@ -3039,14 +3816,24 @@ function Scroll(Splide2, Components2, options) {
     clear();
     if (snap && (!isSlide || !exceededLimit())) {
       var size = Components2.Layout.sliderSize();
-      var offset2 = sign(destination) * size * floor(abs(destination) / size) || 0;
-      destination = Move2.toPosition(Components2.Controller.toDest(destination % size)) + offset2;
+      var offset2 =
+        sign(destination) * size * floor(abs(destination) / size) || 0;
+      destination =
+        Move2.toPosition(Components2.Controller.toDest(destination % size)) +
+        offset2;
     }
     var noDistance = approximatelyEqual(from, destination, 1);
     friction = 1;
-    duration = noDistance ? 0 : duration || max(abs(destination - from) / BASE_VELOCITY, MIN_DURATION);
+    duration = noDistance
+      ? 0
+      : duration || max(abs(destination - from) / BASE_VELOCITY, MIN_DURATION);
     callback = onScrolled;
-    interval = RequestInterval(duration, onEnd, apply(update, from, destination, noConstrain), 1);
+    interval = RequestInterval(
+      duration,
+      onEnd,
+      apply(update, from, destination, noConstrain),
+      1
+    );
     set(SCROLLING);
     emit(EVENT_SCROLL);
     interval.start();
@@ -3064,7 +3851,13 @@ function Scroll(Splide2, Components2, options) {
     if (isSlide && !noConstrain && exceededLimit()) {
       friction *= FRICTION_FACTOR;
       if (abs(diff) < BOUNCE_DIFF_THRESHOLD) {
-        scroll(getLimit(exceededLimit(true)), BOUNCE_DURATION, false, callback, true);
+        scroll(
+          getLimit(exceededLimit(true)),
+          BOUNCE_DURATION,
+          false,
+          callback,
+          true
+        );
       }
     }
   }
@@ -3087,19 +3880,30 @@ function Scroll(Splide2, Components2, options) {
     mount,
     destroy: clear,
     scroll,
-    cancel
+    cancel,
   };
 }
 var SCROLL_LISTENER_OPTIONS = {
   passive: false,
-  capture: true
+  capture: true,
 };
 function Drag(Splide2, Components2, options) {
-  var _EventInterface9 = EventInterface(Splide2), on = _EventInterface9.on, emit = _EventInterface9.emit, bind = _EventInterface9.bind, unbind = _EventInterface9.unbind;
+  var _EventInterface9 = EventInterface(Splide2),
+    on = _EventInterface9.on,
+    emit = _EventInterface9.emit,
+    bind = _EventInterface9.bind,
+    unbind = _EventInterface9.unbind;
   var state = Splide2.state;
-  var Move2 = Components2.Move, Scroll2 = Components2.Scroll, Controller2 = Components2.Controller, track = Components2.Elements.track, reduce = Components2.Media.reduce;
-  var _Components2$Directio2 = Components2.Direction, resolve = _Components2$Directio2.resolve, orient = _Components2$Directio2.orient;
-  var getPosition = Move2.getPosition, exceededLimit = Move2.exceededLimit;
+  var Move2 = Components2.Move,
+    Scroll2 = Components2.Scroll,
+    Controller2 = Components2.Controller,
+    track = Components2.Elements.track,
+    reduce = Components2.Media.reduce;
+  var _Components2$Directio2 = Components2.Direction,
+    resolve = _Components2$Directio2.resolve,
+    orient = _Components2$Directio2.orient;
+  var getPosition = Move2.getPosition,
+    exceededLimit = Move2.exceededLimit;
   var basePosition;
   var baseEvent;
   var prevBaseEvent;
@@ -3114,7 +3918,7 @@ function Drag(Splide2, Components2, options) {
     bind(track, POINTER_UP_EVENTS, noop, SCROLL_LISTENER_OPTIONS);
     bind(track, POINTER_DOWN_EVENTS, onPointerDown, SCROLL_LISTENER_OPTIONS);
     bind(track, "click", onClick, {
-      capture: true
+      capture: true,
     });
     bind(track, "dragstart", prevent);
     on([EVENT_MOUNTED, EVENT_UPDATED], init);
@@ -3133,7 +3937,12 @@ function Drag(Splide2, Components2, options) {
           target = isTouch ? track : window;
           dragging = state.is([MOVING, SCROLLING]);
           prevBaseEvent = null;
-          bind(target, POINTER_MOVE_EVENTS, onPointerMove, SCROLL_LISTENER_OPTIONS);
+          bind(
+            target,
+            POINTER_MOVE_EVENTS,
+            onPointerMove,
+            SCROLL_LISTENER_OPTIONS
+          );
           bind(target, POINTER_UP_EVENTS, onPointerUp, SCROLL_LISTENER_OPTIONS);
           Move2.cancel();
           Scroll2.cancel();
@@ -3197,7 +4006,9 @@ function Drag(Splide2, Components2, options) {
     if (isFree) {
       Controller2.scroll(destination, 0, options.snap);
     } else if (Splide2.is(FADE)) {
-      Controller2.go(orient(sign(velocity)) < 0 ? rewind ? "<" : "-" : rewind ? ">" : "+");
+      Controller2.go(
+        orient(sign(velocity)) < 0 ? (rewind ? "<" : "-") : rewind ? ">" : "+"
+      );
     } else if (Splide2.is(SLIDE) && exceeded && rewind) {
       Controller2.go(exceededLimit(true) ? ">" : "<");
     } else {
@@ -3208,7 +4019,7 @@ function Drag(Splide2, Components2, options) {
   function shouldStart(e) {
     var thresholds = options.dragMinThreshold;
     var isObj = isObject(thresholds);
-    var mouse = isObj && thresholds.mouse || 0;
+    var mouse = (isObj && thresholds.mouse) || 0;
     var touch = (isObj ? thresholds.touch : +thresholds) || 10;
     return abs(diffCoord(e)) > (isTouchEvent(e) ? touch : mouse);
   }
@@ -3225,7 +4036,16 @@ function Drag(Splide2, Components2, options) {
     return 0;
   }
   function computeDestination(velocity) {
-    return getPosition() + sign(velocity) * min(abs(velocity) * (options.flickPower || 600), isFree ? Infinity : Components2.Layout.listSize() * (options.flickMaxPages || 1));
+    return (
+      getPosition() +
+      sign(velocity) *
+        min(
+          abs(velocity) * (options.flickPower || 600),
+          isFree
+            ? Infinity
+            : Components2.Layout.listSize() * (options.flickMaxPages || 1)
+        )
+    );
   }
   function diffCoord(e, orthogonal) {
     return coordOf(e, orthogonal) - coordOf(getBaseEvent(e), orthogonal);
@@ -3234,17 +4054,22 @@ function Drag(Splide2, Components2, options) {
     return timeOf(e) - timeOf(getBaseEvent(e));
   }
   function getBaseEvent(e) {
-    return baseEvent === e && prevBaseEvent || baseEvent;
+    return (baseEvent === e && prevBaseEvent) || baseEvent;
   }
   function coordOf(e, orthogonal) {
-    return (isTouchEvent(e) ? e.changedTouches[0] : e)["page" + resolve(orthogonal ? "Y" : "X")];
+    return (isTouchEvent(e) ? e.changedTouches[0] : e)[
+      "page" + resolve(orthogonal ? "Y" : "X")
+    ];
   }
   function constrain(diff) {
     return diff / (exceeded && Splide2.is(SLIDE) ? FRICTION : 1);
   }
   function isDraggable(target2) {
     var noDrag = options.noDrag;
-    return !matches(target2, "." + CLASS_PAGINATION_PAGE + ", ." + CLASS_ARROW) && (!noDrag || !matches(target2, noDrag));
+    return (
+      !matches(target2, "." + CLASS_PAGINATION_PAGE + ", ." + CLASS_ARROW) &&
+      (!noDrag || !matches(target2, noDrag))
+    );
   }
   function isTouchEvent(e) {
     return typeof TouchEvent !== "undefined" && e instanceof TouchEvent;
@@ -3258,7 +4083,7 @@ function Drag(Splide2, Components2, options) {
   return {
     mount,
     disable,
-    isDragging
+    isDragging,
   };
 }
 var NORMALIZATION_MAP = {
@@ -3266,7 +4091,7 @@ var NORMALIZATION_MAP = {
   Right: ARROW_RIGHT,
   Left: ARROW_LEFT,
   Up: ARROW_UP,
-  Down: ARROW_DOWN
+  Down: ARROW_DOWN,
 };
 function normalizeKey(key) {
   key = isString(key) ? key : key.key;
@@ -3274,7 +4099,10 @@ function normalizeKey(key) {
 }
 var KEYBOARD_EVENT = "keydown";
 function Keyboard(Splide2, Components2, options) {
-  var _EventInterface10 = EventInterface(Splide2), on = _EventInterface10.on, bind = _EventInterface10.bind, unbind = _EventInterface10.unbind;
+  var _EventInterface10 = EventInterface(Splide2),
+    on = _EventInterface10.on,
+    bind = _EventInterface10.bind,
+    unbind = _EventInterface10.unbind;
   var root = Splide2.root;
   var resolve = Components2.Direction.resolve;
   var target;
@@ -3301,7 +4129,7 @@ function Keyboard(Splide2, Components2, options) {
   function onMove() {
     var _disabled = disabled;
     disabled = true;
-    nextTick(function() {
+    nextTick(function () {
       disabled = _disabled;
     });
   }
@@ -3318,14 +4146,19 @@ function Keyboard(Splide2, Components2, options) {
   return {
     mount,
     destroy,
-    disable
+    disable,
   };
 }
 var SRC_DATA_ATTRIBUTE = DATA_ATTRIBUTE + "-lazy";
 var SRCSET_DATA_ATTRIBUTE = SRC_DATA_ATTRIBUTE + "-srcset";
-var IMAGE_SELECTOR = "[" + SRC_DATA_ATTRIBUTE + "], [" + SRCSET_DATA_ATTRIBUTE + "]";
+var IMAGE_SELECTOR =
+  "[" + SRC_DATA_ATTRIBUTE + "], [" + SRCSET_DATA_ATTRIBUTE + "]";
 function LazyLoad(Splide2, Components2, options) {
-  var _EventInterface11 = EventInterface(Splide2), on = _EventInterface11.on, off = _EventInterface11.off, bind = _EventInterface11.bind, emit = _EventInterface11.emit;
+  var _EventInterface11 = EventInterface(Splide2),
+    on = _EventInterface11.on,
+    off = _EventInterface11.off,
+    bind = _EventInterface11.bind,
+    emit = _EventInterface11.emit;
   var isSequential = options.lazyLoad === "sequential";
   var events = [EVENT_MOVED, EVENT_SCROLLED];
   var entries = [];
@@ -3347,14 +4180,15 @@ function LazyLoad(Splide2, Components2, options) {
     }
   }
   function register() {
-    Components2.Slides.forEach(function(Slide2) {
-      queryAll(Slide2.slide, IMAGE_SELECTOR).forEach(function(img) {
+    Components2.Slides.forEach(function (Slide2) {
+      queryAll(Slide2.slide, IMAGE_SELECTOR).forEach(function (img) {
         var src = getAttribute(img, SRC_DATA_ATTRIBUTE);
         var srcset = getAttribute(img, SRCSET_DATA_ATTRIBUTE);
         if (src !== img.src || srcset !== img.srcset) {
           var className = options.classes.spinner;
           var parent = img.parentElement;
-          var spinner = child(parent, "." + className) || create("span", className, parent);
+          var spinner =
+            child(parent, "." + className) || create("span", className, parent);
           entries.push([img, Slide2, spinner]);
           img.src || display(img, "none");
         }
@@ -3362,7 +4196,7 @@ function LazyLoad(Splide2, Components2, options) {
     });
   }
   function check() {
-    entries = entries.filter(function(data) {
+    entries = entries.filter(function (data) {
       var distance = options.perPage * ((options.preloadPages || 1) + 1) - 1;
       return data[1].isWithin(Splide2.index, distance) ? load(data) : true;
     });
@@ -3378,7 +4212,8 @@ function LazyLoad(Splide2, Components2, options) {
     removeAttribute(img, SRCSET_DATA_ATTRIBUTE);
   }
   function onLoad(data, e) {
-    var img = data[0], Slide2 = data[1];
+    var img = data[0],
+      Slide2 = data[1];
     removeClass(Slide2.slide, CLASS_LOADING);
     if (e.type !== "error") {
       remove(data[2]);
@@ -3394,14 +4229,20 @@ function LazyLoad(Splide2, Components2, options) {
   return {
     mount,
     destroy: apply(empty, entries),
-    check
+    check,
   };
 }
 function Pagination(Splide2, Components2, options) {
   var event = EventInterface(Splide2);
-  var on = event.on, emit = event.emit, bind = event.bind;
-  var Slides2 = Components2.Slides, Elements2 = Components2.Elements, Controller2 = Components2.Controller;
-  var hasFocus = Controller2.hasFocus, getIndex = Controller2.getIndex, go = Controller2.go;
+  var on = event.on,
+    emit = event.emit,
+    bind = event.bind;
+  var Slides2 = Components2.Slides,
+    Elements2 = Components2.Elements,
+    Controller2 = Components2.Controller;
+  var hasFocus = Controller2.hasFocus,
+    getIndex = Controller2.getIndex,
+    go = Controller2.go;
   var resolve = Components2.Direction.resolve;
   var placeholder = Elements2.pagination;
   var items = [];
@@ -3416,10 +4257,14 @@ function Pagination(Splide2, Components2, options) {
       on([EVENT_MOVE, EVENT_SCROLL, EVENT_SCROLLED], update);
       createPagination();
       update();
-      emit(EVENT_PAGINATION_MOUNTED, {
-        list,
-        items
-      }, getAt(Splide2.index));
+      emit(
+        EVENT_PAGINATION_MOUNTED,
+        {
+          list,
+          items,
+        },
+        getAt(Splide2.index)
+      );
     }
   }
   function destroy() {
@@ -3433,20 +4278,35 @@ function Pagination(Splide2, Components2, options) {
   }
   function createPagination() {
     var length = Splide2.length;
-    var classes = options.classes, i18n = options.i18n, perPage = options.perPage;
+    var classes = options.classes,
+      i18n = options.i18n,
+      perPage = options.perPage;
     var max2 = hasFocus() ? Controller2.getEnd() + 1 : ceil(length / perPage);
-    list = placeholder || create("ul", classes.pagination, Elements2.track.parentElement);
-    addClass(list, paginationClasses = CLASS_PAGINATION + "--" + getDirection());
+    list =
+      placeholder ||
+      create("ul", classes.pagination, Elements2.track.parentElement);
+    addClass(
+      list,
+      (paginationClasses = CLASS_PAGINATION + "--" + getDirection())
+    );
     setAttribute(list, ROLE, "tablist");
     setAttribute(list, ARIA_LABEL, i18n.select);
-    setAttribute(list, ARIA_ORIENTATION, getDirection() === TTB ? "vertical" : "");
+    setAttribute(
+      list,
+      ARIA_ORIENTATION,
+      getDirection() === TTB ? "vertical" : ""
+    );
     for (var i = 0; i < max2; i++) {
       var li = create("li", null, list);
-      var button = create("button", {
-        class: classes.page,
-        type: "button"
-      }, li);
-      var controls = Slides2.getIn(i).map(function(Slide2) {
+      var button = create(
+        "button",
+        {
+          class: classes.page,
+          type: "button",
+        },
+        li
+      );
+      var controls = Slides2.getIn(i).map(function (Slide2) {
         return Slide2.slide.id;
       });
       var text = !hasFocus() && perPage > 1 ? i18n.pageX : i18n.slideX;
@@ -3462,7 +4322,7 @@ function Pagination(Splide2, Components2, options) {
       items.push({
         li,
         button,
-        page: i
+        page: i,
       });
     }
   }
@@ -3511,25 +4371,31 @@ function Pagination(Splide2, Components2, options) {
       setAttribute(_button, ARIA_SELECTED, true);
       setAttribute(_button, TAB_INDEX, "");
     }
-    emit(EVENT_PAGINATION_UPDATED, {
-      list,
-      items
-    }, prev, curr);
+    emit(
+      EVENT_PAGINATION_UPDATED,
+      {
+        list,
+        items,
+      },
+      prev,
+      curr
+    );
   }
   return {
     items,
     mount,
     destroy,
     getAt,
-    update
+    update,
   };
 }
 var TRIGGER_KEYS = [" ", "Enter"];
 function Sync(Splide2, Components2, options) {
-  var isNavigation = options.isNavigation, slideFocus = options.slideFocus;
+  var isNavigation = options.isNavigation,
+    slideFocus = options.slideFocus;
   var events = [];
   function mount() {
-    Splide2.splides.forEach(function(target) {
+    Splide2.splides.forEach(function (target) {
       if (!target.isParent) {
         sync(Splide2, target.splide);
         sync(target.splide, Splide2);
@@ -3540,7 +4406,7 @@ function Sync(Splide2, Components2, options) {
     }
   }
   function destroy() {
-    events.forEach(function(event) {
+    events.forEach(function (event) {
       event.destroy();
     });
     empty(events);
@@ -3551,7 +4417,7 @@ function Sync(Splide2, Components2, options) {
   }
   function sync(splide, target) {
     var event = EventInterface(splide);
-    event.on(EVENT_MOVE, function(index, prev, dest) {
+    event.on(EVENT_MOVE, function (index, prev, dest) {
       target.go(target.is(LOOP) ? dest : index);
     });
     events.push(event);
@@ -3566,7 +4432,11 @@ function Sync(Splide2, Components2, options) {
     event.emit(EVENT_NAVIGATION_MOUNTED, Splide2.splides);
   }
   function update() {
-    setAttribute(Components2.Elements.list, ARIA_ORIENTATION, options.direction === TTB ? "vertical" : "");
+    setAttribute(
+      Components2.Elements.list,
+      ARIA_ORIENTATION,
+      options.direction === TTB ? "vertical" : ""
+    );
   }
   function onClick(Slide2) {
     Splide2.go(Slide2.index);
@@ -3578,20 +4448,30 @@ function Sync(Splide2, Components2, options) {
     }
   }
   return {
-    setup: apply(Components2.Media.set, {
-      slideFocus: isUndefined(slideFocus) ? isNavigation : slideFocus
-    }, true),
+    setup: apply(
+      Components2.Media.set,
+      {
+        slideFocus: isUndefined(slideFocus) ? isNavigation : slideFocus,
+      },
+      true
+    ),
     mount,
     destroy,
-    remount
+    remount,
   };
 }
 function Wheel(Splide2, Components2, options) {
-  var _EventInterface12 = EventInterface(Splide2), bind = _EventInterface12.bind;
+  var _EventInterface12 = EventInterface(Splide2),
+    bind = _EventInterface12.bind;
   var lastTime = 0;
   function mount() {
     if (options.wheel) {
-      bind(Components2.Elements.track, "wheel", onWheel, SCROLL_LISTENER_OPTIONS);
+      bind(
+        Components2.Elements.track,
+        "wheel",
+        onWheel,
+        SCROLL_LISTENER_OPTIONS
+      );
     }
   }
   function onWheel(e) {
@@ -3609,15 +4489,20 @@ function Wheel(Splide2, Components2, options) {
     }
   }
   function shouldPrevent(backwards) {
-    return !options.releaseWheel || Splide2.state.is(MOVING) || Components2.Controller.getAdjacent(backwards) !== -1;
+    return (
+      !options.releaseWheel ||
+      Splide2.state.is(MOVING) ||
+      Components2.Controller.getAdjacent(backwards) !== -1
+    );
   }
   return {
-    mount
+    mount,
   };
 }
 var SR_REMOVAL_DELAY = 90;
 function Live(Splide2, Components2, options) {
-  var _EventInterface13 = EventInterface(Splide2), on = _EventInterface13.on;
+  var _EventInterface13 = EventInterface(Splide2),
+    on = _EventInterface13.on;
   var track = Components2.Elements.track;
   var enabled = options.live && !options.isNavigation;
   var sr = create("span", CLASS_SR);
@@ -3654,7 +4539,7 @@ function Live(Splide2, Components2, options) {
   return {
     mount,
     disable,
-    destroy
+    destroy,
   };
 }
 var ComponentConstructors = /* @__PURE__ */ Object.freeze({
@@ -3677,7 +4562,7 @@ var ComponentConstructors = /* @__PURE__ */ Object.freeze({
   Pagination,
   Sync,
   Wheel,
-  Live
+  Live,
 });
 var I18N = {
   prev: "Previous slide",
@@ -3691,7 +4576,7 @@ var I18N = {
   carousel: "carousel",
   slide: "slide",
   select: "Select a slide to show",
-  slideLabel: "%s of %s"
+  slideLabel: "%s of %s",
 };
 var DEFAULTS = {
   type: "slide",
@@ -3717,8 +4602,8 @@ var DEFAULTS = {
   reducedMotion: {
     speed: 0,
     rewindSpeed: 0,
-    autoplay: "pause"
-  }
+    autoplay: "pause",
+  },
 };
 function Fade(Splide2, Components2, options) {
   var Slides2 = Components2.Slides;
@@ -3726,27 +4611,32 @@ function Fade(Splide2, Components2, options) {
     EventInterface(Splide2).on([EVENT_MOUNTED, EVENT_REFRESH], init);
   }
   function init() {
-    Slides2.forEach(function(Slide2) {
+    Slides2.forEach(function (Slide2) {
       Slide2.style("transform", "translateX(-" + 100 * Slide2.index + "%)");
     });
   }
   function start2(index, done) {
-    Slides2.style("transition", "opacity " + options.speed + "ms " + options.easing);
+    Slides2.style(
+      "transition",
+      "opacity " + options.speed + "ms " + options.easing
+    );
     nextTick(done);
   }
   return {
     mount,
     start: start2,
-    cancel: noop
+    cancel: noop,
   };
 }
 function Slide(Splide2, Components2, options) {
-  var Move2 = Components2.Move, Controller2 = Components2.Controller, Scroll2 = Components2.Scroll;
+  var Move2 = Components2.Move,
+    Controller2 = Components2.Controller,
+    Scroll2 = Components2.Scroll;
   var list = Components2.Elements.list;
   var transition = apply(style, list, "transition");
   var endCallback;
   function mount() {
-    EventInterface(Splide2).bind(list, "transitionend", function(e) {
+    EventInterface(Splide2).bind(list, "transitionend", function (e) {
       if (e.target === list && endCallback) {
         cancel();
         endCallback();
@@ -3779,7 +4669,7 @@ function Slide(Splide2, Components2, options) {
     if (Splide2.is(SLIDE) && rewindSpeed) {
       var prev = Controller2.getIndex(true);
       var end2 = Controller2.getEnd();
-      if (prev === 0 && index >= end2 || prev >= end2 && index === 0) {
+      if ((prev === 0 && index >= end2) || (prev >= end2 && index === 0)) {
         return rewindSpeed;
       }
     }
@@ -3788,10 +4678,10 @@ function Slide(Splide2, Components2, options) {
   return {
     mount,
     start: start2,
-    cancel
+    cancel,
   };
 }
-var _Splide = /* @__PURE__ */ function() {
+var _Splide = /* @__PURE__ */ (function () {
   function _Splide2(target, options) {
     this.event = EventInterface();
     this.Components = {};
@@ -3802,10 +4692,15 @@ var _Splide = /* @__PURE__ */ function() {
     var root = isString(target) ? query(document, target) : target;
     assert(root, root + " is invalid.");
     this.root = root;
-    options = merge({
-      label: getAttribute(root, ARIA_LABEL) || "",
-      labelledby: getAttribute(root, ARIA_LABELLEDBY) || ""
-    }, DEFAULTS, _Splide2.defaults, options || {});
+    options = merge(
+      {
+        label: getAttribute(root, ARIA_LABEL) || "",
+        labelledby: getAttribute(root, ARIA_LABELLEDBY) || "",
+      },
+      DEFAULTS,
+      _Splide2.defaults,
+      options || {}
+    );
     try {
       merge(options, JSON.parse(getAttribute(root, DATA_ATTRIBUTE)));
     } catch (e) {
@@ -3816,21 +4711,22 @@ var _Splide = /* @__PURE__ */ function() {
   var _proto = _Splide2.prototype;
   _proto.mount = function mount(Extensions, Transition) {
     var _this = this;
-    var state = this.state, Components2 = this.Components;
+    var state = this.state,
+      Components2 = this.Components;
     assert(state.is([CREATED, DESTROYED]), "Already mounted!");
     state.set(CREATED);
     this._C = Components2;
     this._T = Transition || this._T || (this.is(FADE) ? Fade : Slide);
     this._E = Extensions || this._E;
     var Constructors = assign({}, ComponentConstructors, this._E, {
-      Transition: this._T
+      Transition: this._T,
     });
-    forOwn(Constructors, function(Component, key) {
+    forOwn(Constructors, function (Component, key) {
       var component = Component(_this, Components2, _this._o);
       Components2[key] = component;
       component.setup && component.setup();
     });
-    forOwn(Components2, function(component) {
+    forOwn(Components2, function (component) {
       component.mount && component.mount();
     });
     this.emit(EVENT_MOUNTED);
@@ -3841,11 +4737,11 @@ var _Splide = /* @__PURE__ */ function() {
   };
   _proto.sync = function sync(splide) {
     this.splides.push({
-      splide
+      splide,
     });
     splide.splides.push({
       splide: this,
-      isParent: true
+      isParent: true,
     });
     if (this.state.is(IDLE)) {
       this._C.Sync.remount();
@@ -3867,7 +4763,10 @@ var _Splide = /* @__PURE__ */ function() {
   };
   _proto.emit = function emit(event) {
     var _this$event;
-    (_this$event = this.event).emit.apply(_this$event, [event].concat(slice(arguments, 1)));
+    (_this$event = this.event).emit.apply(
+      _this$event,
+      [event].concat(slice(arguments, 1))
+    );
     return this;
   };
   _proto.add = function add(slides, index) {
@@ -3889,13 +4788,18 @@ var _Splide = /* @__PURE__ */ function() {
     if (completely === void 0) {
       completely = true;
     }
-    var event = this.event, state = this.state;
+    var event = this.event,
+      state = this.state;
     if (state.is(CREATED)) {
       EventInterface(this).on(EVENT_READY, this.destroy.bind(this, completely));
     } else {
-      forOwn(this._C, function(component) {
-        component.destroy && component.destroy(completely);
-      }, true);
+      forOwn(
+        this._C,
+        function (component) {
+          component.destroy && component.destroy(completely);
+        },
+        true
+      );
       event.emit(EVENT_DESTROY);
       event.destroy();
       completely && empty(this.splides);
@@ -3903,46 +4807,50 @@ var _Splide = /* @__PURE__ */ function() {
     }
     return this;
   };
-  _createClass(_Splide2, [{
-    key: "options",
-    get: function get() {
-      return this._o;
+  _createClass(_Splide2, [
+    {
+      key: "options",
+      get: function get() {
+        return this._o;
+      },
+      set: function set(options) {
+        this._C.Media.set(options, true, true);
+      },
     },
-    set: function set(options) {
-      this._C.Media.set(options, true, true);
-    }
-  }, {
-    key: "length",
-    get: function get() {
-      return this._C.Slides.getLength(true);
-    }
-  }, {
-    key: "index",
-    get: function get() {
-      return this._C.Controller.getIndex();
-    }
-  }]);
+    {
+      key: "length",
+      get: function get() {
+        return this._C.Slides.getLength(true);
+      },
+    },
+    {
+      key: "index",
+      get: function get() {
+        return this._C.Controller.getIndex();
+      },
+    },
+  ]);
   return _Splide2;
-}();
+})();
 var Splide = _Splide;
 Splide.defaults = {};
 Splide.STATES = STATES;
 const main = "";
 const splideCore_min = "";
-const carouselSection = document.querySelector('.carousel-section');
-const carouselContent = document.querySelector('.carousel-cover__content--bottom');
+const carouselSection = document.querySelector(".carousel-section");
+const carouselContent = document.querySelector(
+  ".carousel-cover__content--bottom"
+);
 (function adjustHeight() {
-  if (!carouselContent)
-    return;
+  if (!carouselContent) return;
   let heigthContent = carouselContent.getBoundingClientRect().height;
   let carouselHeigth = carouselSection.getBoundingClientRect().height;
   console.log(`${carouselHeigth - heigthContent * 0.4}px`);
   carouselSection.style.height = `${carouselHeigth - heigthContent * 0.4}px`;
 })();
-document.addEventListener("DOMContentLoaded", function() {
-  new Splide("#carousel_cover", {
-    type: "slide",
-    rewind: true,
-    pagination: false
-  }).mount();
-});
+
+new Splide("#carousel_cover", {
+  type: "slide",
+  rewind: true,
+  pagination: false,
+}).mount();
