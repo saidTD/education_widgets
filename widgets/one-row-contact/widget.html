@@ -1,0 +1,70 @@
+<section class="contact" id="contact">
+  <div class="container py-5">
+    <div class="contact-wrapper mx-auto bg-white shadow-lg">
+      <h2 class="conatct mb-3 text-center">{{params.title}}</h2>
+
+      <p class="contact-desc mb-5 mx-auto text-center">{{params.description|default:'Pour toute information complémentaire au sujet de l'un de nos établissement, merci de remplir de remplir le formulaire en dessus. Nous vous reviendrons dans les meilleurs délais.'}}</p>
+
+      <form class="d-grid gap-3 needs-validation" data-form-cat="contact" novalidate="">
+        <div class="form-row">
+          <div class="form-group mb-3">
+            <label for="service" class="form-label">Quel est niveau actuel de votre enfant?</label>
+            <select class="form-select pe-5" id="level" name="level" aria-label="select" required>
+              <option selected disabled value="">
+                Choisissiez un service qui vous intéresse
+              </option>
+              <option value="maternelle">Maternelle</option>
+            </select>
+            <div class="invalid-feedback">
+              Ce champ est obligatoire.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <fieldset>
+            <legend class="fs-6">Now Complet du Parent</legend>
+            <div class="row">
+              <div class="col-6 form-group mb-3">
+                <label for="first-name" class="sr-only">nom</label>
+                <input class="form-control" id="first-name" type="text" name="first_name"
+                  placeholder="Nom" aria-describedby="funNameHelp" required="">
+                <div class="invalid-feedback">
+                  Ce champ est obligatoire.
+                </div>
+              </div>
+              <div class="col-6 form-group mb-3">
+                <label for="last-name" class="sr-only">prénom<span class="required"></span></label>
+                <input class="form-control" id="last-name" type="text" name="last_name" placeholder="Prénom"
+                  aria-describedby="funNameHelp" required="">
+                <div class="invalid-feedback">
+                  Ce champ est obligatoire.
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-row">
+          <div class="form-group mb-3">
+            <label for="phone" class="form-label">Numéro de Téléphone <span class="required"></span></label>
+            <input class="form-control" id="phone" type="tel" name="phone" placeholder="+212"
+              aria-describedby="phoneHelp" required="">
+            <div class="invalid-feedback">
+              Veuillez saisir un numéro de téléphone valide.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group mb-3">
+            <label for="email" class="form-label">Adresse Email <span class="required"></span></label>
+            <input class="form-control" id="email" type="email" name="email" placeholder="Exemple@exemple.com"
+              aria-describedby="emailHelp" required="">
+            <div class="invalid-feedback">
+              Veuillez saisir une adresse e-mail valide.
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary px-4 d-block mx-auto">{{params.submit-btn-text|default:'Contactez-nous'}}</button>
+      </form>
+    </div>
+  </div>
+</section>
