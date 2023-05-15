@@ -1,5 +1,5 @@
 {
-    "version": "1.0.7",
+    "version": "1.0.8",
     "label": "Formulaire d'inscription pour les écoles",
     "name": "Formulaire inscription education",
     "repo": "education_widgets",
@@ -39,7 +39,12 @@
         },
         {
             "id": "6",
-            "name": "api-url",
+            "name": "api_url",
+            "type": "char"
+        }
+        {
+            "id": "7",
+            "name": "text_btn",
             "type": "char"
         }
     ],
