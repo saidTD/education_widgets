@@ -17,6 +17,15 @@
   color: var(--bs-white);
 }
 
+.contact-info  p {
+  font-size: 15px;
+
+}
+
+.infos-map-section p + p {
+  margin-top: 0;
+}
+
 @media (min-width: 55rem ) {
   .map-widget-container {
       max-height: 450px;
