@@ -6,7 +6,7 @@
     <div class="block-widget__title text-center">
       <h2 class="text-secondary mx-auto">{{params.title}}</h2>
     </div>
-    <p class="block-widget__text text-white mt-4">{{params.content}}</p>
+    <p class="block-widget__text text-white mt-4">{{params.content|safe}}</p>
     <a class="btn btn-secondary block-widget__button mt-4" href="{{params.button.url}}">{{params.button.text}}</a>
   </div>
 </section>
