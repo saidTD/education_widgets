@@ -84,7 +84,7 @@
  .widget-value__values .values__item .icon img {
    width: 100%;
    height: 100%;
-   object-fit: none;
+   /*object-fit: none;*/
  }
  .widget-value__values .values__item .word {
    font-size: 1.05rem;
