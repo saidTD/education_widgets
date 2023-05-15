@@ -10,14 +10,14 @@
           <legend>Informations sur l'élève:</legend>
           <div class="row">
             <div class="col-6 form-group mb-3">
-              <label for="first-name" class="sr-only">nom</label>
+              <label for="first-name" class="form-label">Nom</label>
               <input class="form-control" id="first-name" type="text" name="first_name" placeholder="Nom" required>
               <div class="invalid-feedback">
                 Ce champ est obligatoire.
               </div>
             </div>
             <div class="col-6 form-group mb-3">
-              <label for="last-name" class="sr-only">prénom<span class="required"></span></label>
+              <label for="last-name" class="form-label">Prénom<span class="required"></span></label>
               <input class="form-control" id="last-name" type="text" name="last_name" placeholder="Prénom" required>
               <div class="invalid-feedback">
                 Ce champ est obligatoire.
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="form-group mb-3">
-            <label for="service" class="sr-only">Quel est niveau actuel de votre enfant?</label>
+            <label for="service" class="form-label">Quel est niveau actuel de votre enfant?</label>
             <select class="form-select pe-5" id="level" name="level" aria-label="select" required>
               <option selected disabled value="">
                 Quel est niveau actuel de votre enfant?
@@ -39,7 +39,7 @@
             </div>
           </div>
           <div class="form-group mb-3">
-            <label for="address" class="sr-only">nom</label>
+            <label for="address" class="form-label">Address</label>
             <input class="form-control" id="address" type="text" name="address" placeholder="Address" required>
             <div class="invalid-feedback">
               Ce champ est obligatoire.
@@ -49,14 +49,14 @@
         <fieldset>
           <legend>Informations sur les parents:</legend>
           <div class="form-group mb-3">
-            <label for="parent-name" class="sr-only">nom</label>
-            <input class="form-control" id="parent-name" type="text" name="parent_name" placeholder="Nom du parent" required>
+            <label for="parent-name" class="form-label">Parent name</label>
+            <input class="form-control" id="parent-name" type="text" name="parent_name" placeholder="Parent name" required>
             <div class="invalid-feedback">
               Ce champ est obligatoire.
             </div>
           </div>
           <div class="form-group mb-3">
-            <label for="email" class="sr-only">Adresse Email</label>
+            <label for="email" class="Address Email">Addresse Email</label>
             <input class="form-control" id="email" type="email" name="email" placeholder="Adresse Email"
               aria-describedby="emailHelp" required="">
             <div class="invalid-feedback">
@@ -64,14 +64,14 @@
             </div>
           </div>
           <div class="form-group mb-3">
-            <label for="phone" class="sr-only">Numéro de Téléphone</label>
+            <label for="phone" class="form-label">Numéro de Téléphone</label>
             <input class="form-control" id="phone" type="tel" name="phone" placeholder="Numéro de Téléphone" required>
             <div class="invalid-feedback">
               Veuillez saisir un numéro de téléphone valide.
             </div>
           </div>
           <div class="form-group">
-            <label for="message" class="sr-only">Votre Message</label>
+            <label for="message" class="form-label">Votre Message</label>
             <textarea
               class="form-control"
               id="message"
@@ -86,7 +86,6 @@
             </div> 
           </div>
         </fieldset>
-
         <button type="submit" class="btn btn-primary px-4 d-block mx-auto">
           Envoyer
         </button>
