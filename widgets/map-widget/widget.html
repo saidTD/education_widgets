@@ -30,22 +30,12 @@
        </div>
       
 
-      <h3>
-
-          {% if request.CURRENT_LANGUAGE == "en" %}
-              Follow Us
-          {% else %}
-          Suivez-nous
-          {% endif %}
-      </h3>
+       {% get_widget request=request slug="title-widget"  title="Suivez-nous sur" element="h2" variant="border-left" %}
       <div class="social-media  my-4 d-flex gap-3 fs-4">
-          {% if params.fb %}<a href="{{params.fb}}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a> {% endif %}
-          {% if params.insta %}<a href="{{params.insta}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>{% endif %}
-          {% if params.yt %}<a href="{{params.yt}}" target="_blank"><i class="fa-brands fa-youtube"></i></a>{% endif %} 
-          {% if params.tw %}<a href="{{params.tw}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>{% endif %}
-          {% if params.in %}<a href="{{params.in}}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>{% endif %}
-          
-          {% if params.tiktok %}<a href="{{params.yt}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>{% endif %} 
+
+        {% for social in params.social_media %}
+          <a href="{{social.link}}" target="_blank">{{social.icon|safe}}</a> 
+          {% endfor %}
       </div>
   </div>
 </div>
