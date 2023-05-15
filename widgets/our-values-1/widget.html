@@ -15,13 +15,13 @@
        <div class="col-sm-12 col-md-12 col-lg-6">
          <div class="widget-value__values">
            <ul class="values d-flex">
-            {%for value in params.values %}
+            {% for value in params.values %}
              <li class="values__item">
                <div class="icon">
                  <img src="{{params.icon}}" alt="">
                </div>
                <div class="word">
-                 {{params.title}}
+                 {{value.name}}
                </div>
              </li>
              
