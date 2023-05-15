@@ -1,7 +1,7 @@
 {
     "version": "1.0.18",
-    "label": "Map avec des Information",
-    "name": "map widget",
+    "label": "Map avec des Informations",
+    "name": "map widget contact",
     "repo": "education",
     "element": "map-widget",
     "description": "Ce Widget est pour présenter un Map avec des Information",
