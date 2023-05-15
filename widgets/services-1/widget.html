@@ -16,6 +16,9 @@
       {% endfor %}
     </div>
 
-    <a href="{{btn.url}}" class="btn btn-primary d-block mx-auto mt-4 mt-md-5" style="width: fit-content">{{btn.text|default:'Nos Services'}}</a>
+    {% if params.btn %}
+
+      <a href="{{params.btn.url}}" class="btn btn-primary d-block mx-auto mt-4 mt-md-5" style="width: fit-content">{{params.btn.text|default:'Nos Services'}}</a>
+    {% endif %}
   </div>
 </section>
