@@ -7,7 +7,7 @@
       <div class="x-word__block-text">
         <h4 class="text-primary">{{params.title}}</h4>
         <p>
-          {{params.content}}
+          {{params.content|safe}}
         </p>
         <div class="btn-wrraper text-end">
           <a class="btn x-word__block-text__button" href="">{{params.button.text}}<i class="fa-solid fa-arrow-right ms-1"></i></a>
