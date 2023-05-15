@@ -35,6 +35,10 @@
   padding-block: {{params.styles.offset_y}}px ;
 }
 
+.title-widget  .center {
+  margin: 0 auto;
+}
+
 .block__title {
   font-weight: {{params.styles.weight}};
   text-align: {{params.styles.align}};
