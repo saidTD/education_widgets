@@ -16,11 +16,11 @@
       <div class="content__text">
         <h4 class="text-secondary">{{params.content.text}}</h4>
       </div>
-      <a href="#" class="btn  content__button content__button--secondary">
+      <a href="{{params.button_primary.url}}" class="btn  content__button content__button--secondary">
         {{params.button_primary.text}}
       </a>
       {% if params.mode == "center" %}
-      <a href="#" class="btn  content__button content__button--primary">
+      <a href="{{params.button_primary.url}}" class="btn  content__button content__button--primary">
         {{params.button_secondary.text}}
       </a>
       {% endif %}
