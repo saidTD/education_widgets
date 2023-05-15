@@ -5,5 +5,55 @@
   </div>
 
 
-  
+  <div class="infos-map-section">
+
+        {% generate_type_data request=request name='styles' data='{"type":"white","align":"", "offset_y" : "0", "offset_x" : "0", "weight" : "600"}' mode='object' %}
+        {% get_widget request=request slug="title-widget-education"  title="Plan d'accès" element="h5" variant="border-left" styles=request.get_datas.styles %}
+      
+       <div class="contact-info d-flex flex-column">
+          <p>
+          <span class="contact-icon me-3"><i class="fa-solid fa-location-dot"></i></span>
+          {% if request.CURRENT_LANGUAGE == "en" %}
+          {{params.address|default:"Adress : lorem ipsum"}}
+          {% else %}
+          {{params.address|default:"Adresse : lorem ipsum"}}
+          {% endif %}
+          
+      </p>
+      <p>
+          <span class="contact-icon me-3"><i class="fa-solid fa-phone"></i></span>
+          {{params.tel|default:"Numéro de téléphone : +522 222 222 222"}}
+      </p>
+      <p>
+          <span class="contact-icon me-3"><i class="fa-solid fa-envelope"></i></span>
+          {{params.email|default:"Adresse email : exemple@exemple.com"}}
+      </p>
+       </div>
+      
+       
+       {% get_widget request=request slug="title-widget-education"  title="Suivez-nous sur" element="h5" variant="border-left" styles=request.get_datas.styles %}
+      <div class="social-media  my-4 d-flex gap-3 fs-4">
+
+        {% for social in params.social_media %}
+          <a href="{{social.link}}" target="_blank">
+            {% if social.icon == 'fb' %}
+                <i class="fa-brands fa-facebook-f"></i>
+            {% endif %}
+
+            {% if social.icon == 'ig' %}
+                <i class="fa-brands fa-instagram"></i>
+            {% endif %}
+
+            {% if social.icon == 'tw' %}
+                <i class='fa-brands fa-twitter'></i>
+            {% endif %}
+
+            {% if social.icon == 'in' %}
+                <i class='fa-brands fa-linkedin-in'></i>
+            {% endif %}
+
+          </a> 
+          {% endfor %}
+      </div>
+  </div>
 </div>
