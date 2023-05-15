@@ -9,7 +9,7 @@
             <img class="img-fluid" src="{{metier.cover}}" alt="logo">
           </div>
           <div class="card-content">
-            <h5 class="card-title mb-2 text-capitalize">{{metier.name|safe}}</h5>
+            <h5 class="card-title mb-2 text-capitalize" style="{% if metier.color %}color : {{metier.color}} !important;{% endif %}">{{metier.name|safe}}</h5>
             <p class="card-desc small mb-0">{{metier.description|striptags}}</p>
           </div>
         </div>
