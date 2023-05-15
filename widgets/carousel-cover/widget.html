@@ -1,38 +1,27 @@
 <section class="carousel-section">
-  <div class="carousel-cover-wrapper positon-relative">
-    <div id="carouselExampleInterval" class="carousel slide carousel__slider" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        {% for item in params.slider_items %}
-        <div class="carousel-item active" data-bs-interval="4000">
-          <img src="{{item.background}}" class="d-block w-100" alt="...">
-        </div>
-        {% endfor %}
-        
+  <div class="carousel-cover-wrapper position-relative">
+    <div class="splide" id="carousel_cover">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {% for item in params.slider_items %}
+          <li class="splide__slide">
+            <img src="{{item.background}}" alt="Image 1">
+          </li>
+          {% endfor %}
+        </ul>
       </div>
-      <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-icon carousel-control-icon__prev" aria-hidden="true">
-          <i class="fa-solid fa-chevron-left"></i>
-        </span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-icon carousel-control-icon__next" aria-hidden="true">
-          <i class="fa-solid fa-chevron-right"></i>
-        </span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-    <div class="carousel-cover__content--{{params.mode}}">
+    <div class="carousel-cover carousel-cover__content--{{params.mode}}">
       <div class="content__text">
         <h4 class="text-secondary">{{params.content.text}}</h4>
       </div>
-      <a href="#" class="btn btn-secondary content__button content__button--secondary">
-        Formulaire de Pré-inscriptions
+      <a href="#" class="btn  content__button content__button--secondary">
+        {{params.button_primary.text}}
       </a>
       {% if params.mode == "center" %}
-      <a href="#" class="btn btn-primary content__button content__button--primary ">
-        Formulaire de Pré-inscriptions
-      </a>
+      <a href="#" class="btn  content__button content__button--primary">
+        {{params.button_secondary.text}}
+      </a>     
       {% endif %}
     </div>
   </div>

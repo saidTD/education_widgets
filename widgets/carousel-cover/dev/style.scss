@@ -1,22 +1,14 @@
 .carousel-section {
+
+  .carousel-cover-wrapper {
+    min-height: 300px;
+    max-height: 450px;
+  }
   .carousel {
     height: 470px;
   }
 
-  .carousel-inner {
-    height: 100%;
-  }
-
-  .carousel-item {
-    height: 100%;
-
-    img {
-      height: 100%;
-    }
-  }
-
   .carousel-cover {
-    
     &__content--bottom {
       transform: translateY(-40%);
       text-align: center;
@@ -28,31 +20,23 @@
         margin: 0 auto;
         padding: 3rem 5rem 4rem 5rem;
         background-color: var(--bs-primary);
+        box-shadow: 0px 13px 25px 2px rgba(var(--bs-primary-rgb), .25);
 
         h4 {
           font-size: 1.3rem;
           font-weight: 600;
           margin-bottom: 0px;
           color: var(--bs-secondary);
-          margin-bottom: 2rem  ;
+          // margin-bottom: 2rem;
         }
       }
 
-      .content__button {
-        --bs-btn-color: var(--bs-primary);
-        --bs-btn-padding-x: 1.5rem;
-        --bs-btn-padding-y: .9rem;
-        --bs-btn-font-weight: 600;
-        --bs-btn-hover-color: var(--bs-primary);
-        transform: translateY(-50%);
-        margin: 0 auto;
-      }
+      
     }
-
 
     &__content--center {
       width: 100%;
-      max-width: 700px;
+      max-width: 600px;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -65,46 +49,85 @@
           font-size: 1.7rem;
           color: var(--bs-primary);
           font-weight: 900;
-          margin-bottom: 2rem  ;
+          margin-bottom: 4.5rem;
           // font-family: var(--bs-);
         }
       }
 
-      .content__button {
-        --bs-btn-color: var(--bs-primary);
-        --bs-btn-padding-x: 1.5rem;
-        --bs-btn-padding-y: .9rem;
-        --bs-btn-font-weight: 600;
-        --bs-btn-hover-color: var(--bs-primary);
-
-        &.content__button--primary {
-          --bs-btn-color: var(--bs-white);
-          --bs-btn-hover-color: var(--bs-white);
-        }
-
-        &.content__button--secondary {
-          --bs-btn-color: var(--bs-primary);
-        }
+      .content__button { 
+        margin: .5rem  auto;     
       }
     }
 
-  }
-}
+    .content__button {
+      transform: translateY(-50%);
 
-.carousel-control {
-  .carousel-control-icon {
-    width: 50px;
-    height: 50px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bs-primary);
-    border-radius: 50%;
-    color: var(--bs-secondary);
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-padding-x: 1.5rem;
+      --bs-btn-padding-y: 0.9rem;
+      --bs-btn-font-weight: 600;
+      --bs-btn-hover-color: var(--bs-primary);
+
+      &--primary {
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-active-color : var(--bs-btn-color);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-bg: var(--bs-primary);
+        --bs-btn-hover-bg : var(--bs-primary);
+        --bs-btn-active-bg : rgb(var(--bs-primary-rgb));
+        --bs-btn-active-border-color : rgb(var(--bs-primary-rgb));
+      }
+
+      &--secondary {
+        --bs-btn-color: var(--bs-primary);
+        --bs-btn-active-color : var(--bs-btn-color);
+        --bs-btn-bg: var(--bs-secondary);
+        --bs-btn-hover-bg : var(--bs-secondary);
+        --bs-btn-active-bg : rgb(var(--bs-secondary-rgb));
+        --bs-btn-active-border-color : rgb(var(--bs-secondary-rgb));
+      }
+    }
   }
-  .carousel-control-prev-icon, 
-  .carousel-control-next-icon {
-    background-color: var(--bs-primary);
-    border-radius: 50%;
+
+  .splide {
+    &__arrow {
+      padding: .8rem;
+      background-color: var(--bs-primary);
+      border-radius: 50%;
+
+      @media (max-width: 756px) {
+        display: none;
+      }
+
+      &--prev {
+        left: 1rem;
+        @media (min-width: 756px) {
+          left: 10%;
+        }
+      }
+
+      &--next {
+        right: 1rem;
+        @media (min-width: 756px) {
+          right: 10%;
+        }
+      }
+
+      svg {
+        width: 1.5rem ;
+        fill: var(--bs-white);
+
+      }
+    }
+
+    &__list {
+      min-height: 350px;
+    }
+
+    &__slide {
+      img {
+        height: 100%;
+      }
+    }
   }
 }
