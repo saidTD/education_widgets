@@ -1,20 +1,16 @@
-.cards-wrapper {
+.partners .splide__slide {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px;
+  place-items: center;
+  padding-inline: 10px;
+  height: 55px;
 }
 
-.cards-wrapper .card-icon {
-  width: fit-content;
-  max-width: 70px;
-  padding: 12px;
-  background-color: var(--card-color);
-}
-
-.cards-wrapper .card-title {
-  color: var(--card-color);
-}
-
-.cards-wrapper .card-desc {
-  color: var(--card-desc-color, rgba(0, 0, 0, .5));
+.partners .splide__slide > img {
+  object-fit: contain;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0; top: 0;
 }
