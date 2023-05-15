@@ -35,7 +35,24 @@
       <div class="social-media  my-4 d-flex gap-3 fs-4">
 
         {% for social in params.social_media %}
-          <a href="{{social.link}}" target="_blank">{{social.icon|safe}}</a> 
+          <a href="{{social.link}}" target="_blank">
+            {% if social.icon == 'fb' %}
+                <i class="fa-brands fa-facebook-f"></i>
+            {% endif %}
+
+            {% if social.icon == 'ig' %}
+                <i class="fa-brands fa-instagram"></i>
+            {% endif %}
+
+            {% if social.icon == 'tw' %}
+                <i class='fa-brands fa-twitter'></i>
+            {% endif %}
+
+            {% if social.icon == 'in' %}
+                <i class='fa-brands fa-linkedin-in'></i>
+            {% endif %}
+
+          </a> 
           {% endfor %}
       </div>
   </div>
