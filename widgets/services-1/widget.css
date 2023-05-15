@@ -16,5 +16,5 @@
 }
 
 .cards-wrapper .card-desc {
-  color: var(--card-desc-color, rgba(0, 0, 0, .5));
+  /*color: var(--card-desc-color, rgba(0, 0, 0, .5));*/
 }

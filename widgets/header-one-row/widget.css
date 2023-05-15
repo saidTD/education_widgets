@@ -8,6 +8,7 @@ header .navigation {
   right: 0;
   z-index: 1000;
   background-color: #fff;
+  border-bottom: rgba(0,0,0,0.1) solid 1px;
 }
 header .navigation > * {
   height: var(--nav-height);
