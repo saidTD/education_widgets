@@ -14,7 +14,7 @@ form.addEventListener('submit', (event) => {
 
 function sendData(formData) {
   let formattedData = formatter(formData);
-  fetch("{{params.api-url}}", {
+  fetch("{{params.api_url}}", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
