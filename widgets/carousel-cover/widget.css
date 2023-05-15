@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------- */
 .carousel-section {
-  padding-top: {{ params.styles.offset_top|default:80 }}px;
+  padding-top: {{ params.styles.offset_top|default:25 }}px;
 }
 .carousel-section .carousel-cover-wrapper {
   min-height: 300px;
