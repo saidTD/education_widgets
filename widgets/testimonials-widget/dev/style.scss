@@ -1,12 +1,10 @@
 .testimonials {
-
   padding: 6rem 0rem 2.5rem 0;
-  background: url("https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/614da95f/90786568.webp") no-repeat;
-  // Default 
+  background: url("https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/614da95f/90786568.webp")
+    no-repeat;
+  // Default
 
   &__default {
-
-              
     .testimonials__wrraper {
       max-width: 850px;
       margin-left: auto;
@@ -24,6 +22,14 @@
       }
     }
 
+    .content__profile {
+      max-width: 100px;
+
+      @media (min-width: 992px) {
+        max-width: 250px;
+      }
+    }
+
     .testimonial__text {
       margin-bottom: 2.5rem;
     }
@@ -33,7 +39,7 @@
     }
 
     // Splide
-    
+
     .splide__track {
       max-width: 100%;
       margin: 0 auto;
@@ -42,31 +48,52 @@
     .splide__arrow {
       display: none;
     }
-
-    
   }
 
-  
+  &__center {
+    .testimonials__wrraper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-  .content__profile {
-    max-width: 100px;
-    aspect-ratio: 1;
-    object-fit: cover;
-    border-radius: 50%;
+    .testimonial__content {
+      text-align: center;
+      flex-direction: column;
+      gap: 2rem;
+    }
 
-    @media (min-width : 992px ) {
-      max-width: 250px;
+    .content__profile {
+      max-width: 90px;
+    }
+
+    .content__text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial__text {
+      order: 2;
     }
   }
 
+  .content__profile {
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .content__text {
+    color: white;
+  }
   .testimonial__text {
-    color: #000;
     line-height: 1.3rem;
   }
 
-  // Splide 
+  .testimonial__name {
+    font-weight: 600;
+    font-size: 18px;
+  }
 
-  
+  // Splide
 
   .splide__arrow--prev {
     left: 0;
@@ -77,17 +104,17 @@
 
   .splide__pagination {
     &__page {
-        background: var(--bs-secondary);
-        border: 0;
-        border-radius: 50%;
-        display: inline-block;
-        height: 12px;
-        margin: 0 0.2rem;
-        padding: 0;
-        position: relative;
-        transition: background-color .2s ease,color .2s ease;
-        width: 12px;
-        opacity: .7;
+      background: var(--bs-secondary);
+      border: 0;
+      border-radius: 50%;
+      display: inline-block;
+      height: 12px;
+      margin: 0 0.2rem;
+      padding: 0;
+      position: relative;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      width: 12px;
+      opacity: 0.7;
 
       &.is-active {
         background-color: var(--bs-secondary);
@@ -96,5 +123,7 @@
     }
   }
 
-  
+  .splide__arrow {
+    display: none;
+  }
 }
