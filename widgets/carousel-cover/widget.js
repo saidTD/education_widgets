@@ -3929,6 +3929,8 @@ Splide.defaults = {};
 Splide.STATES = STATES;
 const main = "";
 const splideCore_min = "";
+const carouselSection = document.querySelector('.carousel-section');
+const carouselContent = document.querySelector('.carousel-cover__content--bottom');
 (function adjustHeight() {
   if (!carouselContent)
     return;
