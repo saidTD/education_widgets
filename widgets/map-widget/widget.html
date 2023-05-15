@@ -1,0 +1,51 @@
+{% load get_widget generate_type_data %}
+<div class="map-widget-container d-flex flex-column">
+  <div class="map-section">
+      {{params.iframe|safe}}
+  </div>
+
+
+  <div class="infos-map-section">
+      
+        {% get_widget request=request slug="title-widget"  title="Plan d'accès" element="h2" variant="border-left" %}
+      
+       <div class="contact-info d-flex flex-column">
+          <p>
+          <span class="contact-icon me-3"><i class="fa-solid fa-location-dot"></i></span>
+          {% if request.CURRENT_LANGUAGE == "en" %}
+          {{params.address|default:"Adress : lorem ipsum"}}
+          {% else %}
+          {{params.address|default:"Adresse : lorem ipsum"}}
+          {% endif %}
+          
+      </p>
+      <p>
+          <span class="contact-icon me-3"><i class="fa-solid fa-phone"></i></span>
+          {{params.tel|default:"Numéro de téléphone : +522 222 222 222"}}
+      </p>
+      <p>
+          <span class="contact-icon me-3"><i class="fa-solid fa-envelope"></i></span>
+          {{params.email|default:"Adresse email : exemple@exemple.com"}}
+      </p>
+       </div>
+      
+
+      <h3>
+
+          {% if request.CURRENT_LANGUAGE == "en" %}
+              Follow Us
+          {% else %}
+          Suivez-nous
+          {% endif %}
+      </h3>
+      <div class="social-media  my-4 d-flex gap-3 fs-4">
+          {% if params.fb %}<a href="{{params.fb}}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a> {% endif %}
+          {% if params.insta %}<a href="{{params.insta}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>{% endif %}
+          {% if params.yt %}<a href="{{params.yt}}" target="_blank"><i class="fa-brands fa-youtube"></i></a>{% endif %} 
+          {% if params.tw %}<a href="{{params.tw}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>{% endif %}
+          {% if params.in %}<a href="{{params.in}}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>{% endif %}
+          
+          {% if params.tiktok %}<a href="{{params.yt}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>{% endif %} 
+      </div>
+  </div>
+</div>

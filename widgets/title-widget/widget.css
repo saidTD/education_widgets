@@ -32,7 +32,7 @@
 }
 
 .title-widget {
-  padding-block: {{params.styles.offset_y}}px ;
+  padding-block: {{params.styles.offset_y|default:0}}px ;
 }
 
 .title-widget  .center {
@@ -40,8 +40,8 @@
 }
 
 .block__title {
-  font-weight: {{params.styles.weight}};
-  text-align: {{params.styles.align}};
-  padding-inline: {{params.styles.offset_x}}px ;
+  font-weight: {{params.styles.weight|default:600}};
+  text-align: {{params.styles.align|default:'center'}};
+  padding-inline: {{params.styles.offset_x|default:0}}px ;
 }
 
