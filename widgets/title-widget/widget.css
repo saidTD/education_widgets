@@ -1,7 +1,7 @@
 .title-border-left {
   width: max-content;
   text-align: left;
-  padding-bottom: 20px;
+  padding-bottom: {{params.styles.padding_bottom|default:10}}px;
   position: relative;
 }
 .title-border-left::after {
