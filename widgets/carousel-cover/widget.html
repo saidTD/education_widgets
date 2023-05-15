@@ -4,7 +4,7 @@
       <div class="carousel-inner">
         {% for item in params.slider_items %}
         <div class="carousel-item active" data-bs-interval="4000">
-          <img src="{{item.background}}" class="d-block w-100" alt="...">
+          <img src="{{item.background}}" class="d-block w-100" alt="{{item.title}}">
         </div>
         {% endfor %}
         
