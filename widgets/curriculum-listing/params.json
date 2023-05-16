@@ -1,18 +1,1 @@
-{
-  "version" : "1.0.0",
-  "name" : "",
-  "repo" : "",
-  "element" : "",
-  "description" : "",
-  "category" : "block",
-  "type" : "static | dynamics",
-  "space" : "",
-  "source_slug" : "",
-  "variable_name" : "",
-  "params" : [
-  ],
-  "default_data" : {
-  },
-  "visual_data" : {
-  }
-}
+{"version":"1.0.6","label":"Cursus List","name":"curriculum listing","repo":"education_widget","element":"curriculum-listing","description":"Ce Widget est pour présenter Cursus","category":"listing","type":"dynamic","space":"education","source_slug":"list cursus","variable_name":"list_cursus","params":[{"id":0,"name":"title","type":"char"},{"id":1,"name":"styles","type":"object"},{"id":1,"name":"button","type":"object"}],"default_data":{"list_cursus":[{"title":"Ecole Maternelle","sub_title":"Cycle 1 (PS, MS, GS) de 3 a 5 ans","cover":"https://bucket.tech-dynamics.ma/media-storage/12d73503-396e-4a44-9df9-507253fa2ef7/115ae905/curriculum_image.png","content_html":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae libero porro quod laborum, totam necessitatibus minus eius, voluptatum voluptas, omnis voluptate. Cum repudiandae ipsam dolore dolorem maiores optio, esse odio?"},{"title":"Ecole Maternelle","sub_title":"Cycle 1 (PS, MS, GS) de 3 a 5 ans","cover":"https://bucket.tech-dynamics.ma/media-storage/12d73503-396e-4a44-9df9-507253fa2ef7/115ae905/curriculum_image.png","content_html":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae libero porro quod laborum, totam necessitatibus minus eius, voluptatum voluptas, omnis voluptate. Cum repudiandae ipsam dolore dolorem maiores optio, esse odio?"},{"title":"Ecole Maternelle","sub_title":"Cycle 1 (PS, MS, GS) de 3 a 5 ans","cover":"https://bucket.tech-dynamics.ma/media-storage/12d73503-396e-4a44-9df9-507253fa2ef7/115ae905/curriculum_image.png","content_html":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae libero porro quod laborum, totam necessitatibus minus eius, voluptatum voluptas, omnis voluptate. Cum repudiandae ipsam dolore dolorem maiores optio, esse odio?"}],"button":{"text":"Plus d'inforamtion"}},"visual_data":{}}

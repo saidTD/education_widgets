@@ -1,0 +1,37 @@
+.curriculum__list {
+  --bs-gutter-y: 1rem;
+}
+.curriculum__item {
+  border: 1px solid #c5c5c5;
+}
+.curriculum__img {
+  width: 100%;
+}
+.curriculum__img img {
+  max-height: 350px;
+  width: 100%;
+}
+.curriculum__content {
+  padding: 1.8rem;
+}
+.curriculum__title {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: var(--bs-primary);
+}
+.curriculum__info {
+  margin-bottom: 1rem;
+}
+.curriculum__button {
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: 0.9rem;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-active-color: var(--bs-btn-color);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-active-bg: rgb(var(--bs-primary-rgb));
+  --bs-btn-active-border-color: rgb(var(--bs-primary-rgb));
+  margin-top: 2rem;
+}

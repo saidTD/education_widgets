@@ -84,6 +84,13 @@
   padding: 0.8rem;
   background-color: var(--bs-primary);
   border-radius: 50%;
+  position: absolute;
+  border: 0;
+  color: #e5eeee;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  z-index: 90;
 }
 @media (max-width: 756px) {
   .carousel-section .splide__arrow {
@@ -92,6 +99,7 @@
 }
 .carousel-section .splide__arrow--prev {
   left: 1rem;
+  transform: scaleX(-1);
 }
 @media (min-width: 756px) {
   .carousel-section .splide__arrow--prev {
@@ -108,6 +116,7 @@
 }
 .carousel-section .splide__arrow svg {
   width: 1.5rem;
+  height: 1.5rem;
   fill: var(--bs-white);
 }
 .carousel-section .splide__slide img {

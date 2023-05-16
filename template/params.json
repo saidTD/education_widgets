@@ -1,12 +1,12 @@
 {
   "version" : "1.0.0",
   "name" : "",
-  "repo" : "",
+  "repo" : "education_widget",
   "element" : "",
   "description" : "",
   "category" : "block",
   "type" : "static | dynamics",
-  "space" : "",
+  "space" : "education",
   "source_slug" : "",
   "variable_name" : "",
   "params" : [
