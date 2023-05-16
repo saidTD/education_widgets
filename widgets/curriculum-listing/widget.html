@@ -18,7 +18,7 @@
             {{cursus.content_html|safe}}
           </p>
           <div class="text-center">
-            <a href="/{{param.base_url}}/{{cursus.slug}}/" class="btn curriculum__button mx-auto">{{params.button.text|default="Plus d'information"}}</a>
+            <a href="/{{param.base_url}}/{{cursus.slug}}/" class="btn curriculum__button mx-auto">{{params.button.text|default:'/Plus d'information/'}}</a>
           </div>
         </div>
       </div>
