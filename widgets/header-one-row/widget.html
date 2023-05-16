@@ -10,41 +10,43 @@
 {% endif %}
 
 <header>
-  <div class="header-bar">
-    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-md-between gap-2 py-2">
-      <div class="social-media d-flex gap-3 fs-5">
-        {% if params.facebook %}
-          <a href="{{params.facebook|default:'https://facebook.com'}}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-        {% endif %}
+  {% if params.headbar|default:True %}
+    <div class="header-bar">
+      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-md-between gap-2 py-2">
+        <div class="social-media d-flex gap-3 fs-5">
+          {% if params.facebook %}
+            <a href="{{params.facebook|default:'https://facebook.com'}}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+          {% endif %}
 
-        {% if params.twitter %}
-        <a href="{{params.twitter|default:'https://twitter.com'}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-        {% endif %}
+          {% if params.twitter %}
+          <a href="{{params.twitter|default:'https://twitter.com'}}" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+          {% endif %}
 
-        {% if params.instagram %}
-          <a href="{{params.instagram|default:'https://instagram.com'}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        {% endif %}
+          {% if params.instagram %}
+            <a href="{{params.instagram|default:'https://instagram.com'}}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          {% endif %}
 
-        {% if params.linkedin %}
-          <a href="{{params.linkedin|default:'https://linkedin.com'}}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-        {% endif %}
+          {% if params.linkedin %}
+            <a href="{{params.linkedin|default:'https://linkedin.com'}}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          {% endif %}
 
-        {% if params.youtube %}
-          <a href="{{params.youtube|default:'https://youtube.com'}}" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        {% endif %}
-        
-        {% if params.tiktok %}
-          <a href="{{params.tiktok|default:'https://tiktok.com'}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        {% endif %}
-      </div>
+          {% if params.youtube %}
+            <a href="{{params.youtube|default:'https://youtube.com'}}" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          {% endif %}
+          
+          {% if params.tiktok %}
+            <a href="{{params.tiktok|default:'https://tiktok.com'}}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          {% endif %}
+        </div>
 
-      <div class="links d-flex gap-4">
-        {% for link in params.heabar_links %}
-          <a href="{{link.url}}">{{link.name}}</a>
-        {% endfor %}
+        <div class="links d-flex gap-4">
+          {% for link in params.heabar_links %}
+            <a href="{{link.url}}">{{link.name}}</a>
+          {% endfor %}
+        </div>
       </div>
     </div>
-  </div>
+  {% endif %}
 
   <nav class="navigation">
     <div class="container d-flex justify-content-between align-items-center">
