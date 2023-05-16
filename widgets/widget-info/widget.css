@@ -69,19 +69,19 @@
   color: {{params.styles.text_color|default:'var(--bs-white)'}};
 }
 
-.block-info-left {
+.block-info--order-left {
   margin-left: auto;
 }
 @media (max-width: 991.98px) {
-  .block-info-left {
+  .block-info--order-left {
     margin-right: auto;
   }
 }
-.block-info-rigth {
+.block-info--order-rigth {
   margin-right: auto;
 }
 @media (max-width: 991.98px) {
-  .block-info-rigth {
+  .block-info--order-rigth {
     margin-left: auto;
     margin-top: 2rem;
   }
