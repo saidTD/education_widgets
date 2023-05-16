@@ -1,13 +1,38 @@
 header {
   --nav-height: 70px;
-}
-header .navigation {
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   z-index: 1000;
 }
+
+/* header bar */
+.header-bar {
+  position: relative;
+  background-color: var(--bs-danger);
+}
+
+.headbar-dissmis {
+  position: absolute;
+  top: 50%; right: 5px;
+  transform: translateY(-50%);
+}
+
+.header-bar .social-media > * {
+  color: #ffffff;
+}
+
+.header-bar .links > * {
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.header-bar .links > *:hover {
+  text-decoration: underline;
+}
+
+/* header */
 header .navigation > * {
   height: var(--nav-height);
 }
