@@ -58,7 +58,7 @@
 }
 
 .block-info--{{params.scope}} .block-info__title h5 {
-  color: {{params.styles.title_color}};
+  color: {{params.styles.title_color|default:'var(--bs-white)'}};
 }
 
 .block-info-left {
