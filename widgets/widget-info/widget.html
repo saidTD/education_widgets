@@ -1,12 +1,12 @@
-<div class="block-info block-info-{{params.styles.order}} block-info--{{params.styles.text_mode}}">
+<div class="block-info block-info--{{params.scope}} block-info--{{params.styles.order}} block-info--{{params.styles.text_mode}}">
   <div class="block-info__container">
     <div class="block-info__title">
-      <h5 class="text-secondary mx-auto">{{params.title}}</h5>
+      <h5 class="mx-auto">{{params.title}}</h5>
     </div>
-    <p class="block-info__text text-white mt-4">{{params.content}} </p>
+    <p class="block-info__text mt-4">{{params.content}} </p>
     <div class="btn-wrraper text-center" >
 
-      <a class="btn btn-secondary block-info__button mt-4" href="">{{params.button.text}}</a>
+      <a class="btn block-info__button mt-4" href="{{params.button.url}}">{{params.button.text}}</a>
     </div>
 
   </div>
