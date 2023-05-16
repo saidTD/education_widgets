@@ -7,7 +7,7 @@
         {% if params.type == 'service' and metier.type == params.type %}
           <div class="card p-3 p-md-4 shadow-sm rounded-0" style="--card-color: {{metier.color}}">
             <div class="card-icon h3 d-grid justify-content-center align-items-center overflow-hidden mb-2">
-              <img class="img-fluid" src="{{metier.cover}}" alt="logo">
+              <img class="img-fluid" src="{{metier.cover}}" alt="{{metier.name}}">
             </div>
             <div class="card-content">
               <h5 class="card-title mb-2 text-capitalize" style="{% if metier.color %}color : {{metier.color}} !important;{% endif %}">{{metier.name|safe}}</h5>
@@ -17,7 +17,7 @@
         {% elif params.type == 'activity' and metier.type == params.type %}
           <div class="card p-3 p-md-4 border-0 text-center rounded-0" style="--card-color: {{metier.color}}">
             <div class="card-icon h3 d-grid justify-content-center mx-auto align-items-center overflow-hidden mb-2">
-              <img class="img-fluid" src="{{metier.cover}}" alt="logo">
+              <img class="img-fluid" src="{{metier.cover}}" alt="{{metier.name}}">
             </div>
             <div class="card-content">
               <h5 class="card-title mb-2 text-capitalize">{{metier.name|safe}}</h5>
