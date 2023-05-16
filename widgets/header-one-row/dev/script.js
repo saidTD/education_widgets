@@ -1,1 +1,0 @@
-document.querySelector('.headbar-dissmis')?.addEventListener('click', () => document.querySelector('.header-bar')?.remove());

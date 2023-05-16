@@ -38,15 +38,11 @@
         {% endif %}
       </div>
 
-      <div class="links d-flex gap-4 pe-md-3">
+      <div class="links d-flex gap-4">
         {% for link in params.heabar_links %}
           <a href="{{link.url}}">{{link.name}}</a>
         {% endfor %}
       </div>
-
-      <button class="headbar-dissmis btn border-0 text-white fw-bold fs-3">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
     </div>
   </div>
 
