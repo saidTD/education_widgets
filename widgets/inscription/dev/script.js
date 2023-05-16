@@ -1,6 +1,7 @@
 const form = document.querySelector('.inscription form');
+const submitBtn = document.querySelector('.inscription form button');
 
-form.addEventListener('submit', (event) => {
+submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     if (form.checkValidity()) {
@@ -14,7 +15,7 @@ form.addEventListener('submit', (event) => {
 
 function sendData(formData) {
     let formattedData = formatter(formData);
-    fetch("{{params.api-url}}", {
+    fetch("{{params.api_url}}", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

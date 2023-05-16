@@ -1,6 +1,7 @@
 const form = document.querySelector('.inscription form');
+const submitBtn = document.querySelector('.inscription form button');
 
-form.addEventListener('submit', (event) => {
+submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
 
   if (form.checkValidity()) {
