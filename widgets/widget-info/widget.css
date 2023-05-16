@@ -4,6 +4,7 @@
   padding: 1.5rem;
   max-width: 550px;
   text-align: center;
+  height: 100%;
 }
 .block-info-left {
   margin-left: auto;
