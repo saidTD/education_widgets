@@ -1,5 +1,5 @@
 {
-    "version": "1.0.10",
+    "version": "1.0.11",
     "label": "Cursus List",
     "name": "curriculum listing",
     "repo": "education_widget",
@@ -29,6 +29,11 @@
         {
             "id": 3,
             "name": "exclude",
+            "type": "char"
+        },
+        {
+            "id": 4,
+            "name": "base_url",
             "type": "char"
         }
     ],
