@@ -8,19 +8,20 @@
    position: absolute;
    inset: 0;
    opacity: 0.1;
-   background-image: url({{params.cover_bg}});
+   background-image: url("{{params.cover_bg}}");
    z-index: 10;
  }
  .block-widget__container {
    position: relative;
    z-index: 11;
  }
- .block-widget__title h2 {
+ .block-widget__title h1 {
    width: max-content;
    padding-bottom: 20px;
    position: relative;
+   font-weight: 600;
  }
- .block-widget__title h2::after {
+ .block-widget__title h1::after {
    content: "";
    position: absolute;
    width: 30%;
@@ -31,11 +32,16 @@
    transform: translateX(-50%);
  }
  .block-widget__button {
-   --bs-btn-color: var(--bs-primary);
-   --bs-btn-padding-x: 1.5rem;
-   --bs-btn-padding-y: 1rem;
-   --bs-btn-font-weight: 600;
-   --bs-btn-hover-color: var(--bs-primary);
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: 1rem;
+  --bs-btn-font-weight: 600;
+  --bs-btn-hover-color: var(--bs-primary);
+  --bs-btn-active-color: var(--bs-btn-color);
+  --bs-btn-bg: var(--bs-white);
+  --bs-btn-hover-bg: var(--bs-white);
+  --bs-btn-active-bg: var(--bs-white);
+  --bs-btn-active-border-color: var(--bs-white);
  }
 
  

@@ -1,6 +1,6 @@
 /* ------------------------------------- */
 .x-word__wrapper {
-  width: 1060px;
+  max-width: 1060px;
   position: relative;
   display: flex;
   padding-top: 1px;
@@ -16,6 +16,9 @@
   max-width: 453px;
   max-height: 600px;
   flex-shrink: 0;
+}
+.x-word__cover img {
+  max-width: 100%;
 }
 
 @media (max-width: 991.98px) {
