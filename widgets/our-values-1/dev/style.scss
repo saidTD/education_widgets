@@ -60,15 +60,15 @@
  .widget-value__values {
  
    .values {
-     gap: 1rem;
+    //  gap: 1rem;
  
-     @media (max-width : 960px) {
-       gap: 1.5rem;
-     }
+    //  @media (max-width : 960px) {
+    //    gap: 1.5rem;
+    //  }
  
-     @media (min-width : 960px) {
-       gap: 3rem;
-     }
+    //  @media (min-width : 960px) {
+    //    gap: 3rem;
+    //  }
  
      @media (max-width: 768px) {
        flex-wrap: wrap;

@@ -50,7 +50,7 @@
    transform: translateX(-50%);
  }
  
- .widget-value__values .values {
+ /* .widget-value__values .values {
    gap: 1rem;
  }
  @media (max-width: 960px) {
@@ -62,7 +62,7 @@
    .widget-value__values .values {
      gap: 3rem;
    }
- }
+ } */
  @media (max-width: 768px) {
    .widget-value__values .values {
      flex-wrap: wrap;
@@ -70,6 +70,7 @@
  }
  .widget-value__values .values__item {
    width: 20%;
+   flex-shrink: 0;
  }
  .widget-value__values .values__item .icon {
     width: 100%;
