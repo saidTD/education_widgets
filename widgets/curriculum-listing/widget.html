@@ -16,7 +16,7 @@
               <h4 class="curriculum__title">{{cursus.title}}</h4>
               <p class="curriculum__info">{{cursus.sub_title}}</p>
               <p class="curriculum__description">
-                {{cursus.content_html|striptags|truncatewords:30|safe}}
+                {{cursus.content_html|striptags|truncatewords:20|safe}}
               </p>
               <div class="text-center">
                 <a href="/{{param.base_url}}/{{cursus.slug}}/" class="btn curriculum__button mx-auto">{{params.button.text|default:"/Plus d'information/"}}</a>
