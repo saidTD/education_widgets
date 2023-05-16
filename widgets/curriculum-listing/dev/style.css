@@ -1,0 +1,17 @@
+.curriculum__item {
+  border: 1px solid #c5c5c5;
+}
+.curriculum__img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 350px;
+}
+.curriculum__img img {
+  height: 100%;
+  width: 100%;
+}
+.curriculum__content {
+  padding: 1rem;
+}
+
+/*# sourceMappingURL=style.css.map */
