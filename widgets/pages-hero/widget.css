@@ -32,7 +32,7 @@
 }
 .hero__cover .hero__background .hero__title {
   position: relative;
-  color: var(--bs-secondary);
+  color: var(--bs-primary);
   z-index: 11;
 }
 .hero__cover .hero__background::after {
