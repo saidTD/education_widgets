@@ -1,6 +1,6 @@
 /* ------------------------------------- */
 .x-word__wrapper {
-  /* width: 1060px; */
+  max-width: 1060px;
   position: relative;
   display: flex;
   padding-top: 1px;
