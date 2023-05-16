@@ -13,8 +13,17 @@
   width: 100%;
   height: 100%;
   padding: 2rem;
-  background-color: rgb(var(--bs-secondary-rgb));
+  background-color: rgb(var(--bs-primary-rgb));
   color: var(--bs-white);
+}
+
+.contact-info  p {
+  font-size: 15px;
+
+}
+
+.infos-map-section p + p {
+  margin-top: 0;
 }
 
 @media (min-width: 55rem ) {

@@ -6,9 +6,9 @@
 
 .cards-wrapper .card-icon {
   width: fit-content;
-  max-width: 70px;
+  max-width: 200px;
   padding: 12px;
-  background-color: var(--card-color);
+  /*background-color: var(--card-color);*/
 }
 
 .cards-wrapper .card-title {
@@ -16,5 +16,5 @@
 }
 
 .cards-wrapper .card-desc {
-  color: var(--card-desc-color, rgba(0, 0, 0, .5));
+  /*color: var(--card-desc-color, rgba(0, 0, 0, .5));*/
 }
