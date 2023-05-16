@@ -17,6 +17,9 @@
   max-height: 600px;
   flex-shrink: 0;
 }
+.x-word__cover img {
+  max-width: 100%;
+}
 
 @media (max-width: 991.98px) {
   .x-word__cover {
