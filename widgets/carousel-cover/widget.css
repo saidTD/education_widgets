@@ -99,7 +99,7 @@
 }
 .carousel-section .splide__arrow--prev {
   left: 1rem;
-  transform: scaleX(-1) translateY(-50%);
+  transform: scaleX(-1);
 }
 @media (min-width: 756px) {
   .carousel-section .splide__arrow--prev {
