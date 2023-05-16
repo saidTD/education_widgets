@@ -1,8 +1,20 @@
+
+.curriculum {
+  background-color: {{params.bg|default:'transparent'}};
+}
+
 .curriculum__list {
   --bs-gutter-y: 1rem;
 }
 .curriculum__item {
   border: 1px solid #c5c5c5;
+}
+
+.curriculum__item.border__less {
+  border: none;
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 6px 6px 15px rgba(0,0,0,0.1);
 }
 .curriculum__img {
   width: 100%;

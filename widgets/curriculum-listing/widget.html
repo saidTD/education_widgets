@@ -4,11 +4,13 @@
   <div class="container py-5">
     {% generate_type_data request=request name='styles' data='{"type":"white","align":"center", "offset_y" : "0", "offset_x" : "0", "weight" : "600", "padding_bottom" : "20"}' mode='object' %}
     {% get_widget request=request slug="title-widget-education"  title=params.title element="h1" variant="border-center" styles=request.get_datas.styles %}
+
+    
     <div class="curriculum__list row">
       {% for cursus in params.list_cursus %}
         {% if not cursus.slug == params.exclude %}
           <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="curriculum__item">
+            <div class="curriculum__item {{params.variant}}">
               <div class="curriculum__img">
                 <img src="{{cursus.cover}}" alt="{{cursus.title}}">
               </div>

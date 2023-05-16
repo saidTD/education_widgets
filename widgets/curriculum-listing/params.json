@@ -35,6 +35,16 @@
             "id": 4,
             "name": "base_url",
             "type": "char"
+        },
+        {
+            "id": 5,
+            "name": "variant",
+            "type": "char"
+        },
+        {
+            "id": 6,
+            "name": "bg",
+            "type": "char"
         }
     ],
     "default_data": {
