@@ -34,7 +34,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 0px;
-  color: var(--clr-white);
+  color: var(--bs-white);
 }
 .carousel-section .carousel-cover__content--center {
   width: 100%;
