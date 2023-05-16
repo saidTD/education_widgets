@@ -17,7 +17,7 @@
   position: absolute;
   left: 0; top: 0;
   width: 100%;
-  background-color: {{params.background_color|default:'#adb5bd'}};
+  background-color: {{params.background_color|default:'#e4edf6'}};
   height: {{params.background_height|default:'50%'}};
   z-index: -1;
 }
