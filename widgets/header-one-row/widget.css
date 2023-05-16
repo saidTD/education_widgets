@@ -173,7 +173,7 @@ header .navigation .navbar-wrapper .navbar-items {
 /* header bar */
 .header-bar {
   position: relative;
-  background-color: {{params.headbar-bg|default:'var(--bs-danger)'}};
+  background-color: {{params.headbar_bg|default:'var(--bs-danger)'}};
 }
 
 .headbar-dissmis {
