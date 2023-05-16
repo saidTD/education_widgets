@@ -10,6 +10,7 @@
 
 .block-info--secondary {
   background-color: var(--bs-secondary);
+  color: var(--bs-primary);
 }
 .block-info--secondary .block-info__button {
   --bs-btn-color: var(--bs-primary);
@@ -22,8 +23,11 @@
 .block-info--secondary .block-info__title h5 {
   color: var(--bs-primary);
 }
+
+
 .block-info--primary {
   background-color: var(--bs-primary);
+  color: var(--bs-white);
 }
 .block-info--primary .block-info__button {
   --bs-btn-color: var(--bs-white);
@@ -44,7 +48,7 @@
 
 
 .block-info--{{params.scope}} .block-info__button {
-  --bs-btn-color: {{params.button.text_color|default:"var(--bs-primary)"}};
+  --bs-btn-color: {{params.button.text_color|default:"var(--bs-white)"}};
   --bs-btn-active-color: var(--bs-btn-color);
   --bs-btn-hover-color: var(--bs-btn-color);
   --bs-btn-bg: {{params.button.bg_color|default:"var(--bs-primary)"}};
@@ -53,6 +57,17 @@
   --bs-btn-active-border-color: {{params.button.bg_color|default:"var(--bs-primary)"}};
 }
 
+.block-info.block-info--{{params.scope}}::after {
+  background-image: url({{params.styles.bg_cover}});
+}
+
+.block-info--{{params.scope}} .block-info__title h5 {
+  color: {{params.styles.title_color|default:'var(--bs-white)'}};
+}
+
+.block-info--{{params.scope}} .block-info__text {
+  color: {{params.styles.text_color|default:'var(--bs-white)'}};
+}
 
 .block-info-left {
   margin-left: auto;
