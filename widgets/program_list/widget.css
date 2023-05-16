@@ -1,0 +1,30 @@
+.program-list__wrapper {
+  padding: 2rem;
+  background-color: {{params.background_color|default:"#f4f3f9"}};
+  max-width: 850px;
+  margin: 0 auto;
+}
+.program-list__title {
+  color: var(--bs-primary);
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.program-list__content {
+  font-size: 17px;
+}
+.program-list__content ul li {
+  list-style: none;
+  line-height: 3rem;
+}
+.program-list__content ul li::before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  width: 15px;
+  aspect-ratio: 1;
+  background-color: var(--bs-secondary);
+  margin-right: 20px;
+  border: 5px solid var(--bs-primary);
+  border-radius: 50%;
+  vertical-align: middle;
+}
