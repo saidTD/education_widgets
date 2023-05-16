@@ -1,0 +1,26 @@
+<section class="block_text-media">
+  <div class="container py-5">
+    <div class="block__wrapper row">
+      <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="block__text">
+        <h1 class="block__title">
+            {{params.title}}
+        </h1>
+       {{params.content_html|safe}}
+      </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="block__media">
+        {% if params.type == 'media_image'%}
+        <img src="{{params.background_image}}" alt="">
+        {% endif %}
+        {% if params.type == 'media_video'%}
+        <video controls width="100%">
+          <source src="{{params.video}}">
+        </video>
+        {% endif %}
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
