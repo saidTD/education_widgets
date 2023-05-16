@@ -5,6 +5,23 @@
   gap: 15px;
 }
 
+.service,
+.activity {
+  position: relative;
+  z-index: 1;
+}
+
+.service::after,
+.activity::after {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  background-color: {{params.background_color|default:'#e4edf6'}};
+  height: {{params.background_height|default:'50%'}};
+  z-index: -1;
+}
+
 /* services */
 .service .cards-wrapper .card-icon {
   width: fit-content;
