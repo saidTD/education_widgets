@@ -1,14 +1,14 @@
 header {
   --nav-height: 70px;
-}
-header .navigation {
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
-  z-index: 1000;
-  background-color: #fff;
   border-bottom: rgba(0,0,0,0.1) solid 1px;
+  z-index: 1000;
+}
+header .navigation {
+  background-color: #fff;
 }
 header .navigation > * {
   height: var(--nav-height);
@@ -168,4 +168,29 @@ header .navigation .navbar-wrapper .navbar-items {
 .navbar-toggler[aria-expanded=true] .nav-icon-5 span:nth-child(3) {
   transform: rotate(-45deg);
   top: 13px;
+}
+
+/* header bar */
+.header-bar {
+  position: relative;
+  background-color: {{params.headbar_bg|default:'var(--bs-danger)'}};
+}
+
+.headbar-dissmis {
+  position: absolute;
+  top: 50%; right: 5px;
+  transform: translateY(-50%);
+}
+
+.header-bar .social-media > * {
+  color: #ffffff;
+}
+
+.header-bar .links > * {
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.header-bar .links > *:hover {
+  text-decoration: underline;
 }
