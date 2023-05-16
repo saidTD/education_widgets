@@ -10,6 +10,7 @@
 
 .block-info--secondary {
   background-color: var(--bs-secondary);
+  color: var(--bs-primary);
 }
 .block-info--secondary .block-info__button {
   --bs-btn-color: var(--bs-primary);
@@ -22,8 +23,11 @@
 .block-info--secondary .block-info__title h5 {
   color: var(--bs-primary);
 }
+
+
 .block-info--primary {
   background-color: var(--bs-primary);
+  color: var(--bs-white);
 }
 .block-info--primary .block-info__button {
   --bs-btn-color: var(--bs-white);
@@ -59,6 +63,10 @@
 
 .block-info--{{params.scope}} .block-info__title h5 {
   color: {{params.styles.title_color|default:'var(--bs-white)'}};
+}
+
+.block-info--{{params.scope}} .block-info__text {
+  color: {{params.styles.text_color|default:'var(--bs-white)'}};
 }
 
 .block-info-left {
