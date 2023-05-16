@@ -4841,13 +4841,7 @@ const carouselSection = document.querySelector(".carousel-section");
 const carouselContent = document.querySelector(
   ".carousel-cover__content--bottom"
 );
-(function adjustHeight() {
-  if (!carouselContent) return;
-  let heigthContent = carouselContent.getBoundingClientRect().height;
-  let carouselHeigth = carouselSection.getBoundingClientRect().height;
-  console.log(`${carouselHeigth - heigthContent * 0.4}px`);
-  carouselSection.style.height = `${carouselHeigth - heigthContent * 0.4}px`;
-})();
+
 
 new Splide("#carousel_cover", {
   type: "slide",
