@@ -116,6 +116,7 @@
 }
 .carousel-section .splide__arrow svg {
   width: 1.5rem;
+  height: 1.5rem;
   fill: var(--bs-white);
 }
 .carousel-section .splide__slide img {
