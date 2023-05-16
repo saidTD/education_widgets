@@ -6,25 +6,25 @@
 }
 
 /* services */
-.services .cards-wrapper .card-icon {
+.service .cards-wrapper .card-icon {
   width: fit-content;
   max-width: 200px;
   padding: 12px;
 }
-.services .cards-wrapper .card-title {
+.service .cards-wrapper .card-title {
   color: var(--card-color);
 }
-.services .cards-wrapper .card-desc {
+.service .cards-wrapper .card-desc {
   /*color: var(--card-desc-color, rgba(0, 0, 0, .5));*/
 }
 
 /* activities */
-.activities .cards-wrapper .card {
+.activity .cards-wrapper .card {
   background: var(--card-color);
   color: #ffffff;
 }
 
-.activities .cards-wrapper .card-icon {
+.activity .cards-wrapper .card-icon {
   width: fit-content;
   max-width: 120px;
   padding: 12px;
