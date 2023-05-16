@@ -48,7 +48,7 @@
 
 
 .block-info--{{params.scope}} .block-info__button {
-  --bs-btn-color: {{params.button.text_color|default:"var(--bs-primary)"}};
+  --bs-btn-color: {{params.button.text_color|default:"var(--bs-white)"}};
   --bs-btn-active-color: var(--bs-btn-color);
   --bs-btn-hover-color: var(--bs-btn-color);
   --bs-btn-bg: {{params.button.bg_color|default:"var(--bs-primary)"}};
