@@ -1,0 +1,35 @@
+<section class="{{params.type|default:'services'}}" id="{{params.type|default:'services'}}">
+  <div class="container py-5">
+    <h2 class="text-center mb-5">{{params.title}}</h2>
+
+    <div class="cards-wrapper">
+      {% for metier in params.list_metiers %}
+        {% if metier.type == 'service' %}
+          <div class="card p-3 p-md-4 shadow-sm rounded-0" style="--card-color: {{metier.color}}">
+            <div class="card-icon h3 d-grid justify-content-center align-items-center overflow-hidden mb-2">
+              <img class="img-fluid" src="{{metier.cover}}" alt="logo">
+            </div>
+            <div class="card-content">
+              <h5 class="card-title mb-2 text-capitalize" style="{% if metier.color %}color : {{metier.color}} !important;{% endif %}">{{metier.name|safe}}</h5>
+              <p class="card-desc small mb-0">{{metier.description|striptags}}</p>
+            </div>
+          </div>
+        {% elif metier.type == 'activity' %}
+          <div class="card p-3 p-md-4 border-0 text-center rounded-0" style="--card-color: {{metier.color}}">
+            <div class="card-icon h3 d-grid justify-content-center mx-auto align-items-center overflow-hidden mb-2">
+              <img class="img-fluid" src="{{metier.cover}}" alt="logo">
+            </div>
+            <div class="card-content">
+              <h5 class="card-title mb-2 text-capitalize" style="{% if metier.color %}color : {{metier.color}} !important;{% endif %}">{{metier.name|safe}}</h5>
+              <p class="card-desc small mb-0">{{metier.description|striptags}}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if params.btn %}
+      <a href="{{params.btn.url}}" class="btn btn-primary d-block mx-auto mt-4 mt-md-5" style="width: fit-content">{{params.btn.text|default:'Nos Services'}}</a>
+    {% endif %}
+  </div>
+</section>
