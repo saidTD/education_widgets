@@ -15,12 +15,13 @@
    position: relative;
    z-index: 11;
  }
- .block-widget__title h2 {
+ .block-widget__title h1 {
    width: max-content;
    padding-bottom: 20px;
    position: relative;
+   font-weight: 600;
  }
- .block-widget__title h2::after {
+ .block-widget__title h1::after {
    content: "";
    position: absolute;
    width: 30%;
