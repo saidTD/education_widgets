@@ -39,7 +39,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url({{params.background_image}});
+  background-image: url("{{params.background_image}}");
   background-position: center;
   background-size: cover;
   opacity: 0.1;
