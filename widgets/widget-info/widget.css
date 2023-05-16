@@ -53,6 +53,13 @@
   --bs-btn-active-border-color: {{params.button.bg_color|default:"var(--bs-primary)"}};
 }
 
+.block-info.block-info--{{params.scope}}::after {
+  background-image: url({{params.styles.bg_cover}});
+}
+
+.block-info--{{params.scope}} .block-info__title h5 {
+  color: {{params.styles.title_color}};
+}
 
 .block-info-left {
   margin-left: auto;
