@@ -2,11 +2,11 @@
 
 
 {% if params.links %}
-    {% generate_type_data request=request name="links" data="[{ 'name' : 'Accueil', 'url' : '#', 'tag' : 'home' }, { 'name' : 'Agence', 'url' : '#', 'tag' : 'agence' }, { 'name' : 'Services', 'url' : '#', 'tag' : 'services' }, { 'name' : 'Carriére', 'url' : '#', 'tag' : 'carrer' }, { 'name' : 'Contact', 'url' : '#', 'tag' : 'contact' } ]" %}
+  {% generate_type_data request=request name="links" data="[{ 'name' : 'Accueil', 'url' : '#', 'tag' : 'home' }, { 'name' : 'Agence', 'url' : '#', 'tag' : 'agence' }, { 'name' : 'Services', 'url' : '#', 'tag' : 'services' }, { 'name' : 'Carriére', 'url' : '#', 'tag' : 'carrer' }, { 'name' : 'Contact', 'url' : '#', 'tag' : 'contact' } ]" %}
 {% endif %}
 
 {% if request.menus.header|length == 1 %}
-    {% create_variable context=params name="links" value=request.menus.header.0.links %}
+  {% create_variable context=params name="links" value=request.menus.header.0.links %}
 {% endif %}
 
 <header>
