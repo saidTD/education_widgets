@@ -33,6 +33,10 @@ header {
 }
 
 /* header */
+header .navigation {
+  background-color: #ffffff;
+}
+
 header .navigation > * {
   height: var(--nav-height);
 }
