@@ -11,12 +11,14 @@
         <li class="splide__slide">
           <div class="splide__slide__content-wrapper">
           <img src="{{gallery.file}}" alt="">
+          {% if params.with_content == "true" %}
           <div class="splide__content">
             <div class="gallery__content-wrapper">
             <h4 class="gallery__title">{{gallery.name}}</h4>
             <p class="gallery__description">{{gallery.description}} </p>
           </div>
           </div>
+          {% endif %}
         </div>
         </li>
         {% endfor %}  
