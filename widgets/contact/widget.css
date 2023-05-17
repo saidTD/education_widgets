@@ -1,0 +1,35 @@
+{% if params.background %}
+    .contact {
+        position: relative;
+        z-index: 1;
+    }
+
+
+    .contact::before {
+        content: "";
+        width: 100%;
+        height: 60%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        background-image: url("https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=996&t=st=1684144951~exp=1684145551~hmac=64076b7ab7f33c809f6a5b9e84362158e7358b1dcedaf090e84d5d387ceb42c2");
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: .4;
+    }    
+{% endif %}
+
+.contact .container {
+    max-width: 750px;
+}
+
+.contact .contact-desc {
+    max-width: 500px;
+}
+
+.contact :where(.form-control, .form-select) {
+    padding: 10px 20px;
+    border-radius: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
