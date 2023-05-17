@@ -61,6 +61,16 @@ header .navigation .navbar-wrapper .navbar-items {
   padding: 0;
 }
 
+header .nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+
+header .nav-item .dropdown-menu :where(a:hover, a:active) {
+  background: var(--bs-primary);
+  color: #ffffff;
+}
+
 header .navigation .dropdown-toggle {
   padding-right: 16px !important;
 }

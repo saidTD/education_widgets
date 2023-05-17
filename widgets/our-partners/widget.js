@@ -1,6 +1,4 @@
-{% if params.list_partenaires|length >= 5 %}
-    import Splide from '@splidejs/splide';
-
+{% if params.list_partenaires|length > 5 %}
     const ourPartnersSplide = new Splide('.splide.our-partners', {
         type: 'loop',
         perPage: '1',
@@ -22,5 +20,5 @@
             }
         }
     });
-    ourPartnersSplide.mount();
+    ourPartnersSplide?.mount();
 {% endif %}
