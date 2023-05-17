@@ -1,15 +1,15 @@
 {
-    "version": "1.0.32",
+    "version": "1.0.33",
     "label": "Widget Gallery Classique",
     "name": "gallerie Classique",
     "repo": "education_widgets",
     "element": "gallerie_classique",
     "description": "Ce Widget est pour Présenter un Gallerie des photos d'une maniére Classique",
     "category": "carousel",
-    "type": "dynamic",
+    "type": "static",
     "space": "education",
-    "source_slug": "mediatheque",
-    "variable_name": "gallery_media",
+    "source_slug": "",
+    "variable_name": "",
     "legacy": false,
     "params": [
         {
