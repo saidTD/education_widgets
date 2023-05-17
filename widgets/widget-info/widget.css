@@ -56,7 +56,7 @@
   --bs-btn-hover-bg: {{params.button.bg_color|default:"var(--bs-primary)"}};
   --bs-btn-active-bg: {{params.button.bg_color|default:"var(--bs-primary)"}};
   --bs-btn-active-border-color: {{params.button.bg_color|default:"var(--bs-primary)"}};
-  box-shadow: 3px 3px 5px rgba({{params.button.bg_color|default:"var(--bs-primary)"}},.4);
+  box-shadow: 3px 3px 5px rgba({{params.button.bg_color_rgb|default:"var(--bs-primary)"}},.4);
 }
 
 .block-info.block-info--{{params.scope}}::after {
