@@ -69,9 +69,7 @@ header .nav-item .dropdown-menu {
   background: rgba(var(--bs-primary-rgb), .8);
 }
 
-header .nav-item .dropdown-menu a {
-  color: white;
-}
+
 
 header .nav-item .dropdown-menu a:hover {
   background: var(--bs-primary);
