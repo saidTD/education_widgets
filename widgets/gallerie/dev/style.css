@@ -11,6 +11,9 @@
   bottom: 0;
   color: var(--bs-white);
 }
+.gallery .gallery__carousel .gallery .gallery__carousel {
+  position: relative;
+}
 .gallery .gallery__carousel .gallery__content-wrapper {
   width: 100%;
   display: flex;
