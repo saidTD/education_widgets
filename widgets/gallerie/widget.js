@@ -4839,6 +4839,6 @@ const main = "";
 const splideCore_min = "";
 
 new Splide("#gallery-carousel", {
-  cover: true,
-  heightRatio: 0.5,
+  // cover: true,
+  // heightRatio: 0.5,
 }).mount();

@@ -1,7 +1,7 @@
 {% load get_widget  %}
 
 <section class="gallery {{params.scope|default:'carousel_gallery'}}">
-  <div class="container">
+  <div class="container pb-5">
     <h2 class="gallerie__title py-5 text-center text-primary fw-bold">{{params.title}}</h2>
   <div class="gallery__carousel  gallery__carousel--{{params.button_type}} gallery__carousel--{{params.content_type}} gallery__carousel--{{params.overflow_type}}">
   <div id="gallery-carousel" class="splide" aria-label="My Awesome Gallery">
@@ -11,12 +11,14 @@
         <li class="splide__slide">
           <div class="splide__slide__content-wrapper">
           <img src="{{gallery.file}}" alt="">
+          {% if params.with_content == "true" %}
           <div class="splide__content">
             <div class="gallery__content-wrapper">
             <h4 class="gallery__title">{{gallery.name}}</h4>
             <p class="gallery__description">{{gallery.description}} </p>
           </div>
           </div>
+          {% endif %}
         </div>
         </li>
         {% endfor %}  
