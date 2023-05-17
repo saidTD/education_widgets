@@ -1,4 +1,4 @@
-{% if params.list_partenaires|length >= 5 %}
+{% if params.list_partenaires|length > 5 %}
     const ourPartnersSplide = new Splide('.splide.our-partners', {
         type: 'loop',
         perPage: '1',
