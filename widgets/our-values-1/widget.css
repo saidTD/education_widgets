@@ -16,7 +16,7 @@
  }
  .widget-value__text {
    width: 100%;
-   max-width: 350px;
+   /*max-width: 350px;*/
    padding-right: 4rem;
    border-right: 2px solid var(--bs-secondary);
  }
