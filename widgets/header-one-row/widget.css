@@ -4,13 +4,35 @@ header {
   left: 0;
   top: 0;
   right: 0;
-  border-bottom: rgba(0,0,0,0.1) solid 1px;
   z-index: 1000;
-  box-shadow: 6px 6px 15px rgba(0,0,0,0.1);
 }
-header .navigation {
-  background-color: #fff;
+
+/* header bar */
+.header-bar {
+  position: relative;
+  background-color: {{params.headbar_bg|default:'var(--bs-danger)'}};
 }
+
+.headbar-dissmis {
+  position: absolute;
+  top: 50%; right: 5px;
+  transform: translateY(-50%);
+}
+
+.header-bar .social-media > * {
+  color: #ffffff;
+}
+
+.header-bar .links > * {
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.header-bar .links > *:hover {
+  text-decoration: underline;
+}
+
+/* header */
 header .navigation > * {
   height: var(--nav-height);
 }
@@ -33,10 +55,22 @@ header .navigation .navbar-wrapper .navbar-items {
   margin: 0;
   padding: 0;
 }
+
+header .navigation .dropdown-toggle {
+  padding-right: 16px !important;
+}
+header .navigation .dropdown-toggle[aria-expanded="true"] {
+  color: rgba(var(--bs-primary-rgb), .5);
+}
+header .navigation .dropdown-toggle::after {
+  position: absolute;
+  right: 0;
+}
+
 @media (max-width: 991px) {
   header .navigation .navbar-wrapper {
     padding-top: var(--nav-height);
-    background: {{params.menu_bg|default:'#ffffff'}};
+    background: var(--bs-tertiary);
     display: grid;
     align-content: center;
     justify-content: center;
@@ -94,7 +128,7 @@ header .navigation .navbar-wrapper .navbar-items {
   header .navigation .navbar-wrapper .navbar-items .nav-link.active {
     color: var(--bs-primary);
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link::after {
+  header .navigation .navbar-wrapper .navbar-items .nav-link::before {
     content: "";
     position: absolute;
     left: 50%;
@@ -105,7 +139,7 @@ header .navigation .navbar-wrapper .navbar-items {
     width: 0;
     transition: 0.3s;
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link.active::after, header .navigation .navbar-wrapper .navbar-items .nav-link:hover::after {
+  header .navigation .navbar-wrapper .navbar-items .nav-link:hover::before {
     width: 100%;
   }
 }
@@ -169,29 +203,4 @@ header .navigation .navbar-wrapper .navbar-items {
 .navbar-toggler[aria-expanded=true] .nav-icon-5 span:nth-child(3) {
   transform: rotate(-45deg);
   top: 13px;
-}
-
-/* header bar */
-.header-bar {
-  position: relative;
-  background-color: {{params.headbar_bg|default:'var(--bs-danger)'}};
-}
-
-.headbar-dissmis {
-  position: absolute;
-  top: 50%; right: 5px;
-  transform: translateY(-50%);
-}
-
-.header-bar .social-media > * {
-  color: #ffffff;
-}
-
-.header-bar .links > * {
-  text-decoration: none;
-  color: #ffffff;
-  text-transform: capitalize;
-}
-.header-bar .links > *:hover {
-  text-decoration: underline;
 }

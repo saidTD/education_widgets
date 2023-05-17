@@ -2,11 +2,11 @@
 
 
 {% if params.links %}
-    {% generate_type_data request=request name="links" data="[{ 'name' : 'Accueil', 'url' : '#', 'tag' : 'home' }, { 'name' : 'Agence', 'url' : '#', 'tag' : 'agence' }, { 'name' : 'Services', 'url' : '#', 'tag' : 'services' }, { 'name' : 'Carriére', 'url' : '#', 'tag' : 'carrer' }, { 'name' : 'Contact', 'url' : '#', 'tag' : 'contact' } ]" %}
+  {% generate_type_data request=request name="links" data="[{ 'name' : 'Accueil', 'url' : '#', 'tag' : 'home' }, { 'name' : 'Agence', 'url' : '#', 'tag' : 'agence' }, { 'name' : 'Services', 'url' : '#', 'tag' : 'services' }, { 'name' : 'Carriére', 'url' : '#', 'tag' : 'carrer' }, { 'name' : 'Contact', 'url' : '#', 'tag' : 'contact' } ]" %}
 {% endif %}
 
 {% if request.menus.header|length == 1 %}
-    {% create_variable context=params name="links" value=request.menus.header.0.links %}
+  {% create_variable context=params name="links" value=request.menus.header.0.links %}
 {% endif %}
 
 <header>
@@ -73,10 +73,24 @@
       >
           <ul class="navbar-items">
             {% for link in params.links %}
-              <li class="nav-item">
-                <a class="nav-link text-capitalize" href="{{link.url}}">{{link.name}}</a>
-              </li>
+              {% if link.subs|length == 0 %}
+                <li class="nav-item">
+                  <a class="nav-link text-capitalize" href="{{link.url}}">{{link.name}}</a>
+                </li>
+              {% else %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{link.name}}</a>
+                  <ul class="dropdown-menu">
+                    {% for sub in link.subs %}
+                    <li>
+                      <a class="dropdown-item" href="{{sub.url}}">{{sub.name}}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% endif %}
             {% endfor %}
+                  
           </ul>
 
           <a 

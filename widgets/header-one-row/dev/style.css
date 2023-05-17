@@ -55,6 +55,18 @@ header .navigation .navbar-wrapper .navbar-items {
   margin: 0;
   padding: 0;
 }
+
+header .navigation .dropdown-toggle {
+  padding-right: 16px !important;
+}
+header .navigation .dropdown-toggle[aria-expanded="true"] {
+  color: rgba(var(--bs-primary-rgb), .5);
+}
+header .navigation .dropdown-toggle::after {
+  position: absolute;
+  right: 0;
+}
+
 @media (max-width: 991px) {
   header .navigation .navbar-wrapper {
     padding-top: var(--nav-height);
@@ -116,7 +128,7 @@ header .navigation .navbar-wrapper .navbar-items {
   header .navigation .navbar-wrapper .navbar-items .nav-link.active {
     color: var(--bs-primary);
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link::after {
+  header .navigation .navbar-wrapper .navbar-items .nav-link::before {
     content: "";
     position: absolute;
     left: 50%;
@@ -127,7 +139,7 @@ header .navigation .navbar-wrapper .navbar-items {
     width: 0;
     transition: 0.3s;
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link.active::after, header .navigation .navbar-wrapper .navbar-items .nav-link:hover::after {
+  header .navigation .navbar-wrapper .navbar-items .nav-link:hover::before {
     width: 100%;
   }
 }
