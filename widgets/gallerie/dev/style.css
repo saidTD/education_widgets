@@ -20,6 +20,9 @@
   justify-content: flex-end;
   flex-direction: column;
 }
+.gallery .gallery__carousel .gallery__description {
+  max-width: 600px;
+}
 .gallery .gallery__carousel--arrow-outside {
   padding: 0 5rem;
   padding-bottom: 45px;
