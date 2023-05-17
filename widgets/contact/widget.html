@@ -1,7 +1,7 @@
 <section class="contact" id="contact">
-  <div class="container text-white py-5">
-    <h2 class="title--white-variant mb-3 text-center">{{params.title}}</h2>
-    <p class="contact-desc mb-5 mx-auto text-center">{{params.description}}</p>
+  <div class="container py-5">
+    <h2 class="title--white-variant mb-3 text-center">{{params.title|safe}}</h2>
+    <p class="contact-desc mb-5 mx-auto text-center">{{params.description|safe}}</p>
 
     <form
       class="text-black shadow-lg bg-white py-3 px-4 py-sm-4 px-sm-5 needs-validation"
