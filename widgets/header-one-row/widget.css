@@ -35,7 +35,7 @@ header {
 
 /* header */
 header .navigation {
-  background-color: #ffffff;
+  background-color: {{params.header_bg:default:'#ffffff'}};
 }
 
 header .navigation > * {
