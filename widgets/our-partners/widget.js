@@ -1,6 +1,4 @@
 {% if params.list_partenaires|length >= 5 %}
-    import Splide from '@splidejs/splide';
-
     const ourPartnersSplide = new Splide('.splide.our-partners', {
         type: 'loop',
         perPage: '1',
