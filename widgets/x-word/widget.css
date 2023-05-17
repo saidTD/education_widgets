@@ -57,6 +57,7 @@
   --bs-btn-hover-bg: {{params.button.bg_color|default:"var(--bs-primary)"}};
   --bs-btn-active-bg: {{params.button.bg_color|default:"rgb(var(--bs-primary-rgb))"}} ;
   --bs-btn-active-border-color: {{params.button.bg_color|default:"var(--bs-primary)"}};
+  box-shadow: 3px 3px 5px rgba(var(--bs-primary-rgb),.4);
   margin-left: auto;
 }
 
