@@ -1,17 +1,28 @@
 <section class="partners bg-gray" id="partners">
   <div class="container py-4 gray-scale">
     <h2 class="text-center mb-5">{{params.title}}</h2>
-    <div class="splide">
-      <div class="splide__slider">
-        <div class="splide__track">
-          <ul class="splide__list align-items-center">
-            {% for partner in params.list_partenaires %}
-              <li class="splide__slide">
-                <img src="{{partner.logo}}" alt="{{partner.company}}" />
-              </li>
-            {% endfor %}
-          </ul>
+
+    {% if params.list_partenaires|length >= 5 %}
+      <div class="splide">
+        <div class="splide__slider">
+          <div class="splide__track">
+            <ul class="splide__list align-items-center">
+              {% for partner in params.list_partenaires %}
+                <li class="splide__slide">
+                  <img src="{{partner.logo}}" alt="{{partner.company}}" />
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    {% else %}
+      <ul class="d-flex justify-content-center align-items-center gap-5">
+        {% for partner in params.list_partenaires %}
+          <li class="partner">
+            <img src="{{partner.logo}}" alt="{{partner.company}}" />
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
 </section>
