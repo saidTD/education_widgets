@@ -16,7 +16,7 @@
         background-image: url("{{params.background|default:''}}");
         background-size: cover;
         background-repeat: no-repeat;
-        opacity: .4;
+        opacity: .2;
     }    
 {% endif %}
 
