@@ -1,0 +1,18 @@
+
+
+<section class="media-categories">
+  <div class="container py-5">
+    <div class="media-categories__list cards-wrapper">
+      {% for category in params.list_media_categories%}
+      <div class="media-category__item" style="background-image: url('{{category.cover}}') ;">
+        <div class="media-category__content">
+          <h4 class="media-category__title">{{category.name}} </h4>
+          <p class="media-category__description"> {{category.description}} </p>
+          <a href="" class="btn media-category__button">voir Media</a>
+        </div>
+      </div>
+      {%endfor %}
+      
+    </div>
+  </div>
+</section>

@@ -47,7 +47,7 @@ header .navigation .logo {
 header .navigation .navbar-toggler {
   display: none;
 }
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   header .navigation .navbar-toggler {
     display: inline-block;
   }
@@ -61,6 +61,16 @@ header .navigation .navbar-wrapper .navbar-items {
   padding: 0;
 }
 
+header .nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+
+header .nav-item .dropdown-menu :where(a:hover, a:active) {
+  background: var(--bs-primary);
+  color: #ffffff;
+}
+
 header .navigation .dropdown-toggle {
   padding-right: 16px !important;
 }
@@ -72,7 +82,7 @@ header .navigation .dropdown-toggle::after {
   right: 0;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   header .navigation .navbar-wrapper {
     padding-top: var(--nav-height);
     background: var(--bs-tertiary);
@@ -109,20 +119,20 @@ header .navigation .dropdown-toggle::after {
     color: var(--bs-primary);
   }
 }
-@media (min-width: 992px) {
-  header .navigation .navbar-wrapper {
+@media (min-width: 1200px) {
+  header .navbar-wrapper {
     display: flex;
     align-items: center;
     gap: 15px;
     flex-grow: 9;
   }
-  header .navigation .navbar-wrapper .navbar-items {
+  header .navbar-items {
     display: flex;
     justify-content: center;
     flex-grow: 9;
     gap: 13px;
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link {
+  header .nav-link {
     position: relative;
     display: grid;
     align-items: center;
@@ -130,10 +140,10 @@ header .navigation .dropdown-toggle::after {
     height: var(--nav-height);
     padding: 8px;
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link.active {
+  header .nav-link.active {
     color: var(--bs-primary);
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link::before {
+  header .nav-link::before {
     content: "";
     position: absolute;
     left: 50%;
@@ -144,7 +154,8 @@ header .navigation .dropdown-toggle::after {
     width: 0;
     transition: 0.3s;
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link:hover::before {
+  header .nav-link:hover::before,
+  header .nav-link.active::before {
     width: 100%;
   }
 }
