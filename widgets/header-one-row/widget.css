@@ -61,6 +61,26 @@ header .navigation .navbar-wrapper .navbar-items {
   padding: 0;
 }
 
+header .nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+header .nav-item .dropdown-menu {
+  background: rgba(var(--bs-primary-rgb), .8);
+}
+
+header .nav-item .dropdown-menu a {
+  color: white;
+}
+
+header .nav-item .dropdown-menu a:hover {
+  background: var(--bs-primary);
+}
+
+header .nav-item .dropdown-menu a:active {
+  background: var(--bs-primary);
+}
+
 header .navigation .dropdown-toggle {
   padding-right: 16px !important;
 }
