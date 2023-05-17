@@ -29,6 +29,7 @@
  }
  .gallery.{{params.scope|default:'carousel_gallery'}} .splide__pagination__page.is-active {
    background-color: var(--bs-primary);
+   opacity: 1;
  }
  
  
