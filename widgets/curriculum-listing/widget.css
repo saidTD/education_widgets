@@ -49,3 +49,10 @@
   box-shadow: 3px 3px 5px rgba(var(--bs-primary-rgb),.4);
   margin-top: 2rem;
 }
+
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+}

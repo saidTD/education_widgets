@@ -6,10 +6,10 @@
     {% get_widget request=request slug="title-widget-education"  title=params.title element="h1" variant="border-center" scope="curriculum_title" styles=request.get_datas.styles %}
 
     
-    <div class="curriculum__list row">
+    <div class="curriculum__list cards-wrapper">
       {% for cursus in params.list_cursus %}
         {% if not cursus.slug == params.exclude %}
-          <div class="col-sm-12 col-md-6 col-lg-4">
+          <!-- <div class="col-sm-12 col-md-6 col-lg-4"> -->
             <div class="curriculum__item {{params.variant}}">
               <div class="curriculum__img">
                 <img src="{{cursus.cover}}" alt="{{cursus.title}}">
@@ -24,7 +24,7 @@
                 <a href="/{{params.base_url}}/{{cursus.slug}}/" class="btn curriculum__button mx-auto">{{params.button.text|default:"Plus d'information"}}</a>
               </div>
             </div>
-          </div>
+          <!-- </div> -->
           </div>
         {% endif %}
       {% endfor %}
