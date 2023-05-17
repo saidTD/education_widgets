@@ -73,10 +73,24 @@
       >
           <ul class="navbar-items">
             {% for link in params.links %}
-              <li class="nav-item">
-                <a class="nav-link text-capitalize" href="{{link.url}}">{{link.name}}</a>
-              </li>
+              {% if link.subs|length == 0 %}
+                <li class="nav-item">
+                  <a class="nav-link text-capitalize" href="{{link.url}}">{{link.name}}</a>
+                </li>
+              {% else %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="{{link.url}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{link.name}}</a>
+                  <ul class="dropdown-menu">
+                    {% for sub in link.subs %}
+                    <li>
+                      <a class="dropdown-item" href="{{sub.url}}">{{sub.name}}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% endif %}
             {% endfor %}
+                  
           </ul>
 
           <a 
