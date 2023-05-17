@@ -6,6 +6,7 @@ header {
   right: 0;
   border-bottom: rgba(0,0,0,0.1) solid 1px;
   z-index: 1000;
+  box-shadow: 6px 6px 15px rgba(0,0,0,0.1);
 }
 header .navigation {
   background-color: #fff;

@@ -32,14 +32,14 @@
 }
 .hero__cover .hero__background .hero__title {
   position: relative;
-  color: var(--bs-secondary);
+  color: var(--bs-primary);
   z-index: 11;
 }
 .hero__cover .hero__background::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url({{params.background_image}});
+  background-image: url("{{params.background_image}}");
   background-position: center;
   background-size: cover;
   opacity: 0.1;

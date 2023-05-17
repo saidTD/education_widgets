@@ -11,14 +11,13 @@
   z-index: 1;
 }
 
-.service::after,
-.activity::after {
+#{{params.parent_element}}::after {
   content: "";
   position: absolute;
   left: 0; top: 0;
   width: 100%;
-  background-color: {{params.background_color|default:'#e4edf6'}};
-  height: {{params.background_height|default:'50%'}};
+  background-color: {{params.background_color|default:'#F5F5FA'}};
+  height: {{params.background_height|default:'100%'}};
   z-index: -1;
 }
 

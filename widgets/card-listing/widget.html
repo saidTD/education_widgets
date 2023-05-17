@@ -1,30 +1,38 @@
-<section class="{{params.type|default:'services'}}" id="{{params.type|default:'services'}}">
+
+
+<section class="{{params.type|default:'services'}}" id="{{params.parent_element}}">
   <div class="container py-5">
     <h2 class="text-center mb-5">{{params.title}}</h2>
 
     <div class="cards-wrapper">
       {% for metier in params.list_metiers %}
-        {% if params.type == 'service' and metier.type == params.type %}
-          <div class="card p-3 p-md-4 shadow-sm rounded-0" style="--card-color: {{metier.color}}">
-            <div class="card-icon h3 d-grid justify-content-center align-items-center overflow-hidden mb-2">
-              <img class="img-fluid" src="{{metier.cover}}" alt="logo">
-            </div>
-            <div class="card-content">
-              <h5 class="card-title mb-2 text-capitalize" style="{% if metier.color %}color : {{metier.color}} !important;{% endif %}">{{metier.name|safe}}</h5>
-              <p class="card-desc small mb-0">{{metier.description|striptags}}</p>
-            </div>
-          </div>
-        {% elif params.type == 'activity' and metier.type == params.type %}
-          <div class="card p-3 p-md-4 border-0 text-center rounded-0" style="--card-color: {{metier.color}}">
-            <div class="card-icon h3 d-grid justify-content-center mx-auto align-items-center overflow-hidden mb-2">
-              <img class="img-fluid" src="{{metier.cover}}" alt="logo">
-            </div>
-            <div class="card-content">
-              <h5 class="card-title mb-2 text-capitalize">{{metier.name|safe}}</h5>
-              <p class="card-desc small mb-0">{{metier.description|striptags}}</p>
-            </div>
-          </div>
-        {% endif %}
+        {% if forloop.counter < 7 %}
+            {% if params.type == 'service' and metier.type == params.type %}
+              <div class="card p-3 p-md-4 shadow-sm rounded-0" style="--card-color: {{metier.color}}">
+                <div class="card-icon h3 d-grid justify-content-center align-items-center overflow-hidden mb-2">
+                  <img class="img-fluid" src="{{metier.cover}}" alt="{{metier.name}}">
+                </div>
+                <div class="card-content">
+                  <h5 class="card-title mb-2 text-capitalize" style="{% if metier.color %}color : {{metier.color}} !important;{% endif %}">{{metier.name|safe}}</h5>
+                  <p class="card-desc small mb-0">{{metier.description|striptags}}</p>
+                </div>
+              </div>
+            {% elif params.type == 'activity' and metier.type == params.type %}
+              <div class="card p-3 p-md-4 border-0 text-center rounded-0" style="--card-color: {{metier.color}}">
+                <div class="card-icon h3 d-grid justify-content-center mx-auto align-items-center overflow-hidden mb-2">
+                  {% if params.type == "activity" %}
+                    <img class="img-fluid" src="{{metier.icon}}" alt="{{metier.name}}">
+                  {% else %}
+                  <img class="img-fluid" src="{{metier.cover}}" alt="{{metier.name}}">
+                  {% endif %}
+                </div>
+                <div class="card-content">
+                  <h5 class="card-title mb-2 text-capitalize">{{metier.name|safe}}</h5>
+                  <p class="card-desc small mb-0">{{metier.description|striptags}}</p>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
       {% endfor %}
     </div>
 

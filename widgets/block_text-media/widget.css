@@ -6,6 +6,7 @@
   text-transform: uppercase;
   margin-bottom: 1.2rem;
   color: {{params.styles.title_color|default:'var(--bs-primary)'}};
+  text-align : left;
 }
 .block_text-media .block__media {
   height: 100%;

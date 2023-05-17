@@ -77,11 +77,11 @@
     margin-right: auto;
   }
 }
-.block-info--order-rigth {
+.block-info--order-right {
   margin-right: auto;
 }
 @media (max-width: 991.98px) {
-  .block-info--order-rigth {
+  .block-info--order-right {
     margin-left: auto;
     margin-top: 2rem;
   }

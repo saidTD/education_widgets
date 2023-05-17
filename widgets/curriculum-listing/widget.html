@@ -4,25 +4,29 @@
   <div class="container py-5">
     {% generate_type_data request=request name='styles' data='{"type":"white","align":"center", "offset_y" : "0", "offset_x" : "0", "weight" : "600", "padding_bottom" : "20"}' mode='object' %}
     {% get_widget request=request slug="title-widget-education"  title=params.title element="h1" variant="border-center" styles=request.get_datas.styles %}
+
+    
     <div class="curriculum__list row">
       {% for cursus in params.list_cursus %}
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="curriculum__item">
-          <div class="curriculum__img">
-            <img src="https://bucket.tech-dynamics.ma/media-storage/12d73503-396e-4a44-9df9-507253fa2ef7/115ae905/curriculum_image.png" alt="">
+        {% if not cursus.slug == params.exclude %}
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="curriculum__item {{params.variant}}">
+              <div class="curriculum__img">
+                <img src="{{cursus.cover}}" alt="{{cursus.title}}">
+              </div>
+              <div class="curriculum__content">
+              <h4 class="curriculum__title">{{cursus.title}}</h4>
+              <p class="curriculum__info">{{cursus.sub_title}}</p>
+              <p class="curriculum__description">
+                {{cursus.description|striptags|safe}}
+              </p>
+              <div class="text-center">
+                <a href="/{{params.base_url}}/{{cursus.slug}}/" class="btn curriculum__button mx-auto">{{params.button.text|default:"Plus d'information"}}</a>
+              </div>
+            </div>
           </div>
-          <div class="curriculum__content">
-          <h4 class="curriculum__title">{{cursus.title}}</h4>
-          <p class="curriculum__info">{{cursus.sub_title}}</p>
-          <p class="curriculum__description">
-            {{cursus.content_html|safe}}
-          </p>
-          <div class="text-center">
-            <a href="/{{param.base_url}}/{{cursus.slug}}/" class="btn curriculum__button mx-auto">{{params.button.text|default:"/Plus d'information/"}}</a>
           </div>
-        </div>
-      </div>
-      </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
