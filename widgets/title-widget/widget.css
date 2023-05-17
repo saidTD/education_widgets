@@ -31,15 +31,15 @@
   transform: translateX(-50%);
 }
 
-.title-widget {
-  padding-block: {{params.styles.offset_y|default:0}}px ;
+.{{params.scope}}.title-widget {
+  padding-bottom: {{params.styles.offset_y|default:0}}px ;
 }
 
 .title-widget  .center {
   margin: 0 auto;
 }
 
-.block__title {
+.{{params.scope}} .block__title {
   font-weight: {{params.styles.weight|default:600}};
   text-align: {{params.styles.align|default:'center'}};
   padding-inline: {{params.styles.offset_x|default:0}}px ;

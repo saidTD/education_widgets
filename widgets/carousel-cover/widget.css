@@ -71,6 +71,7 @@
   --bs-btn-hover-bg: var(--bs-primary);
   --bs-btn-active-bg: rgb(var(--bs-primary-rgb));
   --bs-btn-active-border-color: rgb(var(--bs-primary-rgb));
+  box-shadow: 3px 3px 5px rgba(var(--bs-primary-rgb),.4);
 }
 .carousel-section .carousel-cover .content__button--secondary {
   --bs-btn-color: var(--bs-primary);
@@ -79,6 +80,7 @@
   --bs-btn-hover-bg: var(--bs-secondary);
   --bs-btn-active-bg: rgb(var(--bs-secondary-rgb));
   --bs-btn-active-border-color: rgb(var(--bs-secondary-rgb));
+  box-shadow: 3px 3px 5px rgba(var(--bs-secondary-rgb),.4);
 }
 .carousel-section .splide__arrow {
   padding: 0.8rem;

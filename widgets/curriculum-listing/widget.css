@@ -8,6 +8,7 @@
 }
 .curriculum__item {
   border: 1px solid #c5c5c5;
+  height: 100%;
 }
 
 .curriculum__item.border__less {
@@ -45,6 +46,6 @@
   --bs-btn-hover-bg: var(--bs-primary);
   --bs-btn-active-bg: rgb(var(--bs-primary-rgb));
   --bs-btn-active-border-color: rgb(var(--bs-primary-rgb));
-  box-shadow:3px 3px 5px rgba(var(--bs-primary-rgb),.4)
+  box-shadow: 3px 3px 5px rgba(var(--bs-primary-rgb),.4);
   margin-top: 2rem;
 }
