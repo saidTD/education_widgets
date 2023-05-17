@@ -3,7 +3,7 @@
 <section class="gallery">
   <div class="container">
     <h2 class="gallerie__title py-5 text-center text-primary fw-bold">{{params.title}}</h2>
-  <div class="gallery__carousel gallery__carousel--{{params.button_type}} gallery__carousel--{{params.content_type}} gallery__carousel--{{params.overflow_type}}">
+  <div class="gallery__carousel {{params.scope|default:'carousel_gallery'}} gallery__carousel--{{params.button_type}} gallery__carousel--{{params.content_type}} gallery__carousel--{{params.overflow_type}}">
   <div id="gallery-carousel" class="splide" aria-label="My Awesome Gallery">
     <div class="splide__track">
       <ul class="splide__list">
