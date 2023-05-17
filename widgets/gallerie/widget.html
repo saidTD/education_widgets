@@ -1,21 +1,28 @@
 {% load get_widget  %}
 
-
-<section class="gallery {{params.scope|default:'carousel_gallery'}}">
-   <div class="container">
-      <h2 class="gallerie__title py-5 text-center text-primary fw-bold">{{params.title}}</h2>
-     <div class="gallery__carousel">
-   <div id="gallery-carousel" class="splide" aria-label="My Awesome Gallery">
-     <div class="splide__track">
-       <ul class="splide__list">
-         {% for gallery in params.gallery_media%}
-         <li class="splide__slide">
-           <img src="{{gallery.file}}" alt="">
-         </li>
-         {% endfor %}
-       </ul>
-     </div>
-   </div>
- </div>
+<section class="gallery">
+  <div class="container">
+    <h2 class="gallerie__title py-5 text-center text-primary fw-bold">{{params.title}}</h2>
+  <div class="gallery__carousel gallery__carousel--{{params.button_type}} gallery__carousel--{{params.content_type}} gallery__carousel--{{params.overflow_type}}">
+  <div id="gallery-carousel" class="splide" aria-label="My Awesome Gallery">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {% for gallery in params.gallery_media%}
+        <li class="splide__slide">
+          <div class="splide__slide__content-wrapper">
+          <img src="{{gallery.file}}" alt="">
+          <div class="splide__content">
+            <div class="gallery__content-wrapper">
+            <h4 class="gallery__title">{{gallery.name}}</h4>
+            <p class="gallery__description">{{gallery.description}} </p>
+          </div>
+          </div>
+        </div>
+        </li>
+        {% endfor %}  
+      </ul>
+    </div>
+  </div>
 </div>
- </section>
+</div>
+</section>
