@@ -8,6 +8,7 @@
 }
 .curriculum__item {
   border: 1px solid #c5c5c5;
+  height: 100%;
 }
 
 .curriculum__item.border__less {
