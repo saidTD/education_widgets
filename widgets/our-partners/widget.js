@@ -20,5 +20,5 @@
             }
         }
     });
-    ourPartnersSplide.mount();
+    ourPartnersSplide?.mount();
 {% endif %}
