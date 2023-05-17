@@ -25,7 +25,7 @@
 }
 
 .contact .contact-desc {
-    max-width: 500px;
+    max-width: 637px;
 }
 
 .contact :where(.form-control, .form-select) {
