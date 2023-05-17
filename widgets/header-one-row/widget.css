@@ -47,7 +47,7 @@ header .navigation .logo {
 header .navigation .navbar-toggler {
   display: none;
 }
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   header .navigation .navbar-toggler {
     display: inline-block;
   }
@@ -72,7 +72,7 @@ header .navigation .dropdown-toggle::after {
   right: 0;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   header .navigation .navbar-wrapper {
     padding-top: var(--nav-height);
     background: var(--bs-tertiary);
@@ -109,7 +109,7 @@ header .navigation .dropdown-toggle::after {
     color: var(--bs-primary);
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   header .navigation .navbar-wrapper {
     display: flex;
     align-items: center;
@@ -144,7 +144,8 @@ header .navigation .dropdown-toggle::after {
     width: 0;
     transition: 0.3s;
   }
-  header .navigation .navbar-wrapper .navbar-items .nav-link:hover::before {
+  header .nav-link:hover::before,
+  header .nav-link.active::before {
     width: 100%;
   }
 }
