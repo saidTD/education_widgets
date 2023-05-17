@@ -6,7 +6,7 @@
 
     <div class="cards-wrapper">
       {% for metier in params.list_metiers %}
-        {% if forloop.counter < 4 %}
+        {% if forloop.counter < 6 %}
             {% if params.type == 'service' and metier.type == params.type %}
               <div class="card p-3 p-md-4 shadow-sm rounded-0" style="--card-color: {{metier.color}}">
                 <div class="card-icon h3 d-grid justify-content-center align-items-center overflow-hidden mb-2">
