@@ -70,19 +70,24 @@
 
             <label for="formFile" class="form-label fs-5">File :</label>
             <div class="custom-input-file-container position-relative">
-              <input class="form-control form-control-inputs form-control-inputs-file " type="file" id="formFile"
-                required="">
-              <div class="file-view position-absolute ">
-                <p
-                  class="text-center placeholder-input text-primary fs-3 position-absolute top-50 start-50 translate-middle">
-                  Upload File</p>
-                <div class="file-type-view show">
+              <input class="form-control form-control-inputs form-control-inputs-file" name="cv" type="file" accept=".docs, .pdf" required id="cv-file"
+                >
+              <div class="file-view position-absolute d-flex aligns-items-center justify-content-center flex-column ">
+                <p class="text-center placeholder-input  fs-5">
+                 
+                  Uploader votre CV <br>
+                  Formats acceptées : *docs , *pdf
+                </p>
+               
+                <p class="file_name text-center fs-5">
 
-                </div>
+                </p>
               </div>
 
             </div>
-            <div class="pristine-error error-text text-danger" style="display: none;"></div>
+            <div class="invalid-feedback">
+              Type de fichier non autorisé
+            </div>
           </div>
           <div class="form-group text-center">
             <button type="button" class="btn btn-primary px-4 py-2 rounded">

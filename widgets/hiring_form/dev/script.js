@@ -7,7 +7,16 @@ submitBtn.addEventListener('click', (event) => {
     if (form.checkValidity()) {
         form.classList.remove('was-validated');
         const formData = new FormData(form);
-        sendData([...formData]);
+        if(!validateFile(formData.get('cv'))){
+            return;
+        }
+        
+        convertFileToBase64(formData.get('cv')).then(base64 => {
+            sendData([["cv_base64", base64],...formData]);
+        })
+        
+
+        
     } else {
         form.classList.add('was-validated');
     }
@@ -56,3 +65,62 @@ function formatter(data) {
     data.forEach(([key, value]) => formatedData[key] = value);
     return JSON.stringify(formatedData);
 }
+
+
+const inputFile = document.getElementById("cv-file");
+
+
+function validateFile(file) {
+    const inputWrapper = document.querySelector(".custom-input-file-container");
+    if(!inputWrapper) {
+        return;
+    }
+    const ACCEPTED_TYPE = ["application/pdf", "application/msword"];
+    if(ACCEPTED_TYPE.includes(file.type)) {
+        inputWrapper.classList.remove('invalide')
+        return true;
+    }
+    inputWrapper.classList.add('invalide')
+    return false;
+}
+
+function openInputFile(){
+const toggler = document.querySelector('.file-view');
+    
+    if(!toggler || !inputFile) {
+        return;
+    }
+
+    toggler.addEventListener('click', () => {
+        inputFile.click();
+    })
+}
+
+
+function changeFile() {
+    const textWrapper = document.querySelector('.placeholder-input');
+    const fileName = document.querySelector('.file_name');
+    inputFile.addEventListener('change', (e) => {
+        let file = inputFile.files[0];
+        if(!validateFile(file)) {
+            return ;
+        }
+        textWrapper.classList.add('d-none')
+        fileName.innerHTML = file.name
+    })
+}
+
+changeFile();
+
+openInputFile();
+
+function convertFileToBase64(file) {
+    return new Promise(function(resolve, reject) {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        resolve(reader.result);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }

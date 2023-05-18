@@ -1,92 +1,80 @@
 <section class="hiring" id="hiring">
   <div class="container py-5">
     <div class="hiring-form-wrapper bg-white shadow-lg py-4">
-      <h2 class="mb-3 text-center">{{params.title}}</h2>
+      <h2 class="mb-3 text-center">
+        {{params.title}}
+      </h2>
 
-      <form
-        class="text-black py-3 px-4 py-sm-4 px-sm-5 needs-validation"
-        data-form-cat="contact"
-        novalidate
-      >
+      <form class="text-black py-3 px-4 py-sm-4 px-sm-5 needs-validation" data-form-cat="contact" novalidate>
         <div class="row mb-4">
           <div class="form-group col-12 col-md-6">
             <label for="last-name" class="form-label">Nom</label>
-            <input
-              class="form-control"
-              id="last-name"
-              type="text"
-              name="last_name"
-              placeholder="Khalid"
-              required
-            />
+            <input class="form-control" id="last-name" type="text" name="last_name" placeholder="Khalid" required />
             <div class="invalid-feedback">
               Ce champ est obligatoire.
-            </div> 
+            </div>
           </div>
           <div class="form-group col-12 col-md-6">
             <label for="first-name" class="form-label">Prénom</label>
-            <input
-              class="form-control"
-              id="first-name"
-              type="text"
-              name="first_name"
-              placeholder="Massary"
-              required
-            />
+            <input class="form-control" id="first-name" type="text" name="first_name" placeholder="Massary" required />
             <div class="invalid-feedback">
               Ce champ est obligatoire.
-            </div> 
+            </div>
           </div>
         </div>
         <div class="row mb-4">
           <div class="form-group col-12 col-md-6">
             <label for="email" class="form-label">Adresse Email <span class="required"></span></label>
-            <input
-              class="form-control"
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Khalid@gmail.com"
-              aria-describedby="emailHelp"
-              required
-            />
+            <input class="form-control" id="email" type="email" name="email" placeholder="Khalid@gmail.com"
+              aria-describedby="emailHelp" required />
             <div class="invalid-feedback">
               Veuillez saisir une adresse e-mail valide.
-            </div> 
+            </div>
           </div>
           <div class="form-group col-12 col-md-6">
             <label for="phone" class="form-label">Numéro de téléphone <span class="required"></span></label>
-            <input
-              class="form-control"
-              id="phone"
-              type="tel"
-              name="phone"
-              placeholder="0666666666"
-              aria-describedby="phoneHelp"
-              required
-            />
+            <input class="form-control" id="phone" type="tel" name="phone" placeholder="0666666666"
+              aria-describedby="phoneHelp" required />
             <div class="invalid-feedback">
               Veuillez saisir un numéro de téléphone valide.
-            </div> 
+            </div>
           </div>
         </div>
         <div class="form-group mb-5">
           <label for="message" class="form-label">Votre Message <span class="required"></span></label>
-          <textarea
-            class="form-control"
-            id="message"
-            name="message"
-            placeholder="Lorem Ipsum"
-            rows="4"
-            style="resize: none"
-            required
-          ></textarea>
+          <textarea class="form-control" id="message" name="message" placeholder="Lorem Ipsum" rows="4"
+            style="resize: none" required></textarea>
           <div class="invalid-feedback">
             Ce champ est obligatoire.
-          </div> 
+          </div>
+        </div>
+        <div class="mb-4 form-group has-success">
+
+          <label for="formFile" class="form-label fs-5">File :</label>
+          <div class="custom-input-file-container position-relative">
+            <input class="form-control form-control-inputs form-control-inputs-file" name="cv" type="file"
+              accept=".docs, .pdf" required id="cv-file">
+            <div class="file-view position-absolute d-flex aligns-items-center justify-content-center flex-column ">
+              <p class="text-center placeholder-input  fs-5">
+
+                Uploader votre CV <br>
+                Formats acceptées : *docs , *pdf
+              </p>
+
+              <p class="file_name text-center fs-5">
+
+              </p>
+            </div>
+
+          </div>
+          <div class="invalid-feedback">
+            Type de fichier non autorisé
+          </div>
         </div>
         <div class="form-group text-center">
-          <button type="button" class="btn btn-primary px-4 py-2 rounded">{{params.text_btn|default:'Valider Votre Candidature'}}</button>
+          <button type="button" class="btn btn-primary px-4 py-2 rounded">
+            {{params.text_btn|default:'Valider Votre Candidature'}}
+          </button>
         </div>
       </form>
     </div>
