@@ -12,7 +12,7 @@ submitBtn.addEventListener('click', (event) => {
         }
         
         convertFileToBase64(formData.get('cv')).then(base64 => {
-            sendData([["cv_base64", base64], ["carrer", {{params.carrer_uid}}],...formData]);
+            sendData([["cv_base64", base64], ["carrer", "{{params.carrer_uid}}"],...formData]);
         })
         
 
