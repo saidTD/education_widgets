@@ -1,1 +1,35 @@
-{"version":"1.0.3","name":"recrutement listing","repo":"education_widget","element":"recrutement_listing","description":"Ce Widget pour présenter une list des recrutement post","category":"listing","type":"dynamic","space":"education","source_slug":"list carrer","variable_name":"list_carrer","params":[{"id":0,"name":"hide_date","type":"char"},{"id":0,"name":"hide_description","type":"char"},{"id":0,"name":"hide_city","type":"char"},{"id":0,"name":"variant","type":"char"}],"default_data":{"hide_city":"false","hide_date":"true","hide_description":"false","variant":"one-columns--primary","list_carrer":[{"title":"Aide / Assitance (e) Ecole Maternelle","place":"casablanca","content_html":"","slug":"#"}]},"visual_data":{"variant_select":["one-columns--primary","one-columns","tow-columns"]}}
+{
+  "version": "1.0.3",
+  "name": "recrutement listing",
+  "repo": "education_widget",
+  "element": "recrutement_listing",
+  "description": "Ce Widget pour présenter une list des recrutement post",
+  "category": "listing",
+  "type": "dynamic",
+  "space": "education",
+  "source_slug": "list carrer",
+  "variable_name": "list_carrer",
+  "params": [
+    { "id": 0, "name": "hide_date", "type": "char" },
+    { "id": 0, "name": "hide_description", "type": "char" },
+    { "id": 0, "name": "hide_city", "type": "char" },
+    { "id": 0, "name": "variant", "type": "char" }
+  ],
+  "default_data": {
+    "hide_city": "false",
+    "hide_date": "true",
+    "hide_description": "false",
+    "variant": "one-columns--primary",
+    "list_carrer": [
+      {
+        "title": "Aide / Assitance (e) Ecole Maternelle",
+        "place": "casablanca",
+        "content_html": "",
+        "slug": "#"
+      }
+    ]
+  },
+  "visual_data": {
+    "variant_select": ["one-columns--primary", "one-columns", "tow-columns"]
+  }
+}
