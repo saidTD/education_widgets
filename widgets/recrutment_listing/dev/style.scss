@@ -1,3 +1,141 @@
-.recrutment-listing {
-  
+.recrutement-listing {
+
+  --text-color : var(--bs-primary);
+  --text-hover-color : var(--bs-secondary);
+
+  .recrutement__list {
+    &--tow-columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+      .recrutement {
+        &__card {
+          width: 100%;
+          border: 1px solid var(--bs-gray-400);
+          box-shadow: 8px 4px 17px rgba(var(--bs-primary-rgb), 0.1);
+          
+
+          &:hover {
+            border-color: var(--bs-primary);
+            box-shadow: 8px 4px 17px rgba(var(--bs-primary-rgb), 0.2);
+          }
+        }
+
+
+
+        &__button-wrapper {
+          text-align: center;
+        }
+
+      }
+    }
+
+    &--one-columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 50px;
+
+      .recrutement {
+        &__card {
+          width: 100%;
+          max-width: 1000px;
+          margin: 0 auto;
+          background-color: #F5F5FA;
+
+          &:hover {
+            background-color: rgb(var(--bs-primary-rgb), .1);
+            box-shadow: 1px 1px 17px rgba(var(--bs-primary-rgb), 0.1);
+          }
+        }
+      }
+
+    }
+    &--one-columns--primary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 50px;
+
+      .recrutement {
+        &__card {
+          width: 100%;
+          max-width: 1000px;
+          margin: 0 auto;
+          background-color: rgb(var(--bs-primary-rgb), .1);
+
+          &:hover {
+            background-color: rgb(var(--bs-primary-rgb), 1);
+            box-shadow: 1px 1px 17px rgba(var(--bs-primary-rgb), 0.1);
+            color: var(--text-hover-color);
+
+            .recrutement__link {
+              color: var(--text-hover-color);
+            }
+          }
+        }
+
+        &__button-wrapper {
+          text-align: right;
+          
+        }
+        &__button {
+          display: none;
+        }
+        &__link {
+          display: block;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: var(--text-hover-color);
+          }
+        }
+      }
+
+    }
+  }
+
+  .recrutement {
+    &__card {
+      padding: 2rem;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+      p {
+        margin-bottom: .5rem;
+      }
+    }
+
+    &__description {
+      ul li {
+        list-style: none;
+
+        &::before {
+          content: "-";
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &__button {
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-padding-x: 1.5rem;
+      --bs-btn-padding-y: 0.5rem;
+      --bs-btn-font-weight: 600;
+      --bs-btn-active-color: var(--bs-btn-color);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-bg: var(--bs-primary);
+      --bs-btn-hover-bg: var(--bs-primary);
+      --bs-btn-active-bg: rgb(var(--bs-primary-rgb));
+      --bs-btn-active-border-color: rgb(var(--bs-primary-rgb));
+      box-shadow: 3px 3px 5px rgba(var(--bs-primary-rgb), 0.4);
+      margin-top: 1rem;
+    }
+
+    &__link {
+      display: none;
+    }
+  }
 }
+
+
+

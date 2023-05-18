@@ -1,28 +1,75 @@
 .hiring {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .hiring .container {
-    max-width: 750px;
+  max-width: 750px;
 }
 
 .hiring::before {
-    content: "";
-    width: 100%;
-    height: 60%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    background-image: url("https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=996&t=st=1684144951~exp=1684145551~hmac=64076b7ab7f33c809f6a5b9e84362158e7358b1dcedaf090e84d5d387ceb42c2");
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: .4;
+  content: "";
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background-image: url("https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=996&t=st=1684144951~exp=1684145551~hmac=64076b7ab7f33c809f6a5b9e84362158e7358b1dcedaf090e84d5d387ceb42c2");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.4;
 }
 
 .hiring :where(.form-control, .form-select) {
-    padding: 10px 20px;
-    border-radius: 0;
-    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  padding: 10px 20px;
+  border-radius: 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.form-control::file-selector-button {
+  display: none;
+}
+
+.form-control::file-selector-button {
+  padding: 0.375rem 0.75rem;
+  margin: -0.375rem -0.75rem;
+  margin-inline-end: 0.75rem;
+  color: #212529;
+  background-color: transparent;
+  pointer-events: none;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  border-inline-end-width: 1px;
+  border-radius: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.file-view {
+  width: 100%;
+  height: 100%;
+  /* background-color: #fff; */
+  bottom: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.form-control[type="file"] {
+  overflow: hidden;
+  display: none;
+}
+input[type="file"] {
+  color: transparent;
+}
+.custom-input-file-container {
+  height: 150px;
+  border: 3px rgb(var(--bs-primary-rgb)) dashed;
+}
+.form-control-inputs {
+  border-radius: 0;
+  padding: 0.5rem 0.9rem;
 }
