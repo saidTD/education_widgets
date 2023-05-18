@@ -63,6 +63,7 @@ function showMsg(msg, type, wrapper) {
 function formatter(data) {
     const formatedData = {};
     data.forEach(([key, value]) => formatedData[key] = value);
+    delete data["cv"];
     return JSON.stringify(formatedData);
 }
 

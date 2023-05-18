@@ -1,1 +1,36 @@
-{"version":"1.0.3","label":"Programme Liste","name":"progrm list","repo":"education_widget","element":"progrm-list","description":"ce widget pour Programme liste","category":"block","type":"static","space":"education","source_slug":"","variable_name":"","params":[{"id":"0","name":"title","type":"char"},{"id":"1","name":"content_html","type":"text"},{"id":"2","name":"background_color","type":"char"}],"default_data":{"title":"l'ecole et son Programme Maternelle","content_html":"","background_color":"#f4f3f9"},"visual_data":{}}
+{
+    "version": "1.0.3",
+    "label": "Programme Liste",
+    "name": "progrm list",
+    "repo": "education_widget",
+    "element": "progrm-list",
+    "description": "ce widget pour Programme liste",
+    "category": "block",
+    "type": "static",
+    "space": "education",
+    "source_slug": "",
+    "variable_name": "",
+    "params": [
+        {
+            "id": "0",
+            "name": "title",
+            "type": "char"
+        },
+        {
+            "id": "1",
+            "name": "content_html",
+            "type": "text"
+        },
+        {
+            "id": "2",
+            "name": "background_color",
+            "type": "char"
+        }
+    ],
+    "default_data": {
+        "title": "l'ecole et son Programme Maternelle",
+        "content_html": "",
+        "background_color": "#f4f3f9"
+    },
+    "visual_data": {}
+}
