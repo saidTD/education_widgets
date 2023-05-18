@@ -6,21 +6,16 @@
       {% for carrer in params.list_carrer%}
       <div class="recrutement__card">
         <div class="recrutement__content">
-          <h4 class="recrutement__title">Aide / Assitance (e) Ecole Maternelle</h4>
+          <h4 class="recrutement__title">{{carrer.title}}</h4>
           <p class="recrutement__city {% if params.hide_city == 'true'%} d-none {%endif%}">20/12/2023</p>
           <p class="recrutement__date {% if params.hide_date == 'true'%} d-none {%endif%}"></p>
-          <div class="recrutement__description {% if params.hide_description == 'true'%} d-none {%endif%}">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus eum
-            minus tenetur natus laboriosam id laborum sunt perspiciatis ea nam sapiente eaque dolore ullam, fugiat
-            <ul>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-            </ul>
+          <div class="recrutement__description {% if params.hide_description == 'true'%} d-none {%endif%}">
+            {{carrer.content_html|striptags|truncatewords:35}}
           </div>
         </div>
         <div class="recrutement__button-wrapper">
-          <a href="" class="btn recrutement__button">lire plus</a>
-          <a href="" class="recrutement__link">lire plus <i class="fa-solid fa-arrow-right ms-1"></i></a>
+          <a href="/details-offre/{{carrer.slug}}/" class="btn recrutement__button">lire plus</a>
+          <a href="/details-offre/{{carrer.slug}}/" class="recrutement__link">lire plus <i class="fa-solid fa-arrow-right ms-1"></i></a>
         </div>
       </div>
       {% endfor %}
