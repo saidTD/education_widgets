@@ -11,6 +11,7 @@
 }
 .program-list__content {
   font-size: 17px;
+  color: var(--bs-primary);
 }
 .program-list__content ul li {
   list-style: none;
