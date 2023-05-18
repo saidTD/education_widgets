@@ -1,5 +1,5 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "name": "recrutement listing",
   "repo": "education_widget",
   "element": "recrutement_listing",
@@ -7,7 +7,7 @@
   "category": "listing",
   "type": "dynamic",
   "space": "education",
-  "source_slug": "list carrer",
+  "source_slug": "listing-carrer",
   "variable_name": "list_carrer",
   "params": [
     { "id": 0, "name": "hide_date", "type": "char" },
