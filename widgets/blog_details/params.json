@@ -1,5 +1,5 @@
 {
-    "version": "1.0.4",
+    "version": "1.0.5",
     "label": "blog details",
     "name": "blog details",
     "repo": "education_widget",
@@ -69,6 +69,11 @@
         {
             "id": 11,
             "name": "tiktok",
+            "type": "char"
+        },
+        {
+            "id": 12,
+            "name": "accept_share",
             "type": "char"
         }
     ],
