@@ -1,50 +1,161 @@
-.hero {
-  position: relative;
-  padding: 4rem 0;
-  background-color: #eaeaf6;
 
-  &__cover {
-    padding: 6rem 0rem;
-    background-color: var(--bs-primary);
 
-    .hero__title {
-      position: relative;
-      color: var(--bs-secondary);
-      z-index: 11;
-    }
+.blog-listing {
+
+
+
+  .blog__list--columns {
+
     
+    // grid-template-columns: repeat(3, 1fr);
+    
+    .blog {
+
+      &__item {
+
+        &:hover {
+          .blog__background{
+            box-shadow: 5px 5px 25px var(--bs-gray-300);
+            &::after {
+              background-color: rgba(var(--bs-white-rgb), 0);
+            }
+          }
+
+          .blog__content {
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            text-decoration-color : var(--bs-primary);
+          }
+        }
+      }
+
+      &__background {
+        height: 100%;
+        max-height: 250px;
+        margin-bottom: 1rem;
+        position: relative;
+        transition: all .3s ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-color: rgba(var(--bs-white-rgb), .3);
+          z-index: 1;
+        }
+
+        img {
+          max-height: 250px;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
   }
 
-  &__cover::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("https://bucket.tech-dynamics.ma/media-storage/f3faf2c2-4f38-4406-a703-7eafec3b59e2/e0e3764e/b8edad33.webp");
-    background-position: center;
-    background-size: cover ;
-    opacity: .1;
+  .blog__list--flex {
+    
+    .blog {
+
+      &__item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        // &:hover {
+        //   .blog__background{
+        //     box-shadow: 5px 5px 25px var(--bs-gray-300);
+        //     &::after {
+        //       background-color: rgba(var(--bs-white-rgb), 0);
+        //     }
+        //   }
+
+        //   .blog__content {
+        //     text-decoration: underline;
+        //     text-underline-offset: 5px;
+        //     text-decoration-color : var(--bs-primary);
+        //   }
+        // }
+      }
+
+      &__background {
+        height: 100%;
+        // max-height: 150px;
+        position: relative;
+        transition: all .3s ease;
+        display: flex;
+
+        @media (max-width: 768px) {
+          // max-height: 250px;
+          width: 100%;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          // background-color: rgba(var(--bs-white-rgb), .3); 
+          z-index: 1;
+        }
+
+        img {
+          max-height: 150px;
+          max-width: 100%;
+          object-fit: cover;
+
+          @media (max-width: 768px) {
+            max-height: 250px;
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 
-  &__title {
-    color: var(--bs-primary);
+
+  .blog {
+
+    &__link {
+      text-decoration: none;
+    }
+
+    &__title {
+      color: var(--bs-primary);
+    }
+    &__date {
+      color: var(--bs-gray-600);
+    }
   }
 
-}
+  .blogs__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 
-.title-border-center {
-  width: max-content;
-  padding-bottom: 15px;
-  text-align: center;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: 40%;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: currentColor;
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
   }
+
+  .pagination {
+    --bs-pagination-border-radius: 0px;
+    --bs-pagination-padding-x: 0.85rem;
+    // --bs-pagination-padding-y: 0.75rem;
+    --bs-pagination-active-bg: var(--bs-secondary);
+    --bs-pagination-active-border-color : var(--bs-secondary);
+    --bs-pagination-bg : #F5F5FA;
+    --bs-pagination-color : var(--bs-gray-600); 
+    --bs-pagination-hover-color : var(--bs-primary);
+    --bs-pagination-active-color : var(--bs-primary);
+    
+    .page-item {
+      display: block;
+      margin: 0 1.5px;
+    }
+  } 
 }
