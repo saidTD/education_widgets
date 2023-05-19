@@ -5,11 +5,8 @@
 
 <section class="blog-listing">
   <div class="container py-5">
-    
-    {% generate_type_data request=request name='styles' data='{"type":"white","align":"", "offset_y" : "0", "offset_x" : "0", "weight" : "600"}' mode='object' %}
-    {% get_widget request=request slug="title-widget-education"  title="Plan d'accès" element="h1" scope="blog_list_title" variant="border-left" styles=request.get_datas.styles %}
    
-    <div class="blogs__list blogs__wrapper blog__list--flex ">
+    <div class="blogs__list blogs__wrapper blog__list--{{param.variant}} ">
 
 
       {% for blog in params.list_blog %}
