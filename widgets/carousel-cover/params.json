@@ -1,5 +1,5 @@
 {
-    "version": "1.0.46",
+    "version": "1.0.47",
     "label": "carousel avec un Cover / Slogan",
     "name": "carousel cover /Slogan",
     "repo": "education_widgets",
@@ -52,7 +52,7 @@
         "slider_items": [
             {
                 "text": "",
-                "background": "https://bucket.tech-dynamics.ma/media-storage/70674f4e-a827-419d-bc24-bcf6686e7e7d/77b38185/cover_carousel.jpg"
+                "file": "https://bucket.tech-dynamics.ma/media-storage/70674f4e-a827-419d-bc24-bcf6686e7e7d/77b38185/cover_carousel.jpg"
             }
         ],
         "content": {
