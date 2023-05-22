@@ -70,6 +70,9 @@
   padding-top: 8rem;
 }
 
-.blog-details .blog__content :is(h2, h3,h4)  {
+.blog-details .blog__content :is(h2, h3,h4, li)  {
   margin-bottom: 1rem ;
+}
+.blog-details .blog__content :is(p)  {
+  margin-bottom: 1.5rem ;
 }
