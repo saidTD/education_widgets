@@ -3,3 +3,6 @@ new Splide("#carousel_cover", {
   rewind: true,
   pagination: false,
 }).mount();
+
+
+console.log("carousel ready");
