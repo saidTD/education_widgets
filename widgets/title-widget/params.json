@@ -1,5 +1,5 @@
 {
-  "version": "1.0.17",
+  "version": "1.0.18",
   "name": "Title widget education",
   "repo": "education_widgets",
   "element": "title-widget",
@@ -19,7 +19,7 @@
   "default_data": {
     "title": "Plan d'accés",
     "styles": {
-      "type": "primary",
+      "type": "white",
       "align": "",
       "offset_y": "0",
       "offset_x": "0",
