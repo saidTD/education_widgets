@@ -43,7 +43,7 @@
 .blog-details .blog__cover {
   width: 100%;
   max-height: 350px;
-  margin: 1rem 0 3rem 0;
+  margin: 2rem 0 3rem 0;
   box-shadow: 5px 5px 25px var(--bs-gray-400);
 }
 .blog-details .blog__title {
