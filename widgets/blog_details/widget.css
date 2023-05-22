@@ -50,7 +50,7 @@
   margin-bottom: 1rem;
   color: {{params.styles.title_color|default:'var(--bs-primary)'}};
 }
-.blog-details .blog__conten .blog__date {
+.blog-details .blog__content .blog__date {
   color: {{params.styles.title_color|default:'var(--bs-primary)'}};
   margin-bottom: 0.5rem;
 }
