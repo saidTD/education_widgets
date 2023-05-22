@@ -34,7 +34,7 @@
  .block-widget__button {
   --bs-btn-color: var(--bs-primary);
   --bs-btn-padding-x: 1.5rem;
-  --bs-btn-padding-y: 1rem;
+  --bs-btn-padding-y: 0.7rem;
   --bs-btn-font-weight: 600;
   --bs-btn-hover-color: var(--bs-primary);
   --bs-btn-active-color: var(--bs-btn-color);
