@@ -1,0 +1,103 @@
+.blog-listing .blog__list--columns .blog__item:hover .blog__background {
+  box-shadow: 5px 5px 25px var(--bs-gray-300);
+}
+.blog-listing .blog__list--columns .blog__item:hover .blog__background::after {
+  background-color: rgba(var(--bs-white-rgb), 0);
+}
+.blog-listing .blog__list--columns .blog__item:hover .blog__content {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--bs-primary);
+}
+.blog-listing .blog__list--columns .blog__background {
+  height: 100%;
+  max-height: 250px;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.blog-listing .blog__list--columns .blog__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(var(--bs-white-rgb), 0.3);
+  z-index: 1;
+}
+.blog-listing .blog__list--columns .blog__background img {
+  max-height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+.blog-listing .blog__list--flex .blog__item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) {
+  .blog-listing .blog__list--flex .blog__item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.blog-listing .blog__list--flex .blog__background {
+  height: 100%;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+}
+@media (max-width: 768px) {
+  .blog-listing .blog__list--flex .blog__background {
+    width: 100%;
+  }
+}
+.blog-listing .blog__list--flex .blog__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.blog-listing .blog__list--flex .blog__background img {
+  max-height: 150px;
+  max-width: 100%;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .blog-listing .blog__list--flex .blog__background img {
+    max-height: 250px;
+    width: 100%;
+  }
+}
+.blog-listing .blog__link {
+  text-decoration: none;
+}
+.blog-listing .blog__title {
+  color: var(--bs-primary);
+  margin-top: 15px;
+}
+.blog-listing .blog__date {
+  color: var(--bs-gray-600);
+}
+.blog-listing .blogs__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 992px) {
+  .blog-listing .blogs__list {
+    grid-template-columns: 1fr;
+  }
+}
+.blog-listing .pagination {
+  --bs-pagination-border-radius: 0px;
+  --bs-pagination-padding-x: 0.85rem;
+  --bs-pagination-active-bg: var(--bs-secondary);
+  --bs-pagination-active-border-color: var(--bs-secondary);
+  --bs-pagination-bg: #F5F5FA;
+  --bs-pagination-color: var(--bs-gray-600);
+  --bs-pagination-hover-color: var(--bs-primary);
+  --bs-pagination-active-color: var(--bs-primary);
+}
+.blog-listing .pagination .page-item {
+  display: block;
+  margin: 0 1.5px;
+}
