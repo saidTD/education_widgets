@@ -45,3 +45,10 @@
   max-width: 120px;
   padding: 12px;
 }
+
+
+.{{params.type|default:'services'}}-btn {
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: .7rem;
+  --bs-btn-font-weight: 600;
+}

@@ -37,7 +37,7 @@
     </div>
 
     {% if params.btn %}
-      <a href="{{params.btn.url}}" class="btn btn-primary d-block mx-auto mt-4 mt-md-5" style="width: fit-content">{{params.btn.text|default:'Nos Services'}}</a>
+      <a href="{{params.btn.url}}" class="btn btn-primary btn-{{params.type|default:'services'}} d-block mx-auto mt-4 mt-md-5" style="width: fit-content">{{params.btn.text|default:'Nos Services'}}</a>
     {% endif %}
   </div>
 </section>
