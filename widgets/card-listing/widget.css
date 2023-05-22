@@ -47,7 +47,7 @@
 }
 
 
-.{{params.type|default:'services'}}-btn {
+.btn-{{params.type|default:'services'}} {
   --bs-btn-padding-x: 1.5rem;
   --bs-btn-padding-y: .7rem;
   --bs-btn-font-weight: 600;
