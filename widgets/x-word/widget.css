@@ -43,7 +43,7 @@
   margin-bottom: 1.5rem;
 }
 .x-word__block-text p {
-  color: var(--bs-primary);
+  color: {{params.styles.text_color|default:"var(--bs-body-color)"}} ;
   margin-bottom: 1.5rem;
 }
 .x-word__block-text__button {
