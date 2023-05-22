@@ -47,7 +47,7 @@
   box-shadow: 5px 5px 25px var(--bs-gray-400);
 }
 .blog-details .blog__title {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: {{params.styles.title_color|default:'var(--bs-primary)'}};
 }
 .blog-details .blog__content .blog__date {
