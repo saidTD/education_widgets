@@ -1,5 +1,5 @@
 {
-  "version": "1.0.14",
+  "version": "1.0.17",
   "name": "Title widget education",
   "repo": "education_widgets",
   "element": "title-widget",
@@ -17,7 +17,7 @@
     { "id": 4, "name": "scope", "type": "char" }
   ],
   "default_data": {
-    "title": "Title Test",
+    "title": "Plan d'accés",
     "styles": {
       "type": "primary",
       "align": "",
