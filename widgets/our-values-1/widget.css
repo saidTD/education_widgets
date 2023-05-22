@@ -7,7 +7,7 @@
    position: absolute;
    inset: 0;
    opacity: 0.1;
-   background-image: url({{params.background_image}});
+   background-image: url("{{params.background_image}}");
    z-index: 10;
  }
  .widget-value__wrraper {
