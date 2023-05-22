@@ -1,5 +1,5 @@
 {% if params.list_partenaires|length > 5 %}
-    const ourPartnersSplide = new Splide('.splide.our-partners', {
+    const ourPartnersSplide = new Splide('#our-partners', {
         type: 'loop',
         perPage: '1',
         perMove: '1',
