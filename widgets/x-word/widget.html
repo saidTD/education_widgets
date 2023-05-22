@@ -6,9 +6,9 @@
       </div>
       <div class="x-word__block-text">
         <h4 class="text-primary">{{params.title}}</h4>
-        <p>
+        <div>
           {{params.content|safe}}
-        </p>
+        </div>
         {% if params.button.url != "#" %}
         <div class="btn-wrraper text-end">
           <a class="btn x-word__block-text__button" href="{{params.button.url}}">{{params.button.text}}<i class="fa-solid fa-arrow-right ms-1"></i></a>
