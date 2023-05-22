@@ -72,13 +72,14 @@
 }
 .blog-listing .blog__title {
   color: var(--bs-primary);
+  margin-top: 15px;
 }
 .blog-listing .blog__date {
   color: var(--bs-gray-600);
 }
 .blog-listing .blogs__list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 @media (max-width: 992px) {

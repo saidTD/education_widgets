@@ -6,11 +6,9 @@
 <section class="blog-listing">
   <div class="container py-5">
    
-    <div class="blogs__list blogs__wrapper blog__list--{{param.variant}} ">
-
-
-      {% for blog in params.list_blog %}
-      <a href="/{{param.base_url}}/{{blog.slug}}/" class="blog__link">
+    <div class="blogs__list blogs__wrapper blog__list--{{param.variant}} ">      
+      {% for blog in params.list_blog.list %}
+      <a href="/{{params.base_url}}/{{blog.slug}}/" class="blog__link">
         <div class="blog__item">
           
           <div class="blog__background">
@@ -29,10 +27,11 @@
     </div>
     <nav class="py-5 d-flex justify-content-center" aria-label="Page navigation">
       <ul class="pagination">
+
+        {% for page in params.list_blog.pagination_array %}
         <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link {{page.active}}" href="#">{{forloop.counter}}</a></li>
+        {% endfor %}
         <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
       </ul>
     </nav>

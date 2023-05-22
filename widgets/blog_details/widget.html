@@ -8,6 +8,7 @@
 
   <div class="container">
     <div class="blog__layout-wrapper d-flex justify-content-center">
+      {% if params.accept_share == "true" %}
       <nav class="social-media__nav">
         <ul class="social-media__list">
           <li class="social-media__text">PARTAGER</li>
@@ -50,9 +51,11 @@
         {% endif %}
         </ul>
       </nav>
+      {% endif %}
       <div class="blog__content">
-        <p class="blog__date">{{params.blog_date}}</p>
+        <p class="blog__date" style="opacity : 0.5;">{{params.blog_date}}</p>
         <h1 class="blog__title">{{params.blog_title}}</h1>
+        
 
         <img src="{{params.blog_cover}}" class="blog__cover" alt="">
 

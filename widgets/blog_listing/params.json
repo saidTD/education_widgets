@@ -1,1 +1,42 @@
-{"version":"1.0.7","name":"blog listing","repo":"education_widget","element":"blog_listing","description":"ce widget pour Actualite liste ","category":"listing","type":"dynamic","space":"education","source_slug":"articles-du-blog","variable_name":"list_blog","params":[{"id":0,"name":"title","type":"char"},{"id":1,"name":"variant","type":"char"}],"default_data":{"title":"TEST","list_blog":[{"title":"Lorem ipsum dolor sit amet consectetur adipisicing elit.","slug":"#","cover":"https://bucket.tech-dynamics.ma/media-storage/12d73503-396e-4a44-9df9-507253fa2ef7/115ae905/curriculum_image.png","date_publication":"12/04/2023"}],"variant":"flex"},"visual_data":{"variant_select":["flex","column"]}}
+{
+    "version": "1.0.16",
+    "name": "blog listing",
+    "repo": "education_widget",
+    "element": "blog_listing",
+    "description": "ce widget pour Actualite liste ",
+    "category": "listing",
+    "type": "dynamic",
+    "space": "education",
+    "source_slug": "articles-du-blog",
+    "variable_name": "list_blog",
+    "params": [
+        {
+            "id": 0,
+            "name": "title",
+            "type": "char"
+        },
+        {
+            "id": 1,
+            "name": "variant",
+            "type": "char"
+        }
+    ],
+    "default_data": {
+        "title": "TEST",
+        "list_blog": [
+            {
+                "title": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+                "slug": "#",
+                "cover": "https://bucket.tech-dynamics.ma/media-storage/12d73503-396e-4a44-9df9-507253fa2ef7/115ae905/curriculum_image.png",
+                "date_publication": "12/04/2023"
+            }
+        ],
+        "variant": "flex"
+    },
+    "visual_data": {
+        "variant_select": [
+            "flex",
+            "column"
+        ]
+    }
+}
