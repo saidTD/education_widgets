@@ -1,5 +1,5 @@
 {
-  "version": "1.0.25",
+  "version": "1.0.26",
   "label": "Header simple avec une Menu",
   "name": "Header simple avec Menu",
   "element": "header_simple",
@@ -30,8 +30,8 @@
         "url": "#",
         "tag": "",
         "subs": [
-          { "name": "Concept", "url": "/", "tag": "" },
-          { "name": "Histoire", "url": "/", "tag": "" }
+          { "name": "Concept", "url": "#", "tag": "" },
+          { "name": "Histoire", "url": "#", "tag": "" }
         ]
       },
       { "name": "About", "url": "#", "tag": "", "subs": [] },
@@ -40,8 +40,8 @@
         "url": "#",
         "tag": "",
         "subs": [
-          { "name": "Services", "url": "/", "tag": "" },
-          { "name": "Produits", "url": "/", "tag": "" }
+          { "name": "Services", "url": "#", "tag": "" },
+          { "name": "Produits", "url": "#", "tag": "" }
         ]
       },
       { "name": "Reservation", "url": "#", "tag": "", "subs": [] },
@@ -49,9 +49,13 @@
     ],
     "btn": {
       "url": "#contact",
-      "text": "Get in Touch",
+      "text": "Contactez-nous",
       "classes": "btn-primary"
-    }
+    },
+    "headbar_bg" : "var(--clr-tertiary)",
+    "facebook" : "https://facebook.com",
+    "instagram" : "https://instagram.com",
+    "heabar_links" : [{"name": "Actualités","url": "#"},{"name": "Recrutement","url": "#"}]
   },
   "visual_data": {}
 }
