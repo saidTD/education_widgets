@@ -1,10 +1,10 @@
 {
-    "version": "1.0.30",
+    "version": "1.0.31",
     "name": "Block Image Text overlay",
     "label": "Block Image avec le text surposer",
     "repo": "education_widgets",
     "element": "block_image_text_overlay",
-    "description": "Ce Widget pour présenter une image avec un texte surposer pour lui donner un effet non classique",
+    "description": "Ce Widget pour présenter une image avec un texte surposer pour lui donner un effet non classique et moderne",
     "category": "block",
     "type": "static",
     "space": "education",
