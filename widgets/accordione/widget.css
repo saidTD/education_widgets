@@ -10,7 +10,8 @@
   font-weight: 600;
   font-size: 22px;
 }
-.accordion .accordion__content {
+
+.accordion__content {
   width: 95%;
   margin: 0 auto;
   max-height: 0px;
