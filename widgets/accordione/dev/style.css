@@ -1,0 +1,59 @@
+
+.block_program .block-title p {
+  font-size: 15px;
+  /* color: {{ params.text_color }}; */
+}
+
+/* .accordion__container {
+  width: 100%;
+  position: relative;
+} */
+.accordion__item {
+  /* border: 1px solid blue; */
+}
+.accordion__title {
+  color: var(--bs-secondary);
+  font-weight: 600;
+  font-size: 22px;
+}
+.accordion .accordion__content {
+  width: 95%;
+  margin: 0 auto;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.3s, margin-top 0.3s 0.2s;
+}
+
+.accordion__content-wrapper {
+  margin: 1rem 0px;
+}
+
+.accordion__toggler-bar {
+  background-color: rgb(var(--bs-primary-rgb));
+  cursor: pointer;
+  margin: .5rem 0px;
+  color: var(--bs-secondary);
+}
+.accordion__toggler-bar .fa-chevron-up {
+  display: none;
+}
+.accordion__toggler-bar.show .fa-chevron-down {
+  display: none;
+}
+.accordion__toggler-bar.show .fa-chevron-up {
+  display: block;
+}
+
+
+
+
+.btn-more .btn {
+  /* --btn-font-size: 1rem;
+  --btn-padding-y: .7rem;
+  --btn-padding-x: 1rem;
+  --btn-bg: ;
+  --btn-border-radius: 0;
+  --btn-color: #ffffff;
+  font-weight: 600;
+  text-transform: unset; */
+}
