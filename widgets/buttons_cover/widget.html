@@ -10,10 +10,10 @@
               {{params.description}}
             </p>
             <div class="cover__buttons-wrapper  mt-4">
-              {% params.button_1.url != "#" %}
+              {%if params.button_1.url != "#" %}
               <a href="#" class="btn cover__button cover__button--first">{{params.button_1.text}} </a>
               {% endif %}
-              {% params.button_2.url != "#" %}
+              {% if params.button_2.url != "#" %}
               <a href="#" class="btn cover__button cover__button--second">{{params.button_2.text}} </a>
               {%endif%}
             </div>
