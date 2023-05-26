@@ -1,0 +1,21 @@
+<section class="method-listing">
+  <div class="container py-5">
+    <div class="method-listing__header text-center">
+      <h3 class="header__title" data-param="title">{{params.title}}</h3>
+      <p class="header__desc" data-param="description">
+        {{params.desc}} 
+      </p>
+    </div>
+    <ul class="methods__list pt-4">
+     {% for method in params.list_cursus%}
+     <li class="method__item">
+      <h5 class="method__name">{{method.title}}</h5>
+      <p class="method__descripton">
+        {{method.description}}
+      </p>
+  </li>
+     {% endfor %}
+     
+    </ul>
+  </div>
+</section>

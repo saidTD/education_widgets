@@ -1,0 +1,43 @@
+.method-listing {
+  --title-color: var(--bs-primary);
+  --body-bg-color: #f3f2f7;
+  --item-hover-color : var(--bs-secondary);
+
+  background-color: var(--body-bg-color);
+
+  &__header {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    .header__title {
+      font-weight: 600;
+      color: var(--title-color);
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  .methods__list {
+    list-style: none;
+    width: 100%;
+    max-width: calc(900px + 2.5rem);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+  }
+
+  .method__item {
+    padding: 2rem;
+    background-color: var(--bs-white);
+    transition: .3s ease;
+
+    &:hover {
+      background-color: var(--item-hover-color);
+      color: var(--bs-white);
+    }
+  }
+
+  .method__name {
+    margin-bottom: 1.3rem;
+  }
+}
