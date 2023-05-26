@@ -1,7 +1,7 @@
 <section class="partners bg-gray" id="partners">
   <div class="container py-4 gray-scale">
     <h2 class="text-center mb-5">{{params.title}}</h2>
-    {% if params.variant == 'slide' %}
+    {% if params.variant == "slide" %}
     {% if params.list_partenaires|length > 5 %}
       <div class="splide our-partners" id="our-partners">
         <div class="splide__slider">
@@ -27,7 +27,7 @@
     {% endif %}
     {% endif %}
 
-    {% if params.variant == 'grid' %}
+    {% if params.variant == "grid" %}
     <ul class="grid__list">
       {% for partner in params.list_partenaires %}
         <li class="grid__partner">
