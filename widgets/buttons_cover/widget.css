@@ -1,0 +1,64 @@
+.buttons-cover .offset {
+  padding-top: {{params.offset}}px;
+}
+.buttons-cover .cover__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+@media (max-width: 992px) {
+  .buttons-cover .cover__container {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 992px) {
+  .buttons-cover .cover__content-wrapper {
+    order: 2;
+  }
+}
+.buttons-cover .cover__buttons-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 1rem;
+}
+@media (max-width: 450px) {
+  .buttons-cover .cover__buttons-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+.buttons-cover .cover__title {
+  font-weight: 600;
+  color: var(--bs-primary);
+}
+.buttons-cover .cover__text {
+  color: #8a8a8a;
+  font-size: 18px;
+}
+.buttons-cover .cover__button {
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: .7rem;
+  --bs-btn-font-weight: 600;
+}
+.buttons-cover .cover__button--first {
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-active-color: var(--bs-btn-color);
+  --bs-btn-hover-color: var(--bs-btn-color);
+  --bs-btn-bg: var(--bs-secondary);
+  --bs-btn-hover-bg: var(--bs-btn-bg);
+  --bs-btn-active-bg: var(--bs-btn-bg);
+  --bs-btn-active-border-color: var(--bs-btn-bg);
+  box-shadow: 3px 3px 5px rgba(var(--bs-secondary-rgb), 0.4);
+}
+.buttons-cover .cover__button--second {
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-active-color: var(--bs-white);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-bg: transparent;
+  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-active-bg: var(--bs-primary);
+  --bs-btn-active-border-color: var(--bs-primary);
+}
+.buttons-cover .cover__image img {
+  max-width: 100%;
+}

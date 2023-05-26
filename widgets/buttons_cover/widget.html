@@ -1,0 +1,29 @@
+<section class="buttons-cover">
+  <div class="offset">
+    <div class="container pt-5">
+      <div class="cover__container">
+        <div class="cover__content-wrapper">
+          <h2 class="cover__title">
+            {{params.title}}
+            </h2>
+            <p class="cover__text">
+              {{params.description}}
+            </p>
+            <div class="cover__buttons-wrapper  mt-4">
+              {% params.button_1.url != "#" %}
+              <a href="#" class="btn cover__button cover__button--first">{{params.button_1.text}} </a>
+              {% endif %}
+              {% params.button_2.url != "#" %}
+              <a href="#" class="btn cover__button cover__button--second">{{params.button_2.text}} </a>
+              {%endif%}
+            </div>
+        </div>
+        <div class="cover__image">
+          <img
+            src="{{params.background}}"
+            alt="cover">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
