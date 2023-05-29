@@ -20,4 +20,4 @@ function scopeAccordion (id) {
 const id = generateId(8);
 
 scopeAccordion(id);
-accordion(`#${id}`);
+Accordion(`#${id}`);
