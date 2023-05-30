@@ -7,9 +7,9 @@
             {{params.title}}
         </h2>
        {{params.content_html|safe}}
-       {% if params.button.url != "#" %}
-       <div class="btn block__button">{{params.button.text}}</div>
-       {%endif%}
+       {% if params.button.url != '#' %}
+       <a href="{{params.button.url}}" class="btn block__button">{{params.button.text}}</a>
+       {% endif %}
       </div>
       </div>
       <div class="col-sm-12 col-md-12 col-lg-6">
