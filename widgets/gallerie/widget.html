@@ -10,7 +10,7 @@
         {% for gallery in params.gallery_media %}
           <li class="splide__slide">
             <div class="splide__slide__content-wrapper">
-              <img src="{{gallery.cover}}" alt="{{gallery.title}}">
+              <img src="{{gallery.file}}" alt="{{gallery.title}}">
               {% if params.with_content == "true" %}
               <div class="splide__content">
                 <div class="gallery__content-wrapper">
