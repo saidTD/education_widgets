@@ -1,0 +1,43 @@
+.tabs-widget {
+  
+
+  .tabs {
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      border-bottom: 1px solid var(--bs-gray-200);
+    }
+
+    &__content-list {
+      display: flex;
+      // overflow: hidden;
+      transition: transform .3s ease;
+    }
+
+    &__content {
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    
+  }
+
+  .tab {
+    &__toggler {
+      width: 100%;
+      cursor: pointer;
+      padding-bottom: 1rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--bs-primary);
+      &.is-active {
+        border-bottom: 3px solid var(--bs-primary);
+      }
+    }
+
+    &__content {
+      width: 100%;
+      flex-shrink: 0;
+    }
+  }
+}
