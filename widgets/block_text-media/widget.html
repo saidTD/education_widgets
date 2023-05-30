@@ -7,7 +7,7 @@
             {{params.title}}
         </h2>
        {{params.content_html|safe}}
-       {% if params.button.url != '' %}
+       {% if params.button.url != "" %}
        <a href="{{params.button.url}}" class="btn block__button">{{params.button.text}}</a>
        {% endif %}
       </div>
