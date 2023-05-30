@@ -2,7 +2,7 @@
 
  .{{params.scope|default:'carousel_gallery'}}.gallery {
   {% if params.background_image != ""%}
-  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("{{params.background_cover}}");
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("{{params.cover}}");
   {%endif%}
 }
 
