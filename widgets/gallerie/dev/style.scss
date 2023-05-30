@@ -1,5 +1,16 @@
-.gallery {
-  padding: 3rem 0;
+
+
+$scope: "test";
+
+.#{$scope}.gallery {
+  background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
+  url("https://bucket.tech-dynamics.ma/media-storage/50619169-9de0-4a04-8785-ec77f893cd08/c8cccbe2/background.png");
+  // padding: 3rem 0;
+
+  .gallery__title {
+    font-family: var(--ff-heading);
+  }
+
 
   .gallery__carousel {
 
@@ -130,16 +141,25 @@
       }
     }
 
-  }
+    &--controles-border {
+      .splide__arrow {
+        
+        background-color: transparent;
+        border: 2px solid var(--bs-primary);
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+          rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    
+        svg {
+          fill: var(--bs-primary);
+        }
+      }
 
-  &__title {
+      .splide__pagination__page {
+        background-color: transparent;
+        border: 1px solid var(--bs-primary);
+      }
+    }
 
-  }
-
-  .splide__track {
-    // width: 80%;
-    // margin: 0 auto;
-    // padding-bottom: 2rem;
   }
 
   .splide__arrow {
