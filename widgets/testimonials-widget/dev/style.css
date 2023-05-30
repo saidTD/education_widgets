@@ -78,6 +78,7 @@
   font-family: var(--ff-heading);
   font-weight: 600;
   font-size: 20px;
+  color: black;
 }
 .testimonials .splide__arrow--prev {
   left: 0;
