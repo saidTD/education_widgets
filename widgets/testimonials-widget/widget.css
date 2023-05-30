@@ -79,7 +79,7 @@
   color:  {{params.style.text_color}};
 }
 .testimonials .testimonial__text {
-  line-height: 1.3rem;
+  line-height: 1.6rem;
 }
 .testimonials .testimonial__name {
   font-family: var(--ff-heading);
