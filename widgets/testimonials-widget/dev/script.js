@@ -3931,7 +3931,16 @@ const main = "";
 const splideCore_min = "";
 new Splide("#testimonials__carousel", {
   //   type: "loop",
-  perPage: 1,
+  perPage: 3,
   autoplay: true,
+  gap : "2rem",
+  breakpoints: {
+		768: {
+			perPage: 1,
+		},
+		992: {
+			perPage: 2,
+		},
+  },
   pauseOnHover: false
 }).mount();

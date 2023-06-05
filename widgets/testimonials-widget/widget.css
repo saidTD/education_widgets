@@ -70,6 +70,26 @@
 .testimonials__center .testimonial__text {
   order: 2;
 }
+.testimonials__three .testimonials__wrraper {
+  max-width: auto;
+  margin: 0 auto;
+}
+.testimonials__three .content__profile {
+  max-width: 80px;
+}
+.testimonials__three .testimonial__content {
+  flex-direction: column;
+  text-align: center;
+}
+.testimonials__three .testimonial__content > * + * {
+  margin-top: 1em;
+}
+.testimonials__three .content__text {
+  display: grid;
+}
+.testimonials__three .testimonial__text {
+  order: 2;
+}
 .testimonials .content__profile {
   aspect-ratio: 1;
   object-fit: cover;
