@@ -13,7 +13,7 @@
 }
 .x-word__cover {
   width: 100%;
-  max-width: 453px;
+  max-width: {{params.max_width}}px;
   max-height: 600px;
   flex-shrink: 0;
 }
