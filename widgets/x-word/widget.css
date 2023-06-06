@@ -3,6 +3,7 @@
   max-width: 1060px;
   position: relative;
   display: flex;
+  align-items: flex-start;
   padding-top: 1px;
   margin:  0 auto 30px auto;
 }
