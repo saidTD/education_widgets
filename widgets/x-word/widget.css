@@ -14,7 +14,7 @@
 }
 .x-word__cover {
   width: 100%;
-  max-width: {{params.max_width|default:'530'}}px;
+  max-width: {{params.max_width|default:'400'}}px;
   max-height: 600px;
   flex-shrink: 0;
 }
