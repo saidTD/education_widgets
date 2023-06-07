@@ -40,14 +40,14 @@
   --bs-btn-font-weight: 600;
 }
 .buttons-cover .cover__button--first {
-  --bs-btn-color: var(--bs-white);
+  /* --bs-btn-color: var(--bs-white);
   --bs-btn-active-color: var(--bs-btn-color);
   --bs-btn-hover-color: var(--bs-btn-color);
   --bs-btn-bg: var(--bs-secondary);
   --bs-btn-hover-bg: var(--bs-btn-bg);
   --bs-btn-active-bg: var(--bs-btn-bg);
   --bs-btn-active-border-color: var(--bs-btn-bg);
-  box-shadow: 3px 3px 5px rgba(var(--bs-secondary-rgb), 0.4);
+  box-shadow: 3px 3px 5px rgba(var(--bs-secondary-rgb), 0.4); */
 }
 .buttons-cover .cover__button--second {
   --bs-btn-color: var(--bs-primary);
