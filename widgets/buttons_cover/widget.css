@@ -1,4 +1,5 @@
 .buttons-cover .offset {
+  background: url("{{params.cover_bg}}") no-repeat center/cover;
   padding-top: {{params.offset}}px;
 }
 .buttons-cover .cover__container {
