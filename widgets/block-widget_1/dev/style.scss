@@ -33,6 +33,11 @@
        transform: translateX(-50%);
      }
    }
+
+   &__text {
+    max-width: 650px;
+    margin: 0 auto;
+   }
  
    &__button {
      --bs-btn-color: var(--bs-primary);
