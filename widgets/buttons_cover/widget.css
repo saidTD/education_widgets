@@ -11,6 +11,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+.buttons-cover .cover__content-wrapper {
+  max-width: 500px;
+}
+
 @media (max-width: 992px) {
   .buttons-cover .cover__content-wrapper {
     order: 2;
