@@ -140,5 +140,5 @@ new Form({
   elementSelctor: ".hiring form", 
   hasFile: true,
   staticData : { "carrer" : "{{params.carrer_uid}}" },
-  url : "{{params.api_url}}"
+  apiURL : "{{params.api_url}}"
 });
