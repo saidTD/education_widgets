@@ -58,4 +58,4 @@
 //   }
 // })();
 
-new Form({elementSelector : ".contact form"})
+new Form({elementSelctor : ".contact form"})
