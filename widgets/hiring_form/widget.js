@@ -139,5 +139,5 @@
 new Form({ 
   elementSelctor: ".hiring form", 
   hasFile: true,
-  staticData : { "carrer_uid" : "{{params.carrer_uid}}" }
+  staticData : { "carrer" : "{{params.carrer_uid}}" }
 });
