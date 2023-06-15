@@ -58,4 +58,4 @@
 //   }
 // })();
 
-new Form({elementSelctor : ".inscription form"})
+Form({elementSelctor : ".inscription form"})
