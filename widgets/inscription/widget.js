@@ -226,4 +226,4 @@
 //   }
 // };
 
-new Form({elementSelctor : ".inscription form"});
+new Form({elementSelctor : ".inscription form", apiURL : "{{params.api_url}}"});
