@@ -58,4 +58,4 @@
 //   }
 // })();
 
-new Form({elementSelctor : ".contact form", apiURL : "{{params.api_url}}"})
+new Form({elementSelctor : ".contact form", apiURL : "{{params.api_url}}"});
