@@ -80,6 +80,7 @@ header .navigation .dropdown-toggle[aria-expanded="true"] {
 header .navigation .dropdown-toggle::after {
   position: absolute;
   right: 0;
+  top : 50%;
 }
 
 @media (max-width: 1199px) {
