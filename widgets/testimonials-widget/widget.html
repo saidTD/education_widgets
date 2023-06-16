@@ -1,7 +1,8 @@
+{% load get_widget  %}
 <section class="testimonials testimonials__{{params.variant}}">
   <div class="container">
     {% if params.title != "" %}
-    <h1 class="testimonials__title text-center text-primary" data-param="title">{{params.title}}</h1>
+    {% get_widget request=request slug="titles-widgets-restaurant"  title=params.title element="h3" scope="carousel__title" variant=params.title_variant align="center" %}
     {%endif%}
     <div class="testimonials__wrraper">
       <div id="testimonials__carousel" class="splide" role="group" aria-label="Splide testimonials">
